@@ -1,11 +1,40 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Users, Zap, Search, ShieldCheck, PlayCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Users, Zap, Search, ShieldCheck, PlayCircle, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 export default function EmployerSolutionsPage() {
+  const testimonials = [
+    { text: "BreezyRecruit reduced our time-to-hire and delivered pre-vetted candidates we couldn’t reach ourselves.", name: "VP of HR, TECHNOLOGY FIRM" },
+    { text: "They quickly filled critical roles without sacrificing quality.", name: "DIRECTOR OF EXECUTIVE SEARCH, VENTURE CAPITAL FIRM" },
+    { text: "BreezyRecruit’s RPO solution gave us a scalable way to manage high-volume hiring.", name: "DIRECTOR OF TALENT ACQUISITION, LOGISTICS COMPANY" },
+    { text: "Their market insights and screening process saved us weeks.", name: "HR DIRECTOR, RETAIL CHAIN" },
+    { text: "We no longer sift through hundreds of resumes — BreezyRecruit sends a focused shortlist.", name: "CHIEF PEOPLE OFFICER, MANUFACTURING FIRM" },
+    { text: "They reduced candidate drop-off during long hiring cycles.", name: "DIRECTOR OF TALENT PLANNING, PROFESSIONAL SERVICES FIRM" }
+  ];
+
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
   return (
     <div className="min-h-screen bg-white font-sans overflow-x-hidden">
       {/* Hero Section with Video */}
-      <section className="relative min-h-screen flex items-center justify-center">
+      <section className="relative h-[60vh] flex flex-col items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <video 
             autoPlay 
@@ -19,42 +48,48 @@ export default function EmployerSolutionsPage() {
           <div className="absolute inset-0 bg-[#081120]/60"></div>
         </div>
         
-        <div className="relative z-10 text-center px-4 max-w-5xl">
-          <h1 className="text-[#EF6A0B] text-xl md:text-2xl font-bold uppercase tracking-widest mb-6">Employer Solutions</h1>
-          <h2 className="text-4xl md:text-7xl font-extrabold text-white leading-tight">
-            Let Our Recruiting Agency Help You Build a Winning Team
-          </h2>
-        </div>
-      </section>
-
-      {/* Intro CTA Bar */}
-      <section className="bg-gradient-to-r from-[#081120] to-[#0d1b32] py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-white text-center lg:text-left max-w-2xl leading-snug">
-              Helping You Find the Right Talent Faster and Smarter
-            </h3>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/become-a-client" className="px-8 py-4 bg-[#EF6A0B] text-white font-bold rounded-sm hover:bg-orange-600 transition-all text-center shadow-lg uppercase tracking-wider">
-                Become a Client
-              </Link>
-              <Link href="/our-industries" className="px-8 py-4 bg-white text-[#081120] font-bold rounded-sm hover:bg-gray-100 transition-all text-center uppercase tracking-wider">
-                Our Industries
-              </Link>
-            </div>
+        <div className="relative z-10 text-center px-4 max-w-7xl mx-auto">
+          <div className="space-y-4">
+            <h2 className="text-xl md:text-2xl font-bold text-[#EF6A0B] uppercase tracking-[0.4em] animate-in fade-in slide-in-from-bottom-4 duration-700">
+              Employer Solutions
+            </h2>
+            <h2 className="text-4xl md:text-7xl font-extrabold text-white leading-tight animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-100">
+              Let Our Recruiting Agency Help You <br className="hidden md:block" />
+              Build a Winning Team
+            </h2>
           </div>
         </div>
       </section>
 
-      {/* Main Content Section */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-8">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-[#081120] leading-tight">
-                Let Our Recruiting Agency Help You <span className="text-[#EF6A0B]">Build a Winning Team</span>
+      {/* Main Container Section with Gradient Background */}
+      <section className="bg-gradient-to-b from-[#081120] to-[#0d1b32] py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
+          
+          {/* Section 1: Top CTA Bar Content */}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div className="max-w-3xl">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight text-center lg:text-left">
+                Helping You Find the Right Talent Faster and Smarter
               </h2>
-              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+            </div>
+            <div className="flex flex-col sm:flex-row gap-5 shrink-0 w-full lg:w-auto">
+              <Link href="/become-a-client" className="px-12 py-5 bg-[#EF6A0B] text-white font-bold rounded-sm hover:bg-orange-600 hover:-translate-y-1 transition-all text-center shadow-2xl uppercase tracking-wider text-sm w-full lg:w-auto">
+                become a client
+              </Link>
+              <Link href="/our-industries" className="px-12 py-5 bg-white text-[#081120] font-bold rounded-sm hover:bg-gray-100 hover:-translate-y-1 transition-all text-center uppercase tracking-wider text-sm w-full lg:w-auto">
+                Our Industries
+              </Link>
+            </div>
+          </div>
+
+          {/* Section 2: Building a Winning Team Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div className="space-y-10 order-2 lg:order-1">
+              <h2 className="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+                Let Our Recruiting Agency Help You <br className="hidden md:block" />
+                <span className="text-[#EF6A0B]">Build a Winning Team</span>
+              </h2>
+              <div className="space-y-6 text-xl text-gray-300 leading-relaxed font-medium">
                 <p>
                   Hiring the right people can make or break your business. But when you’re buried in resumes, chasing unqualified applicants, and juggling countless priorities, recruitment quickly becomes overwhelming — and costly.
                 </p>
@@ -63,77 +98,74 @@ export default function EmployerSolutionsPage() {
                 </p>
               </div>
             </div>
-            <div className="relative group">
-              <div className="aspect-square bg-gray-100 rounded-3xl overflow-hidden shadow-2xl relative">
-                <img 
-                  src="https://breezyrecruit.com/wp-content/uploads/2024/12/1-8.jpg" 
-                  alt="Team Building" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#081120]/40 to-transparent"></div>
-              </div>
-              <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-[#EF6A0B] rounded-2xl flex flex-col items-center justify-center p-6 text-white shadow-xl hidden md:flex">
-                <Users className="w-12 h-12 mb-4" />
-                <p className="text-center font-bold">Dedicated Partners</p>
-              </div>
+            <div className="relative h-[600px] rounded-[48px] overflow-hidden shadow-2xl order-1 lg:order-2">
+              <img 
+                src="https://breezyrecruit.com/wp-content/uploads/2024/12/1-8.jpg" 
+                alt="Team Building" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#081120]/40 to-transparent"></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Employers Choose Us */}
-      <section className="py-24 bg-gray-50">
+
+      {/* Why Employers Choose BreezyRecruit */}
+      <section className="py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#081120]">
-              Why Employers Choose <span className="text-[#EF6A0B]">BreezyRecruit</span>
+          {/* Section Header */}
+          <div className="text-center mb-24">
+            <h2 className="text-4xl md:text-6xl font-extrabold text-[#081120]">
+              Why Employers Choose <br className="md:hidden" />
+              <span className="text-[#EF6A0B]">BreezyRecruit</span>
             </h2>
+            <div className="h-1.5 w-24 bg-[#EF6A0B] mx-auto mt-8 rounded-full"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Reason 1 */}
-            <div className="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
-              <div className="w-16 h-16 bg-[#EF6A0B]/10 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#EF6A0B] transition-colors">
-                <Search className="w-8 h-8 text-[#EF6A0B] group-hover:text-white" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+            {[
+              {
+                icon: <Search className="w-8 h-8" />,
+                title: "Targeted Talent Solutions",
+                text: "We don’t just post jobs and wait. Our recruiters leverage advanced sourcing strategies, industry insights, and a robust talent network to find both active and passive candidates who perfectly match your requirements."
+              },
+              {
+                icon: <Zap className="w-8 h-8" />,
+                title: "Faster Time-to-Hire",
+                text: "Our streamlined recruitment process reduces vacancy costs and ensures you have the right people in place when you need them — keeping your business on track."
+              },
+              {
+                icon: <Users className="w-8 h-8" />,
+                title: "Deep Candidate Screening",
+                text: "Every candidate goes through comprehensive interviews, skills assessments, and reference checks to ensure they’re a genuine fit for your team’s pace, culture, and vision."
+              },
+              {
+                icon: <ShieldCheck className="w-8 h-8" />,
+                title: "Dedicated Client Support",
+                text: "We see ourselves as your recruitment partner, not just a vendor. By learning your business inside out, we deliver tailored solutions and service that align with your hiring goals."
+              }
+            ].map((reason, idx) => (
+              <div key={idx} className="flex gap-8 group">
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-[#EF6A0B] group-hover:bg-[#EF6A0B] group-hover:text-white transition-all duration-500 transform group-hover:-translate-y-1">
+                    {reason.icon}
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold text-[#081120] group-hover:text-[#EF6A0B] transition-colors">
+                    {reason.title}
+                  </h3>
+                  {/* Divider */}
+                  <div className="w-full h-px bg-gray-200">
+                    <div className="w-0 group-hover:w-full h-px bg-[#EF6A0B] transition-all duration-700"></div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    {reason.text}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-[#081120] mb-4">Targeted Talent Solutions</h3>
-              <p className="text-gray-600 leading-relaxed">
-                We don’t just post jobs and wait. Our recruiters leverage advanced sourcing strategies, industry insights, and a robust talent network to find both active and passive candidates who perfectly match your requirements.
-              </p>
-            </div>
-
-            {/* Reason 2 */}
-            <div className="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
-              <div className="w-16 h-16 bg-[#EF6A0B]/10 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#EF6A0B] transition-colors">
-                <Zap className="w-8 h-8 text-[#EF6A0B] group-hover:text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-[#081120] mb-4">Faster Time-to-Hire</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Our streamlined recruitment process reduces vacancy costs and ensures you have the right people in place when you need them — keeping your business on track.
-              </p>
-            </div>
-
-            {/* Reason 3 */}
-            <div className="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
-              <div className="w-16 h-16 bg-[#EF6A0B]/10 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#EF6A0B] transition-colors">
-                <Users className="w-8 h-8 text-[#EF6A0B] group-hover:text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-[#081120] mb-4">Deep Candidate Screening</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Every candidate goes through comprehensive interviews, skills assessments, and reference checks to ensure they’re a genuine fit for your team’s pace, culture, and vision.
-              </p>
-            </div>
-
-            {/* Reason 4 */}
-            <div className="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all group">
-              <div className="w-16 h-16 bg-[#EF6A0B]/10 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#EF6A0B] transition-colors">
-                <ShieldCheck className="w-8 h-8 text-[#EF6A0B] group-hover:text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-[#081120] mb-4">Dedicated Client Support</h3>
-              <p className="text-gray-600 leading-relaxed">
-                We see ourselves as your recruitment partner, not just a vendor. By learning your business inside out, we deliver tailored solutions and service that align with your hiring goals.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -217,51 +249,153 @@ export default function EmployerSolutionsPage() {
         </div>
       </section>
 
-      {/* Large Testimonials List */}
-      <section className="py-32 bg-gray-50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#081120] text-center">
-            What Employers Say About <span className="text-[#EF6A0B]">BreezyRecruit</span>
-          </h2>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            { text: "They reduced candidate drop-off during long hiring cycles.", author: "Director of Talent Planning, Professional Services Firm" },
-            { text: "BreezyRecruit reduced our time-to-hire and delivered pre-vetted candidates we couldn’t reach ourselves.", author: "VP of HR, Technology Firm" },
-            { text: "They quickly filled critical roles without sacrificing quality.", author: "Director of Executive Search, Venture Capital Firm" },
-            { text: "BreezyRecruit’s RPO solution gave us a scalable way to manage high-volume hiring.", author: "Director of Talent Acquisition, Logistics Company" },
-            { text: "Their market insights and screening process saved us weeks.", author: "HR Director, Retail Chain" },
-            { text: "We no longer sift through hundreds of resumes — BreezyRecruit sends a focused shortlist.", author: "Chief People Officer, Manufacturing Firm" },
-            { text: "Their contract-to-hire option helped us test talent before committing.", author: "Operations Manager, Food & Beverage Brand" },
-            { text: "BreezyRecruit felt like an extension of our own HR team.", author: "VP of Operations, E-commerce Startup" },
-            { text: "They adapted quickly to our changing hiring needs.", author: "HR Business Partner, Construction Company" },
-            { text: "Their team kept us competitive in a tough talent market.", author: "Director of Workforce Planning, Insurance Firm" },
-            { text: "BreezyRecruit helped us fill executive roles with impressive speed.", author: "Chief HR Officer, Software Company" },
-            { text: "Their communication and follow-through exceeded expectations.", author: "Recruitment Manager, Hospitality Group" },
-            { text: "BreezyRecruit balanced cultural fit with skill set perfectly.", author: "Director of Human Capital, Consulting Firm" },
-            { text: "We’ve seen measurable improvements in employee retention.", author: "Chief Administrative Officer, Real Estate Company" },
-            { text: "They tailored searches to our niche roles seamlessly.", author: "Senior HR Manager, Telecom Firm" }
-          ].map((t, idx) => (
-            <div key={idx} className="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all">
-              <p className="text-gray-700 italic text-lg mb-6">"{t.text}"</p>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-[#EF6A0B]/10 rounded-full flex items-center justify-center text-[#EF6A0B] font-bold">
-                  {t.author[0]}
+      {/* Testimonials Section */}
+      <section className="bg-[#F8F9FA] py-32 border-t border-gray-100 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-20 flex flex-col items-center">
+            <h2 className="text-4xl md:text-6xl font-extrabold text-[#081120] leading-tight">
+              What People Say<br />
+              <span className="text-[#EF6A0B]">About BreezyRecruit</span>
+            </h2>
+            <div className="h-1.5 w-24 bg-[#EF6A0B] mt-8 rounded-full"></div>
+          </div>
+
+          <div className="relative flex items-center justify-between gap-4 md:gap-12">
+            {/* Nav Buttons */}
+            <button 
+              onClick={prevTestimonial}
+              className="z-10 bg-white p-4 md:p-6 rounded-full shadow-xl text-[#081120] hover:bg-[#EF6A0B] hover:text-white transition-all transform hover:-translate-x-1"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+            </button>
+
+            {/* Central Testimonial Card */}
+            <div className="flex-grow max-w-5xl mx-auto overflow-hidden text-center">
+              <div className="relative bg-white rounded-[48px] p-10 md:p-20 shadow-sm border border-gray-100 min-h-[450px] flex flex-col justify-center">
+                <div 
+                  key={currentTestimonial}
+                  className="animate-in fade-in zoom-in-95 duration-700"
+                >
+                  <Quote className="w-16 h-16 text-[#EF6A0B]/10 mx-auto mb-10" />
+                  <p className="text-2xl md:text-4xl text-gray-700 italic leading-relaxed mb-12 font-medium">
+                    "{testimonials[currentTestimonial].text}"
+                  </p>
+                  <div className="mt-8">
+                    <cite className="not-italic block">
+                      <span className="text-[#EF6A0B] font-extrabold text-sm md:text-lg uppercase tracking-[0.2em]">
+                        {testimonials[currentTestimonial].name}
+                      </span>
+                    </cite>
+                  </div>
                 </div>
-                <div className="text-sm">
-                  <h5 className="font-bold text-gray-900">{t.author.split(',')[0]}</h5>
-                  <p className="text-gray-500">{t.author.split(',')[1]}</p>
+
+                {/* Dots Indicator */}
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3">
+                  {testimonials.map((_, idx) => (
+                    <button 
+                      key={idx}
+                      onClick={() => setCurrentTestimonial(idx)}
+                      className={`h-2.5 transition-all duration-500 rounded-full ${idx === currentTestimonial ? 'w-10 bg-[#EF6A0B]' : 'w-2.5 bg-gray-200 hover:bg-gray-300'}`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
-          ))}
+
+            <button 
+              onClick={nextTestimonial}
+              className="z-10 bg-white p-4 md:p-6 rounded-full shadow-xl text-[#081120] hover:bg-[#EF6A0B] hover:text-white transition-all transform hover:translate-x-1"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+            </button>
+          </div>
+
+          <div className="mt-20 text-center">
+            <Link 
+              href="/testimonials" 
+              className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold rounded-xl text-white bg-[#EF6A0B] hover:bg-[#081120] shadow-xl transition-all transform hover:-translate-y-1 group uppercase tracking-widest"
+            >
+              View All Testimonials
+              <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
-        
-        <div className="text-center mt-20">
-          <Link href="/testimonials" className="bg-[#EF6A0B] text-white px-10 py-4 font-bold rounded-sm hover:bg-orange-600 transition-all shadow-lg">
-            View All Testimonials
-          </Link>
+      </section>
+
+      {/* Industry Talent Marquee Carousel Section */}
+      <section className="bg-gradient-to-r from-[#081120] to-[#0d1b32] py-32 overflow-hidden relative">
+        <style dangerouslySetInnerHTML={{
+          __html: `
+          @keyframes marquee-employer {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee-employer {
+            display: flex;
+            width: max-content;
+            animation: marquee-employer 60s linear infinite;
+          }
+          .animate-marquee-employer:hover {
+            animation-play-state: paused;
+          }
+          `
+        }} />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 text-center">
+          <h2 className="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+            Connecting You with <br />
+            <span className="text-[#EF6A0B]">Top Talent Across Industries</span>
+          </h2>
+        </div>
+
+        <div className="max-w-7xl mx-auto overflow-hidden relative group px-4">
+          <div className="animate-marquee-employer flex gap-8 px-4">
+            {[...Array(2)].map((_, outerIdx) => (
+              <div key={outerIdx} className="flex gap-8">
+                {[
+                  { title: "Information Technology", text: "We connect top tech talent with dynamic companies needing developers, engineers, and IT leaders.", image: "https://breezyrecruit.com/wp-content/uploads/2025/02/tech-talent.jpg", link: "/industries/information-technology/" },
+                  { title: "Healthcare", text: "Finding skilled healthcare professionals is a breeze with our specialized medical recruitment division.", image: "https://breezyrecruit.com/wp-content/uploads/2024/10/Healthcare.jpg", link: "/industries/healthcare/" },
+                  { title: "Industrial", text: "We source reliable talent for manufacturing and logistics to keep your operations running safely.", image: "https://breezyrecruit.com/wp-content/uploads/2025/05/1-1.jpg", link: "/industries/industrial/" },
+                  { title: "Hospitality", text: "Connecting elite hospitality talent with world-class venues and services.", image: "https://breezyrecruit.com/wp-content/uploads/2024/10/Senior-Living.jpg", link: "/industries/hospitality/" },
+                  { title: "Professional Services", text: "Strategic recruitment for management consulting and specialized business roles.", image: "https://breezyrecruit.com/wp-content/uploads/2025/02/Our-Proven-Process_20_11zon-1.png", link: "/industries/professional-services/" },
+                  { title: "Education", text: "Specialized background checks and certification verification for the education sector.", image: "https://breezyrecruit.com/wp-content/uploads/2025/05/1-2.jpg", link: "/industries/education-recruiters/" },
+                  { title: "Insurance", text: "Strategic decision-making and talent acquisition for high-performing insurance teams.", image: "https://breezyrecruit.com/wp-content/uploads/2025/05/Education-Recruitment-Agency-in-Pakistan.png", link: "/industries/insurance-recruiters/" },
+                  { title: "Marketing", text: "Finding marketers who understand your brand and drive results in a competitive landscape.", image: "https://breezyrecruit.com/wp-content/uploads/2025/05/employer-top-image.jpeg", link: "/industries/marketing-recruiters/" },
+                  { title: "Sales", text: "Recruiting top sales talent is a high-stakes endeavor that requires our expertise.", image: "https://breezyrecruit.com/wp-content/uploads/2025/05/retail-2-panorama-bae85f3812c2afd0c3fb40865d910c80-5e29b5b609e67.jpg", link: "/industries/sales-recruiters/" },
+                  { title: "Construction", text: "Building a high-performing construction team with strategic recruitment investments.", image: "https://breezyrecruit.com/wp-content/uploads/2025/05/AdobeStock_290512663-1.jpg", link: "/industries/construction-recruiters/" },
+                  { title: "Reliable Retail", text: "Handling the uphill battle of retail hiring with reliable, top-tier talent search.", image: "https://breezyrecruit.com/wp-content/uploads/2025/05/retail-candidate-working.webp", link: "/industries/reliable-retail-recruiters/" }
+                ].map((ind, idx) => (
+                  <div key={idx} className="w-[400px] flex-shrink-0 bg-white rounded-[40px] overflow-hidden group/card shadow-2xl hover:-translate-y-3 transition-all duration-700">
+                    <Link href={ind.link} className="block relative aspect-[16/10] overflow-hidden">
+                      <img 
+                        src={ind.image} 
+                        alt={ind.title} 
+                        className="w-full h-full object-cover group-hover/card:scale-110 transition-all duration-1000"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#081120]/40 to-transparent group-hover/card:bg-transparent transition-all duration-500"></div>
+                    </Link>
+                    <div className="p-10 space-y-5">
+                      <h4 className="text-2xl font-bold text-[#081120] group-hover/card:text-[#EF6A0B] transition-colors uppercase tracking-tight line-clamp-1">
+                        {ind.title}
+                      </h4>
+                      <p className="text-gray-600 line-clamp-3 leading-relaxed font-medium">
+                        {ind.text}
+                      </p>
+                      <div className="pt-4 flex items-center text-[#EF6A0B] font-bold group-hover/card:gap-3 gap-2 transition-all">
+                        EXPLORE INDUSTRY <ArrowRight className="w-5 h-5" />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+          {/* Edge Fades */}
+          <div className="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-[#081120] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute inset-y-0 right-0 w-64 bg-gradient-to-l from-[#081120] to-transparent z-10 pointer-events-none"></div>
         </div>
       </section>
     </div>
