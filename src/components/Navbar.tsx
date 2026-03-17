@@ -17,15 +17,15 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled
-        ? 'bg-white border-b border-gray-100 shadow-sm'
-        : 'bg-transparent border-transparent'
+      ? 'bg-white border-b border-gray-100 shadow-sm'
+      : 'bg-transparent border-transparent'
       }`}>
       <div className={`max-w-7xl mx-auto transition-all duration-300 px-4 sm:px-6 lg:px-8 ${scrolled ? 'lg:py-4' : 'lg:py-6'
         }`}>
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-2xl font-bold text-blue-600 tracking-tight">
+            <Link href="/" className={`text-2xl font-bold tracking-tight transition-colors duration-300 ${scrolled ? 'text-[#081120]' : 'text-white'}`}>
               BreezyRecruit
             </Link>
           </div>
@@ -35,7 +35,7 @@ export default function Navbar() {
 
             {/* Services Dropdown */}
             <div className="relative group">
-              <Link href="/services" className="flex items-center text-gray-700 hover:text-[#EF6A0B] font-bold transition-colors py-8">
+              <Link href="/services" className={`flex items-center font-bold transition-colors py-8 ${scrolled ? 'text-gray-700 hover:text-[#EF6A0B]' : 'text-white hover:text-white/80'}`}>
                 Services
                 <ChevronDown className="ml-1 w-4 h-4 group-hover:rotate-180 transition-transform duration-200" />
               </Link>
@@ -53,7 +53,7 @@ export default function Navbar() {
 
             {/* Employers Dropdown */}
             <div className="relative group">
-              <Link href="/employer-solutions" className="flex items-center text-gray-700 hover:text-[#EF6A0B] font-bold transition-colors py-8">
+              <Link href="/employer-solutions" className={`flex items-center font-bold transition-colors py-8 ${scrolled ? 'text-gray-700 hover:text-[#EF6A0B]' : 'text-white hover:text-white/80'}`}>
                 Employers
                 <ChevronDown className="ml-1 w-4 h-4 group-hover:rotate-180 transition-transform duration-200" />
               </Link>
@@ -68,7 +68,7 @@ export default function Navbar() {
 
             {/* Job Seekers Dropdown */}
             <div className="relative group">
-              <Link href="/why-choose-us" className="flex items-center text-gray-700 hover:text-[#EF6A0B] font-bold transition-colors py-8">
+              <Link href="/why-choose-us" className={`flex items-center font-bold transition-colors py-8 ${scrolled ? 'text-gray-700 hover:text-[#EF6A0B]' : 'text-white hover:text-white/80'}`}>
                 Job Seekers
                 <ChevronDown className="ml-1 w-4 h-4 group-hover:rotate-180 transition-transform duration-200" />
               </Link>
@@ -82,13 +82,13 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link href="/job-openings" className="text-gray-700 hover:text-[#EF6A0B] font-bold transition-colors py-8">
+            <Link href="/job-openings" className={`font-bold transition-colors py-8 ${scrolled ? 'text-gray-700 hover:text-[#EF6A0B]' : 'text-white hover:text-white/80'}`}>
               Job Openings
             </Link>
 
             {/* Industries Dropdown */}
             <div className="relative group">
-              <Link href="/our-industries" className="flex items-center text-gray-700 hover:text-[#EF6A0B] font-bold transition-colors py-8">
+              <Link href="/our-industries" className={`flex items-center font-bold transition-colors py-8 ${scrolled ? 'text-gray-700 hover:text-[#EF6A0B]' : 'text-white hover:text-white/80'}`}>
                 Industries
                 <ChevronDown className="ml-1 w-4 h-4 group-hover:rotate-180 transition-transform duration-200" />
               </Link>
@@ -111,7 +111,7 @@ export default function Navbar() {
 
             {/* About Us Dropdown */}
             <div className="relative group">
-              <Link href="/about-us" className="flex items-center text-gray-700 hover:text-[#EF6A0B] font-bold transition-colors py-8">
+              <Link href="/about-us" className={`flex items-center font-bold transition-colors py-8 ${scrolled ? 'text-gray-700 hover:text-[#EF6A0B]' : 'text-white hover:text-white/80'}`}>
                 About Us
                 <ChevronDown className="ml-1 w-4 h-4 group-hover:rotate-180 transition-transform duration-200" />
               </Link>
@@ -137,7 +137,7 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center">
-            <button className="text-gray-700">
+            <button className={`${scrolled ? 'text-gray-700' : 'text-white'}`}>
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
