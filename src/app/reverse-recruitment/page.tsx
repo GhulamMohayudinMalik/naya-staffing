@@ -1,130 +1,143 @@
 'use client';
 
-import { Users, Target, ShieldCheck, Zap, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Users, Target, ShieldCheck, Zap, ArrowRight, CheckCircle2, Star, Quote, ChevronRight, Check } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ReverseRecruitment() {
   return (
-    <div className="min-h-screen bg-white font-sans text-[#212121]">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#081120] to-[#1a2a44] overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#EF6A0B] opacity-5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+    <div className="min-h-screen bg-navy-dark flex flex-col font-sans selection:bg-gold selection:text-navy-dark overflow-x-hidden">
+      {/* Hero Section - Elite Representation */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[120px] rounded-full animate-pulse transition-all duration-[5000ms]"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-navy-light/10 blur-[150px] rounded-full animate-float"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-dark via-transparent to-navy-dark"></div>
+        </div>
         
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <div className="inline-block bg-[#EF6A0B]/10 border border-[#EF6A0B]/20 rounded-full px-6 py-2 mb-8 text-[#EF6A0B] font-bold text-sm tracking-wider uppercase">
-            A Candidate-First Approach
+        <div className="container mx-auto px-4 relative z-10 text-center space-y-12 animate-fade-up">
+          <div className="space-y-6">
+            <div className="inline-block px-6 py-2 bg-gold/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-4">
+              A Candidate-First Revolution
+            </div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.9] drop-shadow-2xl">
+              Reverse <br /> <span className="text-shimmer">Recruitment.</span>
+            </h1>
           </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-8 tracking-tight leading-tight">
-            What is <span className="text-[#EF6A0B]">Reverse</span> <br /> Recruitment?
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Standard recruiting works for employers. Reverse recruiting works for <strong>YOU</strong>. 
-            We become your personal agents, pitching your talent to the companies you actually want to work for.
+          <p className="text-lg md:text-2xl font-bold text-slate-400 max-w-3xl mx-auto leading-tight tracking-tight opacity-90">
+            Standard recruiting works for employers. <span className="text-white">Reverse recruiting works for YOU.</span> We become your elite agents, pitching your DNA to global industry leaders.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link href="/register-upload-resume" className="bg-[#EF6A0B] hover:bg-[#d55e0a] text-white px-12 py-5 rounded-2xl font-bold text-lg transition-all shadow-xl hover:shadow-[#EF6A0B]/30 transform hover:-translate-y-1">
-              Apply for Representation
+          <div className="flex flex-col sm:flex-row gap-8 justify-center pt-8">
+            <Link href="/register-upload-resume" className="bg-gold hover:bg-gold-hover text-navy-dark px-16 py-6 rounded-full font-black text-xs uppercase tracking-[0.4em] transition-all transform hover:-translate-y-2 shadow-[0_4px_40px_rgba(212,175,55,0.4)] flex items-center justify-center gap-4">
+              Apply for Representation <Star className="w-5 h-5 fill-current" />
             </Link>
-            <Link href="#how-it-works" className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm border border-white/20 px-12 py-5 rounded-2xl font-bold text-lg transition-all">
-              See How It Works
+            <Link href="#how-it-works" className="bg-white/5 hover:bg-white/10 text-white border-2 border-white/10 px-16 py-6 rounded-full font-black text-xs uppercase tracking-[0.4em] transition-all flex items-center justify-center gap-4 backdrop-blur-md">
+              The Blueprint <ChevronRight className="w-5 h-5" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section id="how-it-works" className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#081120] mb-6">Your Personal Career Agent</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">We flip the script on traditional hiring. Instead of you chasing jobs, we make companies chase you.</p>
+      {/* How It Works Section - Premium Grid */}
+      <section id="how-it-works" className="py-32 bg-navy border-y border-white/5">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-24 flex flex-col items-center">
+            <h6 className="text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 px-4 py-1 bg-gold/5 rounded-full border border-gold/10">The Methodology</h6>
+            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-8 leading-tight">Your Personal <span className="text-shimmer">Career Agent</span></h2>
+            <div className="h-1 w-24 bg-gold rounded-full opacity-50"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
               {
-                icon: <Users className="w-10 h-10 text-[#EF6A0B]" />,
+                icon: <Users className="w-10 h-10" />,
                 title: "Personal Branding",
-                desc: "We help you refine your resume, optimize your LinkedIn, and build a narrative that elite employers can't ignore."
+                desc: "We refine your professional identity and optimize your digital presence for the 1% of elite hiring managers."
               },
               {
-                icon: <Target className="w-10 h-10 text-[#EF6A0B]" />,
-                title: "Targeted Pitching",
-                desc: "We don't just wait for job posts. We identify your dream companies and pitch your profile directly to decision-makers."
+                icon: <Target className="w-10 h-10" />,
+                title: "Strategic Pitching",
+                desc: "We bypass standard job boards and pitch your profile directly to decision-makers within your dream companies."
               },
               {
-                icon: <Zap className="w-10 h-10 text-[#EF6A0B]" />,
-                title: "Interview Prep",
-                desc: "Once we secure the meeting, we coach you through the specific expectations of that company to ensure you close the deal."
+                icon: <Zap className="w-10 h-10" />,
+                title: "Closing Logic",
+                desc: "Our agents coach you through high-stakes interviews and handle complex salary negotiations on your behalf."
               }
             ].map((step, idx) => (
-              <div key={idx} className="relative p-10 bg-[#F8F9FA] rounded-[40px] border border-gray-100 hover:border-[#EF6A0B]/30 transition-all duration-300 group">
-                <div className="mb-6 bg-white w-20 h-20 rounded-2xl shadow-sm flex items-center justify-center group-hover:bg-[#EF6A0B] group-hover:text-white transition-all duration-300">
+              <div key={idx} className="glass-panel group p-12 rounded-[48px] hover:border-gold/30 hover:shadow-gold/5 transition-all duration-500 flex flex-col h-full border-white/5">
+                <div className="mb-10 bg-gold/5 w-20 h-20 rounded-3xl border border-gold/20 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-navy-dark transition-all duration-500 shadow-xl">
                   {step.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-[#081120] mb-4">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed text-lg">{step.desc}</p>
+                <h3 className="text-2xl font-black text-white mb-6 group-hover:text-gold transition-colors tracking-tight uppercase leading-tight">{step.title}</h3>
+                <p className="text-slate-400 leading-relaxed font-bold text-base">{step.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-24 bg-[#081120] text-white overflow-hidden relative">
-        <div className="absolute top-1/2 left-0 w-[800px] h-[800px] bg-blue-600 opacity-5 rounded-full blur-[150px] -translate-y-1/2 -translate-x-1/2"></div>
+      {/* Benefits Section - High Impact Layout */}
+      <section className="py-32 bg-navy-dark overflow-hidden relative">
+        <div className="absolute top-1/2 left-0 w-[800px] h-[800px] bg-gold/5 blur-[150px] rounded-full -translate-y-1/2 -translate-x-1/2 animate-glow"></div>
         
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-10 leading-tight">Why Elite Candidates Choose Reverse Recruiting</h2>
-              <div className="space-y-6">
+        <div className="container mx-auto px-4 relative z-10 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <div className="space-y-12">
+              <h2 className="text-4xl md:text-6xl font-black mb-10 leading-tight text-white tracking-tighter italic">Why Elite Candidates Choose <span className="text-shimmer">Us.</span></h2>
+              <div className="space-y-8">
                 {[
-                  "Access to the hidden job market (unadvertised roles)",
-                  "Salary negotiation handled by professionals",
-                  "Direct access to C-suite and Hiring Managers",
-                  "Privacy and confidentiality remains 100% secure",
-                  "Significant reduction in job search time and stress"
+                  "Access to the hidden, unadvertised 1% job market",
+                  "Expert-level salary negotiations handled on your behalf",
+                  "Direct C-suite introductions and C-level access",
+                  "100% Privacy and confidential career navigation",
+                  "Significant reduction in search time and burnout"
                 ].map((benefit, idx) => (
-                  <div key={idx} className="flex items-start gap-4">
-                    <div className="mt-1 flex-shrink-0">
-                      <CheckCircle2 className="w-6 h-6 text-[#EF6A0B]" />
+                  <div key={idx} className="flex items-center gap-6 p-4 glass-panel rounded-3xl border-white/5 hover:border-gold/20 transition-all group">
+                    <div className="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center shrink-0 group-hover:bg-gold transition-colors duration-300">
+                      <Check className="w-5 h-5 text-gold group-hover:text-navy-dark transition-colors" />
                     </div>
-                    <span className="text-xl text-gray-300">{benefit}</span>
+                    <span className="text-base font-black text-white tracking-tight">{benefit}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="relative">
-              <div className="bg-gradient-to-br from-[#EF6A0B] to-[#d27b41] rounded-[60px] p-12 lg:p-16 relative z-10 shadow-2xl">
-                <blockquote className="text-2xl font-medium leading-relaxed mb-8 italic">
-                  "I was tired of sending 50 resumes and hearing nothing. BreezyRecruit's reverse recruitment got me 3 interviews at top tech firms in two weeks. I didn't even apply."
-                </blockquote>
-                <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 bg-white/20 rounded-full"></div>
-                  <div>
-                    <div className="font-bold text-xl">James Wilson</div>
-                    <div className="text-white/70">VP of Engineering</div>
+            <div className="relative group">
+               <div className="relative rounded-[64px] overflow-hidden p-6 glass-panel border-white/10 shadow-2xl bg-gold/5">
+                  <Quote className="text-gold/20 w-16 h-16 absolute top-10 right-10" />
+                  <blockquote className="text-xl md:text-2xl font-black leading-relaxed mb-10 text-white tracking-tight italic relative z-10">
+                    "I was tired of sending 50 resumes and hearing nothing. NAYA Staffing's reverse recruitment got me 3 interviews at top tech firms in two weeks. I didn't even apply."
+                  </blockquote>
+                  <div className="flex items-center gap-6 pt-10 border-t border-white/10">
+                    <div className="w-20 h-20 bg-gold/20 rounded-3xl border border-gold/20 overflow-hidden shadow-xl">
+                      <img src="https://breezyrecruit.com/wp-content/uploads/2025/02/tech-talent.jpg" alt="Client testimonial" className="w-full h-full object-cover grayscale" />
+                    </div>
+                    <div>
+                      <div className="font-black text-2xl text-white uppercase tracking-tight">James Wilson</div>
+                      <div className="text-gold font-black text-xs uppercase tracking-[0.3em] mt-1">VP of Engineering</div>
+                    </div>
                   </div>
-                </div>
               </div>
-              {/* Decorative bloat */}
-              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#EF6A0B]/20 rounded-full blur-[60px]"></div>
+              <div className="absolute -bottom-10 -right-10 w-96 h-96 bg-gold/5 rounded-full blur-[100px] animate-pulse"></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-white text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#081120] mb-8">Ready to Level Up?</h2>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Our representation is exclusive. We only work with candidates who are ready to make a significant impact.
+      {/* Final Massive CTA */}
+      <section className="py-32 bg-navy relative border-y border-white/5 overflow-hidden text-center">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gold/5 blur-[150px] animate-pulse"></div>
+        <div className="container mx-auto px-4 relative z-10 space-y-12 max-w-5xl">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.8] tracking-tighter">
+            Ready to <br /> <span className="text-shimmer">Level Up?</span>
+          </h2>
+          <p className="text-xl text-slate-400 font-black max-w-2xl mx-auto leading-relaxed">
+            Our representation is exclusive. We only partner with high-velocity candidates ready to redefine their industry legacy.
           </p>
-          <Link href="/register-upload-resume" className="inline-flex items-center bg-[#081120] hover:bg-[#1a2a44] text-white px-12 py-5 rounded-2xl font-bold text-lg transition-all shadow-xl group">
-            Get Started Now <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div className="pt-8 flex justify-center">
+            <Link href="/register-upload-resume" className="bg-gold hover:bg-gold-hover text-navy-dark px-20 py-7 rounded-full font-black text-xs uppercase tracking-[0.4em] transition-all transform hover:-translate-y-2 shadow-[0_4px_50px_rgba(212,175,55,0.4)] flex items-center justify-center gap-4 group">
+              Get Started Now <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+            </Link>
+          </div>
         </div>
       </section>
     </div>

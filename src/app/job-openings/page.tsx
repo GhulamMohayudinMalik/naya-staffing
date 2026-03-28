@@ -1,6 +1,6 @@
 'use client';
 
-import { Search, MapPin, Briefcase, Clock, ArrowRight } from 'lucide-react';
+import { Search, MapPin, Briefcase, Clock, ArrowRight, Check, Stars } from 'lucide-react';
 import Link from 'next/link';
 
 const jobs = [
@@ -62,124 +62,137 @@ const jobs = [
 
 export default function JobOpenings() {
   return (
-    <div className="min-h-screen bg-white font-sans text-[#212121]">
+    <div className="min-h-screen bg-navy-dark flex flex-col font-sans selection:bg-gold selection:text-navy-dark overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-[#081120] overflow-hidden">
-        {/* Abstract Background Accents */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#EF6A0B] opacity-10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-600 opacity-10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        {/* Background Particles & Glows */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[120px] rounded-full animate-pulse transition-all duration-[5000ms]"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-navy-light/10 blur-[150px] rounded-full animate-float"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-dark via-transparent to-navy-dark"></div>
+        </div>
         
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
-            Find Your <span className="text-[#EF6A0B]">Dream Job</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto font-medium">
-            Explore thousands of opportunities from top employers and take the next step in your career.
+        <div className="relative z-10 container mx-auto px-4 text-center space-y-12 animate-fade-up">
+          <div className="space-y-6">
+            <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-4">
+              Career Acceleration
+            </div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.9] drop-shadow-2xl">
+              Find Your <br /> <span className="text-shimmer">Dream Career.</span>
+            </h1>
+          </div>
+          <p className="text-lg md:text-2xl font-bold text-slate-400 max-w-2xl mx-auto tracking-tight opacity-90">
+            Precision-matched opportunities from global industry leaders. <span className="text-white">Your legacy starts here.</span>
           </p>
           
-          {/* Search Bar Container */}
-          <div className="max-w-4xl mx-auto bg-white p-2 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-2">
-            <div className="flex-grow relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+          {/* Elite Search Bar Container */}
+          <div className="max-w-5xl mx-auto glass-panel p-3 rounded-[40px] shadow-2xl flex flex-col md:flex-row gap-3 border-white/10 hover:border-gold/20 transition-all duration-700">
+            <div className="flex-grow relative group/input">
+              <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-gold w-6 h-6 group-focus-within/input:scale-110 transition-transform" />
               <input 
                 type="text" 
                 placeholder="Job title, keyword, or company"
-                className="w-full pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#EF6A0B]/20 text-lg"
+                className="w-full pl-16 pr-6 py-6 bg-white/5 border border-white/5 rounded-[32px] focus:outline-none focus:border-gold/40 text-white text-lg font-bold placeholder:text-slate-500 transition-all"
               />
             </div>
-            <div className="flex-grow relative border-t md:border-t-0 md:border-l border-gray-100">
-              <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <div className="flex-grow relative group/input">
+              <MapPin className="absolute left-6 top-1/2 -translate-y-1/2 text-gold w-6 h-6 group-focus-within/input:scale-110 transition-transform" />
               <input 
                 type="text" 
                 placeholder="City, state, or remote"
-                className="w-full pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#EF6A0B]/20 text-lg"
+                className="w-full pl-16 pr-6 py-6 bg-white/5 border border-white/5 rounded-[32px] focus:outline-none focus:border-gold/40 text-white text-lg font-bold placeholder:text-slate-500 transition-all"
               />
             </div>
-            <button className="bg-[#EF6A0B] hover:bg-[#d55e0a] text-white px-10 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-[#EF6A0B]/30">
-              Search Jobs
+            <button className="bg-gold hover:bg-gold-hover text-navy-dark px-12 py-6 rounded-[32px] font-black uppercase tracking-[0.2em] transition-all transform hover:-translate-y-1 shadow-[0_4px_30px_rgba(212,175,55,0.4)] text-sm shrink-0">
+              Search Ops
             </button>
           </div>
         </div>
       </section>
 
       {/* Featured Jobs Section */}
-      <section className="py-24 bg-[#F8F9FA]">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#081120] mb-4">Latest Opportunities</h2>
-              <div className="h-1.5 w-20 bg-[#EF6A0B] rounded-full"></div>
+      <section className="py-32 bg-navy border-y border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-24 gap-12">
+            <div className="text-center md:text-left">
+              <h6 className="text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 px-4 py-1 bg-gold/5 rounded-full border border-gold/10 inline-block">Active Roles</h6>
+              <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-tight">Latest Opportunities</h2>
+              <div className="h-1 w-24 bg-gold rounded-full opacity-50 mt-8 mx-auto md:mx-0"></div>
             </div>
-            <div className="hidden md:flex gap-4">
-              <span className="text-gray-500 font-medium">{jobs.length} jobs found</span>
+            <div className="glass-panel px-8 py-4 rounded-full border-white/5">
+              <span className="text-slate-400 font-black text-xs uppercase tracking-widest flex items-center gap-3">
+                 <Stars className="w-4 h-4 text-gold animate-pulse" /> {jobs.length} Priority Positions Found
+              </span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {jobs.map((job) => (
-              <div key={job.id} className="bg-white p-8 rounded-[32px] shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full">
-                <div className="flex justify-between items-start mb-6">
-                  <div className="bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full text-sm font-bold">
+              <div key={job.id} className="glass-panel group p-10 rounded-[48px] hover:border-gold/30 hover:shadow-gold/5 transition-all duration-500 flex flex-col h-full border-white/5">
+                <div className="flex justify-between items-start mb-10">
+                  <div className="bg-gold/10 border border-gold/20 text-gold px-5 py-2 rounded-full text-xs font-black uppercase tracking-widest">
                     {job.category}
                   </div>
-                  <div className="text-gray-400 text-sm flex items-center">
-                    <Clock className="w-4 h-4 mr-1" />
+                  <div className="text-slate-400 text-xs font-black uppercase tracking-widest flex items-center">
+                    <Clock className="w-4 h-4 mr-2 text-gold/60" />
                     {job.posted}
                   </div>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-[#081120] mb-2 group-hover:text-[#EF6A0B] transition-colors">
+                <h3 className="text-2xl font-black text-white mb-4 group-hover:text-gold transition-colors tracking-tight leading-tight">
                   {job.title}
                 </h3>
                 
-                <div className="space-y-3 mb-8 flex-grow">
-                  <div className="flex items-center text-gray-600 font-medium">
-                    <MapPin className="w-4 h-4 mr-2 text-[#EF6A0B]" />
+                <div className="space-y-4 mb-10 flex-grow">
+                  <div className="flex items-center text-slate-400 font-bold text-lg">
+                    <MapPin className="w-5 h-5 mr-3 text-gold/40" />
                     {job.location}
                   </div>
-                  <div className="flex items-center text-gray-600 font-medium">
-                    <Briefcase className="w-4 h-4 mr-2 text-[#EF6A0B]" />
+                  <div className="flex items-center text-slate-400 font-bold text-base">
+                    <Briefcase className="w-5 h-5 mr-3 text-gold/40" />
                     {job.type}
                   </div>
-                  <div className="text-lg font-bold text-[#081120]">
+                  <div className="text-2xl font-black text-white pt-4">
                     {job.salary}
                   </div>
                 </div>
                 
-                <Link href={`/jobs/${job.id}`} className="mt-auto w-full flex items-center justify-center bg-[#081120] text-white py-4 rounded-2xl font-bold group-hover:bg-[#EF6A0B] transition-all">
-                  Apply Now <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <Link href={`/jobs/${job.id}`} className="mt-auto w-full flex items-center justify-center bg-white/5 border border-white/10 text-white py-6 rounded-3xl font-black uppercase tracking-[0.2em] group-hover:bg-gold group-hover:text-navy-dark group-hover:border-gold transition-all duration-300 text-xs text-center">
+                  Apply Now <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-2 transition-transform" />
                 </Link>
               </div>
             ))}
           </div>
 
-          <div className="mt-16 text-center">
-            <button className="inline-flex items-center px-8 py-4 bg-white border-2 border-gray-200 text-gray-700 font-bold rounded-2xl hover:border-[#EF6A0B] hover:text-[#EF6A0B] transition-all">
-              View All Job Openings
+          <div className="mt-24 text-center">
+            <button className="px-16 py-6 border-2 border-white/10 text-white font-black rounded-full hover:border-gold hover:text-gold transition-all text-xs uppercase tracking-[0.4em] backdrop-blur-md">
+              Browse Intelligence Archive
             </button>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-white">
+      {/* Talent Community CTA */}
+      <section className="py-32 bg-navy-dark relative overflow-hidden">
         <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto bg-[#081120] rounded-[40px] p-12 lg:p-20 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#EF6A0B] opacity-10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
+          <div className="max-w-6xl mx-auto glass-panel rounded-[64px] p-16 lg:p-32 relative overflow-hidden group hover:border-gold/20 transition-all duration-700">
+            <div className="absolute -top-32 -right-32 w-96 h-96 bg-gold/5 blur-[120px] rounded-full group-hover:scale-150 transition-transform duration-1000"></div>
             
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 relative z-10">
-              Don't See The Right Fit?
-            </h2>
-            <p className="text-xl text-gray-300 mb-10 relative z-10">
-              Join our talent community and we'll notify you when new opportunities that match your skills become available.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-              <Link href="/register-upload-resume" className="bg-[#EF6A0B] hover:bg-[#d55e0a] text-white px-10 py-4 rounded-2xl font-bold transition-all shadow-lg">
-                Upload My Resume
-              </Link>
-              <Link href="/contact-us" className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-10 py-4 rounded-2xl font-bold transition-all">
-                Contact Recruiters
-              </Link>
+            <div className="relative z-10 space-y-10">
+              <h2 className="text-5xl md:text-7xl font-black text-white mb-6 leading-[0.9] tracking-tighter">
+                Don't See The <br /> <span className="text-shimmer">Ideal Fit?</span>
+              </h2>
+              <p className="text-xl text-slate-400 mb-12 max-w-3xl mx-auto font-bold">
+                Join our elite talent circuit and we'll track opportunities that match your specific DNA and ambition.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center pt-6">
+                <Link href="/register-upload-resume" className="bg-gold hover:bg-gold-hover text-navy-dark px-16 py-6 rounded-full font-black text-xs uppercase tracking-[0.4em] transition-all transform hover:-translate-y-2 shadow-[0_4px_40px_rgba(212,175,55,0.4)] flex items-center justify-center gap-4">
+                  Upload Resume <Check className="w-5 h-5" />
+                </Link>
+                <Link href="/contact-us" className="bg-white/5 hover:bg-white/10 text-white border-2 border-white/10 px-16 py-6 rounded-full font-black text-xs uppercase tracking-[0.4em] transition-all flex items-center justify-center gap-4 backdrop-blur-md">
+                  Consultation <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

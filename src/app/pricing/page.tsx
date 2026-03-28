@@ -1,124 +1,135 @@
 'use client';
 
-import { Check, X, HelpCircle, ArrowRight } from 'lucide-react';
+import { Check, X, HelpCircle, ArrowRight, Stars, ShieldCheck, Zap, TrendingUp, HelpCircleIcon } from 'lucide-react';
 import Link from 'next/link';
 
 const tiers = [
   {
     name: "Standard",
     price: "$2,999",
-    description: "Perfect for small businesses looking for specialized talent.",
+    description: "Perfect for high-growth firms looking for specialized expertise.",
     features: [
-      "Single Role Search",
-      "Candidate Screening",
-      "Background Checks",
-      "60-Day Guarantee",
-      "Direct Support"
+      "Single Elite Role Search",
+      "Executive Candidate Screening",
+      "Global Background Checks",
+      "60-Day Quality Guarantee",
+      "Direct Strategic Support"
     ],
     notIncluded: [
       "Dedicated Account Manager",
-      "Branding Services",
-      "Executive Search"
+      "Employer Branding Services",
+      "Global Executive Search"
     ],
-    buttonText: "Start Hiring",
+    buttonText: "Initiate Search",
     highlight: false
   },
   {
     name: "Professional",
     price: "$7,499",
-    description: "Optimized for growing teams with multiple hiring needs.",
+    description: "Optimized for scaling teams requiring high-velocity results.",
     features: [
-      "Up to 3 Role Searches",
-      "Advanced Skill Assessments",
-      "Priority Support",
-      "90-Day Guarantee",
-      "Market Analysis Report",
-      "Dedicated Recruiter"
+      "Up to 3 Active Role Searches",
+      "Advanced DNA Assessments",
+      "Priority Circuit Access",
+      "120-Day Quality Guarantee",
+      "Deep Market Analysis Reports",
+      "Dedicated Talent Architect"
     ],
     notIncluded: [
-      "Employer Branding",
-      "Global Executive Search"
+      "Full Employer Branding",
+      "Unlimited Global Search"
     ],
-    buttonText: "Get Professional",
+    buttonText: "Ascend to Professional",
     highlight: true
   },
   {
     name: "Enterprise",
     price: "Custom",
-    description: "Total recruitment outsourcing for large scale operations.",
+    description: "Total infrastructure outsourcing for global market leaders.",
     features: [
-      "Unlimited Role Searches",
-      "Total RPO Solutions",
-      "Employer Branding",
-      "Executive Search",
-      "Global Talent Access",
+      "Unlimited Strategic Searches",
+      "Total RPO Infrastructure",
+      "Architectural Branding",
+      "V-Level Executive Search",
+      "Global Circuit Priority",
       "White-Glove Support",
-      "Custom Integration"
+      "Custom Tech Integration"
     ],
     notIncluded: [],
-    buttonText: "Contact Sales",
+    buttonText: "Consult Enterprise",
     highlight: false
   }
 ];
 
 export default function Pricing() {
   return (
-    <div className="min-h-screen bg-[#F8F9FA] font-sans text-[#212121]">
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-[#081120] overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#EF6A0B] opacity-5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+    <div className="min-h-screen bg-navy-dark flex flex-col font-sans selection:bg-gold selection:text-navy-dark overflow-x-hidden">
+      {/* Hero Section - Elite Financial Focus */}
+      <section className="relative h-[60vh] flex flex-col items-center justify-center overflow-hidden pt-20">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[120px] rounded-full animate-pulse transition-all duration-[5000ms]"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-navy-light/10 blur-[150px] rounded-full animate-float"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-dark via-transparent to-navy-dark"></div>
+        </div>
         
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6">Transparent <span className="text-[#EF6A0B]">Pricing</span></h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto font-medium">
-            Invest in the right talent. No hidden fees, just results-driven recruitment solutions tailored to your scale.
+        <div className="container mx-auto px-4 relative z-10 text-center space-y-12 animate-fade-up">
+          <div className="space-y-6">
+            <div className="inline-block px-6 py-2 bg-gold/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-4">
+              Resource Allocation
+            </div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.9] drop-shadow-2xl">
+              Investment <br /> <span className="text-shimmer">Architectures.</span>
+            </h1>
+          </div>
+          <p className="text-lg md:text-2xl font-bold text-slate-400 max-w-4xl mx-auto leading-tight tracking-tight opacity-90">
+            Invest in the absolute best talent. No hidden overheads, just <span className="text-white">Results-Driven Recruitment</span> precision engineered for your scale.
           </p>
         </div>
       </section>
 
-      {/* Pricing Cards Section */}
+      {/* Pricing Cards Section - Glassmorphic Stack */}
       <section className="py-24 -mt-32 relative z-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {tiers.map((tier, idx) => (
-              <div key={idx} className={`bg-white rounded-[40px] p-10 shadow-xl border ${tier.highlight ? 'border-[#EF6A0B] ring-4 ring-[#EF6A0B]/10' : 'border-gray-100'} flex flex-col h-full transform hover:-translate-y-2 transition-all duration-300`}>
+              <div key={idx} className={`glass-panel group p-12 rounded-[52px] ${tier.highlight ? 'border-gold/50 shadow-gold/10 bg-gold/5' : 'border-white/5'} flex flex-col h-full transform hover:-translate-y-4 transition-all duration-700`}>
                 {tier.highlight && (
-                  <div className="bg-[#EF6A0B] text-white text-xs font-bold uppercase tracking-widest py-1 px-4 rounded-full self-start mb-6">
-                    Most Popular
+                  <div className="bg-gold text-navy-dark text-[10px] font-black uppercase tracking-widest py-1.5 px-6 rounded-full self-start mb-8 shadow-xl">
+                    Market Standard
                   </div>
                 )}
-                <h3 className="text-2xl font-extrabold text-[#081120] mb-2">{tier.name}</h3>
-                <div className="flex items-baseline mb-4">
-                  <span className="text-4xl font-extrabold text-[#081120]">{tier.price}</span>
-                  {tier.price !== "Custom" && <span className="text-gray-500 ml-2 font-medium">/ project</span>}
+                <h3 className="text-2xl font-black text-white mb-4 group-hover:text-gold transition-colors tracking-tight uppercase">{tier.name}</h3>
+                <div className="flex items-baseline mb-8">
+                  <span className="text-5xl font-black text-white tracking-tighter group-hover:text-shimmer transition-all">{tier.price}</span>
+                  {tier.price !== "Custom" && <span className="text-slate-500 ml-4 font-bold text-base uppercase tracking-widest">/ Project</span>}
                 </div>
-                <p className="text-gray-600 mb-8">{tier.description}</p>
+                <p className="text-base text-slate-400 font-bold mb-12 italic leading-relaxed">{tier.description}</p>
                 
-                <div className="space-y-4 mb-10 flex-grow">
+                <div className="space-y-6 mb-12 flex-grow">
                   {tier.features.map((feature, fIdx) => (
-                    <div key={fIdx} className="flex items-center gap-3">
-                      <div className="bg-green-100 p-1 rounded-full">
-                        <Check className="w-4 h-4 text-green-600" />
+                    <div key={fIdx} className="flex items-center gap-4">
+                      <div className="w-6 h-6 bg-gold/10 rounded-full flex items-center justify-center shrink-0">
+                        <Check className="w-3.5 h-3.5 text-gold" />
                       </div>
-                      <span className="text-gray-700 font-medium">{feature}</span>
+                      <span className="text-white font-bold tracking-tight">{feature}</span>
                     </div>
                   ))}
                   {tier.notIncluded.map((feature, nIdx) => (
-                    <div key={nIdx} className="flex items-center gap-3 opacity-40">
-                      <div className="bg-gray-100 p-1 rounded-full">
-                        <X className="w-4 h-4 text-gray-400" />
+                    <div key={nIdx} className="flex items-center gap-4 opacity-20">
+                      <div className="w-6 h-6 bg-white/10 rounded-full flex items-center justify-center shrink-0">
+                        <X className="w-3.5 h-3.5 text-slate-400" />
                       </div>
-                      <span className="text-gray-400 font-medium line-through">{feature}</span>
+                      <span className="text-slate-400 font-bold tracking-tight line-through">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 <Link 
                   href={tier.price === "Custom" ? "/contact-us" : "/become-a-client"} 
-                  className={`w-full py-5 rounded-2xl font-bold text-center transition-all ${
+                  className={`w-full py-6 rounded-3xl font-black text-center transition-all uppercase tracking-[0.3em] text-xs ${
                     tier.highlight 
-                      ? 'bg-[#EF6A0B] text-white shadow-lg shadow-[#EF6A0B]/30 hover:bg-[#d55e0a]' 
-                      : 'bg-[#081120] text-white hover:bg-[#1a2a44]'
+                      ? 'bg-gold text-navy-dark shadow-[0_4px_40px_rgba(212,175,55,0.4)] hover:bg-gold-hover' 
+                      : 'bg-white/5 text-white border border-white/10 hover:bg-gold hover:text-navy-dark'
                   }`}
                 >
                   {tier.buttonText}
@@ -129,75 +140,99 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Comparison Table Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-[#081120] mb-4">Detailed Comparison</h2>
-            <p className="text-gray-600 font-medium">Choose the plan that's right for your organization's growth.</p>
+      {/* Comparison Table - Elite Detail Grid */}
+      <section className="py-32 bg-navy border-y border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-24 flex flex-col items-center">
+            <h6 className="text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 px-4 py-1 bg-gold/5 rounded-full border border-gold/10">Full Transparency</h6>
+            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-8 leading-tight italic">Detailed <span className="text-shimmer">Archetype</span> Analysis</h2>
+            <div className="h-1 w-24 bg-gold rounded-full opacity-50"></div>
           </div>
 
-          <div className="max-w-5xl mx-auto overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="border-b-2 border-gray-100">
-                  <th className="py-6 px-4 text-gray-400 font-bold uppercase text-xs tracking-widest">Feature</th>
-                  <th className="py-6 px-4 text-[#081120] font-extrabold text-lg">Standard</th>
-                  <th className="py-6 px-4 text-[#EF6A0B] font-extrabold text-lg">Professional</th>
-                  <th className="py-6 px-4 text-[#081120] font-extrabold text-lg">Enterprise</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {[
-                  { name: "Candidate Replacement", s: "60 Days", p: "90 Days", e: "180 Days" },
-                  { name: "Sourcing Channels", s: "Basic", p: "Multi-Channel", e: "Premium + Global" },
-                  { name: "Psychometric Testing", s: false, p: true, e: true },
-                  { name: "Market Intelligence", s: false, p: true, e: true },
-                  { name: "Employer Branding", s: false, p: false, e: true },
-                  { name: "ATS Integration", s: false, p: "Optional", e: true }
-                ].map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-[#F8F9FA] transition-colors">
-                    <td className="py-6 px-4 font-bold text-[#081120]">{row.name}</td>
-                    <td className="py-6 px-4 text-gray-600 font-medium">
-                      {typeof row.s === 'boolean' ? (row.s ? <Check className="text-green-500" /> : <X className="text-gray-300" />) : row.s}
-                    </td>
-                    <td className="py-6 px-4 text-gray-600 font-medium">
-                      {typeof row.p === 'boolean' ? (row.p ? <Check className="text-[#EF6A0B]" /> : <X className="text-gray-300" />) : row.p}
-                    </td>
-                    <td className="py-6 px-4 text-gray-600 font-medium">
-                      {typeof row.e === 'boolean' ? (row.e ? <Check className="text-green-500" /> : <X className="text-gray-300" />) : row.e}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="glass-panel rounded-[48px] overflow-hidden border-white/5">
+            <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="border-b border-white/5">
+                      <th className="py-10 px-10 text-slate-500 font-black uppercase text-xs tracking-[0.4em]">Strategic Vector</th>
+                      <th className="py-10 px-10 text-white font-black text-xl uppercase tracking-tight">Standard</th>
+                      <th className="py-10 px-10 text-gold font-black text-xl uppercase tracking-tight bg-gold/5">Professional</th>
+                      <th className="py-10 px-10 text-white font-black text-xl uppercase tracking-tight">Enterprise</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/5">
+                    {[
+                      { name: "Candidate Replacement", s: "60 Days", p: "120 Days", e: "240 Days" },
+                      { name: "Sourcing Channels", s: "Domestic", p: "Multi-Circuit", e: "Global Intelligence" },
+                      { name: "Psychometric DNA Testing", s: false, p: true, e: true },
+                      { name: "Market Intelligence Access", s: false, p: true, e: true },
+                      { name: "Strategic Branding", s: false, p: false, e: true },
+                      { name: "ERP / ATS Orchestration", s: false, p: "Optional", e: true }
+                    ].map((row, rIdx) => (
+                      <tr key={rIdx} className="hover:bg-white/5 transition-colors group">
+                        <td className="py-8 px-10 font-bold text-white text-base tracking-tight uppercase group-hover:text-gold transition-colors">{row.name}</td>
+                        <td className="py-8 px-10 text-slate-400 font-bold text-base">
+                          {typeof row.s === 'boolean' ? (row.s ? <Check className="text-gold" /> : <X className="text-white/10" />) : row.s}
+                        </td>
+                        <td className="py-8 px-10 text-gold font-black text-base bg-gold/5">
+                          {typeof row.p === 'boolean' ? (row.p ? <Check className="text-gold" /> : <X className="text-white/10" />) : row.p}
+                        </td>
+                        <td className="py-8 px-10 text-slate-400 font-bold text-base">
+                          {typeof row.e === 'boolean' ? (row.e ? <Check className="text-gold" /> : <X className="text-white/10" />) : row.e}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Small Section */}
-      <section className="py-24 bg-[#F8F9FA]">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-extrabold text-[#081120] mb-12 text-center">Frequently Asked Questions</h2>
-          <div className="space-y-6">
+      {/* FAQ Section - Clean Grid */}
+      <section className="py-32 bg-navy-dark">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-24 flex flex-col items-center">
+            <h6 className="text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 px-4 py-1 bg-gold/5 rounded-full border border-gold/10">Inquiry Ledger</h6>
+            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-8 italic">Frequently <span className="text-shimmer">Asked.</span></h2>
+          </div>
+          <div className="space-y-8">
             {[
-              { q: "Is there a setup fee?", a: "No, we don't charge any upfront setup fees. You only pay for the recruitment services described in your chosen tier." },
-              { q: "How long does a typical search take?", a: "Standard searches usually take 2-4 weeks, while Professional and Enterprise searches benefit from priority sourcing and can often find top talent within 10-21 days." },
-              { q: "What if the candidate doesn't work out?", a: "Every project comes with a guarantee period. If the candidate leaves or is terminated within that period, we will replace them at no additional cost." }
+              { q: "Is there a strategy initiation fee?", a: "No. We operate with absolute transparency. There are zero upfront setup or hidden surcharges. You only invest in the expert recruitment services defined in your selected tier." },
+              { q: "What is the typical velocity of a search?", a: "Standard searches reach shortlist status in 14-21 days. Professional and Enterprise searches bypass standard queues, leveraging our priority circuit to find elite talent in 7-14 days." },
+              { q: "What defines the quality guarantee?", a: "Every placement is backed by a rigorous performance window. If a candidate fails to meet benchmarks within the defined period, we initiate an immediate replacement search at zero cost." }
             ].map((faq, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-                <h4 className="flex items-center text-lg font-bold text-[#081120] mb-4">
-                  <HelpCircle className="w-5 h-5 mr-3 text-[#EF6A0B]" />
+              <div key={idx} className="glass-panel p-10 rounded-[40px] border-white/5 hover:border-gold/20 transition-all group">
+                <h4 className="flex items-center text-xl font-black text-white mb-6 uppercase tracking-tight group-hover:text-gold transition-colors">
+                  <HelpCircle className="w-6 h-6 mr-6 text-gold opacity-50 group-hover:opacity-100 transition-all" />
                   {faq.q}
                 </h4>
-                <p className="text-gray-600 leading-relaxed pl-8">{faq.a}</p>
+                <p className="text-slate-400 font-bold leading-relaxed text-base pl-12">{faq.a}</p>
               </div>
             ))}
           </div>
-          <div className="mt-16 text-center">
-            <p className="text-gray-500 font-medium mb-6">Still have questions?</p>
-            <Link href="/contact-us" className="inline-flex items-center text-[#EF6A0B] font-bold group">
-              Speak to a Pricing Expert <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          <div className="mt-24 text-center">
+            <p className="text-slate-500 font-black uppercase tracking-widest text-xs mb-8">Required further clarification?</p>
+            <Link href="/contact-us" className="inline-flex items-center text-gold font-black uppercase tracking-[0.4em] text-xs hover:gap-6 gap-4 transition-all">
+              Speak to a Talent Architect <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+       {/* Massive Final CTA */}
+      <section className="py-32 bg-navy relative border-y border-white/5 overflow-hidden text-center">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gold/5 blur-[150px] animate-pulse"></div>
+        <div className="container mx-auto px-4 relative z-10 space-y-12 max-w-5xl">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.8] tracking-tighter">
+            Initiate <br /> <span className="text-shimmer">The Search.</span>
+          </h2>
+          <p className="text-xl text-slate-400 font-black max-w-2xl mx-auto leading-relaxed">
+            Acquiring the world's most elusive 1% of talent is a high-return investment. Secure your competitive edge now.
+          </p>
+          <div className="pt-8 flex justify-center">
+            <Link href="/become-a-client" className="bg-gold hover:bg-gold-hover text-navy-dark px-20 py-7 rounded-full font-black text-xs uppercase tracking-[0.4em] transition-all transform hover:-translate-y-2 shadow-[0_4px_50px_rgba(212,175,55,0.4)] flex items-center justify-center gap-4 group">
+              Consult Pricing <TrendingUp className="w-6 h-6" />
             </Link>
           </div>
         </div>

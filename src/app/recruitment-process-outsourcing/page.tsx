@@ -1,78 +1,89 @@
 'use client';
 
-import { CheckCircle2, BarChart3, Users2, ShieldCheck, ArrowRight, PlayCircle } from 'lucide-react';
+import { CheckCircle2, BarChart3, Users2, ShieldCheck, ArrowRight, PlayCircle, Stars, Activity, Target, Layers, Check } from 'lucide-react';
 import Link from 'next/link';
 
 export default function RPOService() {
   return (
-    <div className="min-h-screen bg-white font-sans text-[#212121]">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-[#081120] overflow-hidden">
-        {/* Abstract Background Design */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600 rounded-full blur-[120px]"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#EF6A0B] rounded-full blur-[120px]"></div>
+    <div className="min-h-screen bg-navy-dark flex flex-col font-sans selection:bg-gold selection:text-navy-dark overflow-x-hidden">
+      {/* Hero Section - Elite Enterprise Focus */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[120px] rounded-full animate-pulse transition-all duration-[5000ms]"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-navy-light/10 blur-[150px] rounded-full animate-float"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-dark via-transparent to-navy-dark"></div>
         </div>
         
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 mb-8 text-blue-400 text-sm font-bold uppercase tracking-widest">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-            </span>
-            Enterprise Solutions
+        <div className="container mx-auto px-4 relative z-10 text-center space-y-12 animate-fade-up">
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-3 bg-gold/10 border border-gold/20 rounded-full px-6 py-2 text-gold text-xs font-black uppercase tracking-[0.4em]">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-gold"></span>
+              </span>
+              Enterprise RPO Solutions
+            </div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.9] drop-shadow-2xl">
+              Recruitment <br /> <span className="text-shimmer">Outsourcing.</span>
+            </h1>
           </div>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 tracking-tight leading-tight">
-            Recruitment Process <br /> <span className="text-[#EF6A0B]">Outsourcing</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Scale your team, reduce costs, and improve quality of hire with our end-to-end RPO solutions. We become your internal recruiting engine.
+          <p className="text-lg md:text-2xl font-bold text-slate-400 max-w-4xl mx-auto leading-tight tracking-tight opacity-90">
+            Scale your infrastructure, slash costs, and elevate quality of hire. We become your <span className="text-white">Internal Recruiting Powerhouse</span> through end-to-end RPO mastery.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link href="/contact-us" className="bg-[#EF6A0B] hover:bg-[#d55e0a] text-white px-12 py-5 rounded-2xl font-bold text-lg transition-all shadow-xl hover:shadow-[#EF6A0B]/30 transform hover:-translate-y-1">
-              Request a Proposal
+          <div className="flex flex-col sm:flex-row gap-8 justify-center pt-8">
+            <Link href="/contact-us" className="bg-gold hover:bg-gold-hover text-navy-dark px-16 py-6 rounded-full font-black text-xs uppercase tracking-[0.4em] transition-all transform hover:-translate-y-2 shadow-[0_4px_40px_rgba(212,175,55,0.4)] flex items-center justify-center gap-4">
+              Request Full Proposal <ArrowRight className="w-5 h-5" />
             </Link>
-            <button className="flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-12 py-5 rounded-2xl font-bold text-lg transition-all">
-              <PlayCircle className="w-6 h-6" /> Watch How it Works
+            <button className="flex items-center justify-center gap-4 bg-white/5 hover:bg-white/10 text-white border-2 border-white/10 px-16 py-6 rounded-full font-black text-xs uppercase tracking-[0.4em] transition-all backdrop-blur-md">
+              <PlayCircle className="w-6 h-6 text-gold" /> The Workflow
             </button>
           </div>
         </div>
       </section>
 
-      {/* RPO Overview Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="relative">
-              <div className="bg-gray-100 aspect-square rounded-[60px] overflow-hidden relative">
-                 <img 
-                  src="https://breezyrecruit.com/wp-content/uploads/2025/05/1-1-1024x683.jpg" 
-                  alt="Business Meeting"
-                  className="absolute inset-0 w-full h-full object-cover opacity-80"
-                />
-                <div className="absolute inset-0 bg-blue-900/20"></div>
+      {/* Strategic Overview - High Contrast Typography */}
+      <section className="py-32 bg-navy border-y border-white/5 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <div className="relative group">
+              <div className="relative rounded-[80px] overflow-hidden p-6 glass-panel border-white/10 shadow-2xl">
+                <div className="rounded-[60px] overflow-hidden relative aspect-[4/5] md:aspect-square">
+                   <img 
+                    src="https://breezyrecruit.com/wp-content/uploads/2025/05/1-1-1024x683.jpg" 
+                    alt="Strategic Meeting"
+                    className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-[2s] group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-navy-dark/40 group-hover:bg-transparent transition-all"></div>
+                </div>
               </div>
-              {/* Stats Overlay */}
-              <div className="absolute -bottom-10 -right-10 bg-[#EF6A0B] text-white p-10 rounded-[40px] shadow-2xl z-20">
-                <div className="text-5xl font-extrabold mb-1">45%</div>
-                <div className="text-sm font-bold uppercase tracking-wider opacity-90">Average Cost <br /> Per Hire Reduction</div>
+              {/* Massive Stats Overlay */}
+              <div className="absolute -bottom-10 -right-10 glass-panel p-12 rounded-[52px] border-gold/30 shadow-gold/5 animate-float">
+                <div className="text-6xl font-black text-gold tracking-tighter mb-2 italic">45%</div>
+                <div className="text-xs font-black text-white uppercase tracking-[0.4em] leading-tight">Average Cost <br /> Per Hire Reduction</div>
               </div>
             </div>
-            <div>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-[#081120] mb-8 leading-tight">Your Strategic <br /> Hiring Partner</h2>
-              <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-                RPO is more than just outsourcing. It's a partnership where we assume full responsibility for your recruitment process—from sourcing to onboarding. We bring the tech, the talent, and the data to drive results.
+            <div className="space-y-12">
+              <div className="space-y-6">
+                 <h6 className="text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 px-4 py-1 bg-gold/5 inline-block rounded-full border border-gold/10">The Partnership</h6>
+                 <h2 className="text-4xl md:text-5xl font-black text-white leading-[0.9] tracking-tighter">
+                  Your Strategic <br /> <span className="text-shimmer">Hiring Engine.</span>
+                </h2>
+              </div>
+              <p className="text-lg text-slate-400 font-bold leading-relaxed">
+                RPO is not just outsourcing; it's a high-velocity partnership. We assume <span className="text-white">Absolute Responsibility</span> for your recruitment cycle—leveraging elite tech and deep market data to drive measurable scale.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
                 {[
-                  { icon: <BarChart3 className="w-6 h-6 text-[#EF6A0B]" />, title: "Data-Driven Sourcing" },
-                  { icon: <Users2 className="w-6 h-6 text-[#EF6A0B]" />, title: "Brand Alignment" },
-                  { icon: <ShieldCheck className="w-6 h-6 text-[#EF6A0B]" />, title: "Compliance Ready" },
-                  { icon: <CheckCircle2 className="w-6 h-6 text-[#EF6A0B]" />, title: "Scalable Model" }
+                  { icon: <BarChart3 className="w-8 h-8 text-gold" />, title: "Data-Driven Sourcing" },
+                  { icon: <Users2 className="w-8 h-8 text-gold" />, title: "Brand Alignment" },
+                  { icon: <ShieldCheck className="w-8 h-8 text-gold" />, title: "Compliance Ready" },
+                  { icon: <Activity className="w-8 h-8 text-gold" />, title: "Scalable Model" }
                 ].map((item, idx) => (
-                  <div key={idx} className="flex gap-4 items-center">
-                    <div className="bg-[#EF6A0B]/10 p-3 rounded-xl">{item.icon}</div>
-                    <span className="font-bold text-lg text-[#081120]">{item.title}</span>
+                  <div key={idx} className="flex gap-6 items-center p-4 glass-panel rounded-3xl border-white/5 hover:border-gold/20 transition-all group">
+                    <div className="bg-gold/5 p-4 rounded-2xl group-hover:bg-gold transition-colors duration-500">
+                        <div className="text-gold group-hover:text-navy-dark transition-colors">{item.icon}</div>
+                    </div>
+                    <span className="font-black text-base text-white tracking-tight uppercase group-hover:text-gold transition-colors">{item.title}</span>
                   </div>
                 ))}
               </div>
@@ -81,51 +92,62 @@ export default function RPOService() {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-24 bg-[#F8F9FA]">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#081120] mb-6">Why Companies Choose Our RPO</h2>
-            <div className="h-2 w-24 bg-[#EF6A0B] mx-auto rounded-full"></div>
+      {/* Why RPO - Premium Benefit Grid */}
+      <section className="py-32 bg-navy-dark">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-24 flex flex-col items-center">
+            <h6 className="text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 px-4 py-1 bg-gold/5 rounded-full border border-gold/10">Enterprise Impact</h6>
+            <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter mb-8 italic">The <span className="text-shimmer">RPO Advantage</span></h2>
+            <div className="h-1 w-24 bg-gold rounded-full opacity-50"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
               {
+                icon: <Target />,
                 title: "Scalability on Demand",
-                desc: "Whether you need to hire 10 people or 100, our RPO model scales instantly with your business needs.",
+                desc: "Whether your cycle requires 10 high-stakes hires or a 500-unit scaling project, our model adapts in real-time.",
               },
               {
+                icon: <Stars />,
                 title: "Employer Branding",
-                desc: "We don't just find people; we market your company to top-tier talent as the preferred place to work.",
+                desc: "We don't just fill seats; we architect your market presence to attract the most elusive 1% of talent.",
               },
               {
-                title: "Advanced Tech Stack",
-                desc: "Gain access to the latest AI-driven recruitment tools and analytics without the high subscription costs.",
+                icon: <Layers />,
+                title: "Elite Tech Stack",
+                desc: "Gain instant access to our proprietary AI recruitment ecosystem and global data vaults at zero additional cost.",
               }
             ].map((benefit, idx) => (
-              <div key={idx} className="bg-white p-12 rounded-[48px] shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
-                <h3 className="text-2xl font-bold text-[#081120] mb-6 group-hover:text-[#EF6A0B] transition-colors">{benefit.title}</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">{benefit.desc}</p>
+              <div key={idx} className="glass-panel group p-12 rounded-[52px] hover:border-gold/30 hover:shadow-gold/5 transition-all duration-500 flex flex-col h-full border-white/5">
+                <div className="w-16 h-1 bg-gold mb-10 group-hover:w-full transition-all duration-700 rounded-full"></div>
+                <h3 className="text-2xl font-black text-white mb-6 group-hover:text-gold transition-colors tracking-tight uppercase leading-[1.1]">{benefit.title}</h3>
+                <p className="text-base text-slate-400 leading-relaxed font-bold">{benefit.desc}</p>
+                <div className="pt-10 mt-auto">
+                    <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center group-hover:bg-gold transition-all duration-500">
+                        <Check className="w-6 h-6 text-gold group-hover:text-navy-dark" />
+                    </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-[#081120] text-center text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-6xl font-extrabold mb-8">Ready to Transform Your Hiring?</h2>
-            <p className="text-xl text-gray-400 mb-12 leading-relaxed">
-              Book a free strategy session with our RPO experts and discover how we can streamline your recruitment process.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link href="/contact-us" className="bg-[#EF6A0B] hover:bg-[#d55e0a] text-white px-12 py-5 rounded-2xl font-bold text-lg transition-all shadow-xl">
-                Schedule My Free Strategy Session
-              </Link>
-            </div>
+      {/* Massive Final CTA */}
+      <section className="py-32 bg-navy relative border-y border-white/5 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gold/5 blur-[150px] animate-pulse"></div>
+        <div className="max-w-5xl mx-auto px-4 text-center relative z-10 space-y-12">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.8] tracking-tighter">
+            Architect <br /> <span className="text-shimmer">Your Future.</span>
+          </h2>
+          <p className="text-xl text-slate-400 font-bold max-w-2xl mx-auto leading-relaxed">
+            Ready to transform your hiring infrastructure into a high-octane growth engine? Partner with our elite RPO architects today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-8 justify-center pt-8">
+            <Link href="/contact-us" className="px-20 py-7 bg-gold text-navy-dark font-black rounded-full hover:bg-gold-hover hover:-translate-y-2 transition-all shadow-[0_4px_50px_rgba(212,175,55,0.4)] flex items-center justify-center gap-4 text-xs uppercase tracking-[0.4em]">
+              Book Strategy Session <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>

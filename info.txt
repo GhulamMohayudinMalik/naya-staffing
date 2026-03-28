@@ -1,0 +1,26 @@
+industries = {
+    "Information Technology": [
+        "Software Development", "Cloud Computing", "Network Engineering", "IT Support", 
+        "Data Analytics", "DevOps", "Artificial Intelligence & Machine Learning", 
+        "UI/UX Design", "Quality Assurance & Testing", "Database Administration", 
+        "Systems Architecture", "IT Project Management", "Mobile Application Development", 
+        "ERP Consulting", "Blockchain Development", "Game Development"
+    ],
+    "Healthcare": [
+        "Clinical Practice", "Nursing", "Hospital Administration", "Allied Health", 
+        "Health Informatics", "Telemedicine", "Pharmacy", "Dentistry", "Physical Therapy", 
+        "Psychiatry & Mental Health", "Medical Billing & Coding", "Public Health", 
+        "Optome…
+    ]}
+
+industries
+
+Address: 212 N 2nd St Ste 100, Richmond, KY 40475
+Registered Name: NAYA STAFFING LLC
+
+Branding: NAYA / NAYA Staffing / NAYA Staffing LLC
+info@nayastaffing.com 
++15025567832
+
+
+domain name : nayastaffing.com hai
