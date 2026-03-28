@@ -15,7 +15,16 @@ const defaultTestimonials: Testimonial[] = [
   { text: "NAYA Staffing’s RPO solution gave us a scalable way to manage high-volume hiring.", name: "DIRECTOR OF TALENT ACQUISITION, LOGISTICS COMPANY" },
   { text: "Their market insights and screening process saved us weeks.", name: "HR DIRECTOR, RETAIL CHAIN" },
   { text: "We no longer sift through hundreds of resumes — NAYA Staffing sends a focused shortlist.", name: "CHIEF PEOPLE OFFICER, MANUFACTURING FIRM" },
-  { text: "They reduced candidate drop-off during long hiring cycles.", name: "DIRECTOR OF TALENT PLANNING, PROFESSIONAL SERVICES FIRM" }
+  { text: "Their contract-to-hire option helped us test talent before committing.", name: "OPERATIONS MANAGER, FOOD & BEVERAGE BRAND" },
+  { text: "NAYA Staffing felt like an extension of our own HR team.", name: "VP OF OPERATIONS, E-COMMERCE STARTUP" },
+  { text: "They adapted quickly to our changing hiring needs.", name: "HR BUSINESS PARTNER, CONSTRUCTION COMPANY" },
+  { text: "Their team kept us competitive in a tough talent market.", name: "DIRECTOR OF WORKFORCE PLANNING, INSURANCE FIRM" },
+  { text: "They balanced cultural fit with skill set perfectly.", name: "DIRECTOR OF HUMAN CAPITAL, CONSULTING FIRM" },
+  { text: "They reduced candidate drop-off during long hiring cycles.", name: "DIRECTOR OF TALENT PLANNING, PROFESSIONAL SERVICES FIRM" },
+  { text: "Every shortlist was on-target and high quality.", name: "HR OPERATIONS MANAGER, AUTOMOTIVE SUPPLIER" },
+  { text: "They scaled support up and down based on our needs.", name: "DIRECTOR OF HR SERVICES, AEROSPACE FIRM" },
+  { text: "NAYA Staffing helped us fill executive roles with impressive speed.", name: "CHIEF HR OFFICER, SOFTWARE COMPANY" },
+  { text: "Their candidate prep made onboarding smoother and faster.", name: "VP OF TALENT, MARKETING AGENCY" }
 ];
 
 export default function TestimonialSlider() {
@@ -37,7 +46,7 @@ export default function TestimonialSlider() {
   };
 
   return (
-    <section className="bg-[#040814] py-32 relative overflow-hidden">
+    <section className="bg-navy-dark py-32 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-gold/5 blur-[120px] rounded-full animate-pulse"></div>

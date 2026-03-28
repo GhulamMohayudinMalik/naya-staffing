@@ -67,9 +67,9 @@ export default function JobOpenings() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         {/* Background Particles & Glows */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[120px] rounded-full animate-pulse transition-all duration-[5000ms]"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[120px] rounded-full animate-pulse transition-all duration-5000"></div>
           <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-navy-light/10 blur-[150px] rounded-full animate-float"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-dark via-transparent to-navy-dark"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-navy-dark via-transparent to-navy-dark"></div>
         </div>
         
         <div className="relative z-10 container mx-auto px-4 text-center space-y-12 animate-fade-up">
@@ -87,7 +87,7 @@ export default function JobOpenings() {
           
           {/* Elite Search Bar Container */}
           <div className="max-w-5xl mx-auto glass-panel p-3 rounded-[40px] shadow-2xl flex flex-col md:flex-row gap-3 border-white/10 hover:border-gold/20 transition-all duration-700">
-            <div className="flex-grow relative group/input">
+            <div className="grow relative group/input">
               <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-gold w-6 h-6 group-focus-within/input:scale-110 transition-transform" />
               <input 
                 type="text" 
@@ -95,7 +95,7 @@ export default function JobOpenings() {
                 className="w-full pl-16 pr-6 py-6 bg-white/5 border border-white/5 rounded-[32px] focus:outline-none focus:border-gold/40 text-white text-lg font-bold placeholder:text-slate-500 transition-all"
               />
             </div>
-            <div className="flex-grow relative group/input">
+            <div className="grow relative group/input">
               <MapPin className="absolute left-6 top-1/2 -translate-y-1/2 text-gold w-6 h-6 group-focus-within/input:scale-110 transition-transform" />
               <input 
                 type="text" 
@@ -129,12 +129,12 @@ export default function JobOpenings() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {jobs.map((job) => (
               <div key={job.id} className="glass-panel group p-10 rounded-[48px] hover:border-gold/30 hover:shadow-gold/5 transition-all duration-500 flex flex-col h-full border-white/5">
-                <div className="flex justify-between items-start mb-10">
-                  <div className="bg-gold/10 border border-gold/20 text-gold px-5 py-2 rounded-full text-xs font-black uppercase tracking-widest">
+                <div className="mb-8 space-y-3">
+                  <div className="inline-block bg-gold/10 border border-gold/20 text-gold px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-lg backdrop-blur-md">
                     {job.category}
                   </div>
-                  <div className="text-slate-400 text-xs font-black uppercase tracking-widest flex items-center">
-                    <Clock className="w-4 h-4 mr-2 text-gold/60" />
+                  <div className="text-slate-500 text-[10px] font-black uppercase tracking-[0.3em] flex items-center px-1">
+                    <Clock className="w-3 h-3 mr-2 text-gold/40" />
                     {job.posted}
                   </div>
                 </div>
@@ -143,7 +143,7 @@ export default function JobOpenings() {
                   {job.title}
                 </h3>
                 
-                <div className="space-y-4 mb-10 flex-grow">
+                <div className="space-y-4 mb-10 grow">
                   <div className="flex items-center text-slate-400 font-bold text-lg">
                     <MapPin className="w-5 h-5 mr-3 text-gold/40" />
                     {job.location}

@@ -8,11 +8,14 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#02040a]">
       {/* 1. Immersive CTA Section */}
-      <section className="relative py-32 px-4 overflow-hidden">
+      <section className="relative py-32 px-4 overflow-hidden border-b border-white/5">
         <VideoBackground 
           src="/videos/footer.mp4" 
-          overlayOpacity="bg-navy-dark/70"
+          overlayOpacity="bg-linear-to-b from-navy-dark/90 via-navy-dark/70 to-navy-dark/90"
         />
+        
+        {/* Extra overlay layer for depth */}
+        <div className="absolute inset-0 bg-radial-at-center from-transparent via-navy-dark/30 to-navy-dark opacity-80 transition-opacity duration-1000"></div>
         
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="glass-panel p-12 md:p-20 rounded-[64px] border-white/10 text-center space-y-10 backdrop-blur-3xl shadow-2xl">
