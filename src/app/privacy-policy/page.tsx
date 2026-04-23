@@ -57,7 +57,7 @@ export default function PrivacyPolicy() {
               <p className="text-white font-black tracking-widest text-sm">
                 info@nayastaffing.com
               </p>
-            </div>
+            </section>
           </div>
         </div>
       </div>
