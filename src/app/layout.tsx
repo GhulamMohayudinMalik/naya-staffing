@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NAYA Staffing | Elite Recruitment & Talent Architecture",
-  description: "Connect with the world's most elusive 1% of talent. NAYA Staffing provides premium RPO, direct hire, and executive search solutions.",
+  title: "Global Recruitment Agency & Staffing Solutions | NAYA Staffing",
+  description: "NAYA Staffing delivers executive search, permanent recruitment, contract staffing, RPO, and global hiring solutions across multiple industries for employers and job seekers worldwide.",
 };
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";

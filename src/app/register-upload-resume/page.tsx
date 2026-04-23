@@ -21,10 +21,10 @@ export default function RegisterResume() {
             Network Entry
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.9] drop-shadow-2xl">
-            Join Our <br /> <span className="text-shimmer">Elite Network.</span>
+            Take the Next Step With <br /> <span className="text-shimmer">NAYA Staffing.</span>
           </h1>
           <p className="text-lg md:text-xl font-bold text-slate-400 max-w-3xl mx-auto leading-tight tracking-tight opacity-90">
-            Secure your place in the most exclusive talent circuit. Your <span className="text-white">Professional Legacy</span> starts with a single upload.
+            Upload your resume and share your career interests so our team can connect you with suitable opportunities.
           </p>
         </div>
       </section>
@@ -39,7 +39,7 @@ export default function RegisterResume() {
               <div className="space-y-12">
                 <div className="space-y-4">
                     <h6 className="text-gold font-black uppercase tracking-[0.3em] text-[10px]">The Advantage</h6>
-                    <h2 className="text-3xl font-black tracking-tighter uppercase leading-tight">Why Register?</h2>
+                    <h2 className="text-3xl font-black tracking-tighter uppercase leading-tight">Your Career Growth</h2>
                 </div>
                 <div className="space-y-10">
                   <div className="flex gap-6 group">
@@ -77,7 +77,7 @@ export default function RegisterResume() {
                   <div className="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center shrink-0 group-hover:bg-gold transition-colors">
                     <CheckCircle2 className="text-gold group-hover:text-navy-dark w-5 h-5 transition-colors" />
                   </div>
-                  <span className="text-xs font-black text-white uppercase tracking-widest">5,000+ Elite Placements Made</span>
+                  <span className="text-xs font-black text-white uppercase tracking-widest">Connect with Industry Leaders</span>
                 </div>
               </div>
             </div>
@@ -152,7 +152,7 @@ export default function RegisterResume() {
                     </p>
                   </div>
                   <button className="w-full bg-gold hover:bg-gold-hover text-navy-dark py-7 rounded-[32px] font-black text-xs uppercase tracking-[0.4em] shadow-[0_4px_50px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-2 flex items-center justify-center gap-6 group">
-                    Complete Entry Protocol <ArrowRight className="w-6 h-6 group-hover:translate-x-3 transition-transform" />
+                    Upload Resume <ArrowRight className="w-6 h-6 group-hover:translate-x-3 transition-transform" />
                   </button>
                 </div>
               </form>

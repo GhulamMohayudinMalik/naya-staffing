@@ -45,7 +45,7 @@ export default function ContactUsPage() {
             Contact <span className="text-gold">Us.</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto font-medium leading-relaxed">
-            Let’s Connect & Build the Future Together
+            Let’s Start the Conversation
           </p>
         </div>
       </section>
@@ -58,9 +58,9 @@ export default function ContactUsPage() {
             {/* Left Column: Form Card */}
             <div className="glass-panel p-8 md:p-16 rounded-[48px] border-white/5 shadow-2xl relative order-2 lg:order-1">
               <div className="space-y-4 mb-12">
-                <h2 className="text-4xl font-black text-white tracking-tight">Send us a <span className="text-gold">Message.</span></h2>
+                <h2 className="text-4xl font-black text-white tracking-tight">Let’s Start the <span className="text-gold">Conversation</span></h2>
                 <p className="text-gray-400 font-medium leading-relaxed">
-                  Have a question, an inquiry, or a staffing need? We’re here to help. Fill out the form below, and our team will get back to you with personalized solutions.
+                  Tell us about your hiring needs, workforce goals, or recruitment challenges, and our team will get back to you.
                 </p>
               </div>
 
@@ -142,7 +142,7 @@ export default function ContactUsPage() {
                   type="submit" 
                   className="group w-full px-12 py-6 bg-gold hover:bg-gold-hover text-navy-dark font-black rounded-2xl transition-all flex items-center justify-center gap-4 shadow-xl uppercase tracking-widest text-xs"
                 >
-                  Submit Inquiry <Send className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                  Schedule Consultation <Send className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                 </button>
               </form>
             </div>
@@ -165,7 +165,7 @@ export default function ContactUsPage() {
                     <Phone className="w-8 h-8" />
                   </div>
                   <h4 className="text-gold font-black uppercase tracking-widest text-[10px] mb-2">Give us a Call</h4>
-                  <p className="text-white text-lg font-bold">+1 (727) 241-9513</p>
+                  <p className="text-white text-lg font-bold">+1 (502) 556-7832</p>
                 </div>
 
                 {/* Mail Card */}
@@ -183,7 +183,7 @@ export default function ContactUsPage() {
                     <MapPin className="w-8 h-8" />
                   </div>
                   <h4 className="text-gold font-black uppercase tracking-widest text-[10px] mb-2">Primary Office</h4>
-                  <p className="text-white text-lg font-bold">7901 4th St N Ste 300, St Petersburg FL 33702</p>
+                  <p className="text-white text-lg font-bold">212 N 2nd St Ste 100, Richmond, KY 40475</p>
                 </div>
               </div>
 
@@ -202,7 +202,7 @@ export default function ContactUsPage() {
       <section className="h-[500px] w-full relative border-t border-white/5 bg-navy-dark">
         <iframe 
           loading="lazy" 
-          src="https://maps.google.com/maps?q=7901%204th%20St%20N%20Ste%20300%20St%20Petersburg%20FL%2033702&t=m&z=12&output=embed&iwloc=near" 
+          src="https://maps.google.com/maps?q=212%20N%202nd%20St%20Ste%20100%20Richmond%20KY%2040475&t=m&z=12&output=embed&iwloc=near" 
           className="w-full h-full border-0 [filter:invert(90%)_hue-rotate(180deg)_brightness(95%)_contrast(90%)] transition-all duration-1000"
           title="NAYA Staffing HQ" 
           aria-label="NAYA Staffing HQ Location Map"

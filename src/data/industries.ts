@@ -102,8 +102,8 @@ export const industriesData: Industry[] = [
     ]
   },
   {
-    name: "Reliable Retail",
-    slug: "reliable-retail",
+    name: "Retail & E-Commerce",
+    slug: "retail-e-commerce",
     tagline: "Driving Commerce on Every Channel",
     description: "From brick-and-mortar flagships to global e-commerce titans, retail requires agile, customer-centric talent. We source the exact mix of store leadership, merchandisers, and digital operators needed to thrive in modern retail.",
     subIndustries: [
@@ -124,25 +124,14 @@ export const industriesData: Industry[] = [
     ]
   },
   {
-    name: "Marketing",
-    slug: "marketing",
-    tagline: "Capturing the Cultural Zeitgeist",
-    description: "In a world of infinite noise, the best brands cut through. We source the creative visionaries, digital strategists, and performance marketers who build lasting brand equity and drive measurable revenue growth.",
+    name: "Sales & Marketing",
+    slug: "sales-marketing",
+    tagline: "Capturing Markets & Accelerating Revenue",
+    description: "In a world of infinite noise, the best brands cut through and convert. We source the creative visionaries, digital strategists, and elite sales closers who build brand equity and drive measurable revenue growth.",
     subIndustries: [
-      createSubIndustry("Digital Strategy", "The architects of the online brand presence, leveraging data and platforms to craft high-conversion digital funnels.", ["Digital Marketing Director", "SEO/SEM Strategist", "Social Media Director", "Growth Marketing Lead"]),
-      createSubIndustry("Content Creation", "The storytellers. We place the copywriters, video producers, and graphic designers who create compelling brand narratives.", ["Creative Director", "Copywriter", "Video Producer", "Art Director"]),
-      createSubIndustry("Performance Marketing", "Data-obsessed marketers managing multi-million dollar ad spends to acquire customers at the optimal CAC.", ["Performance Marketing Manager", "Media Buyer", "Marketing Analyst", "Affiliate Manager"]),
-    ]
-  },
-  {
-    name: "Sales",
-    slug: "sales",
-    tagline: "Accelerating Global Revenue",
-    description: "Revenue is the lifeblood of any organization. We connect ambitious, high-growth companies with elite sales closers, strategic account managers, and visionary sales leadership capable of crushing quotas and scaling operations.",
-    subIndustries: [
-      createSubIndustry("Enterprise Sales", "The heavy hitters. Reps capable of navigating complex, multi-stakeholder procurement cycles to land six and seven-figure deals.", ["Enterprise Account Executive", "VP of Sales", "Strategic Partnerships Lead", "Sales Engineer"]),
-      createSubIndustry("Account Management", "The relationship builders who decrease churn, identify upsell opportunities, and turn clients into dedicated evangelists.", ["Key Account Manager", "Customer Success Director", "Client Partner", "Renewals Manager"]),
-      createSubIndustry("Business Development", "The frontline warriors identifying new markets, qualifying leads, and keeping the top of the funnel consistently full.", ["BDR Manager", "SDR", "Head of Business Development", "Market Research Analyst"]),
+      createSubIndustry("Digital Strategy & Marketing", "Architects of online brand presence, leveraging data and platforms to craft high-conversion digital funnels.", ["Digital Marketing Director", "SEO/SEM Strategist", "Growth Marketing Lead", "Content Director"]),
+      createSubIndustry("Enterprise Sales", "Elite reps capable of navigating complex procurement cycles to land six and seven-figure deals.", ["Enterprise Account Executive", "VP of Sales", "Strategic Partnerships Lead", "Sales Engineer"]),
+      createSubIndustry("Account Management", "Relationship builders who decrease churn, identify upsell opportunities, and turn clients into dedicated evangelists.", ["Key Account Manager", "Customer Success Director", "Client Partner", "Renewals Manager"]),
     ]
   }
 ];

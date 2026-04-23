@@ -47,7 +47,7 @@ const sectors = [
   { title: "Professional Services", image: "https://images.unsplash.com/photo-1454165833767-027eeef1596e?q=80&w=2070&auto=format&fit=crop", text: "Management consulting roles built on expertise and precision." },
   { title: "Education", image: "https://images.unsplash.com/photo-1524178232363-1fb28f74b573?q=80&w=2070&auto=format&fit=crop", text: "Expertise in certifications and background checks for the education sector." },
   { title: "Insurance", image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop", text: "Strategic teams for underwriters, agents, and claims adjusters." },
-  { title: "Reliable Retail", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop", text: "Solving the uphill battle of retail hiring with precision." },
+  { title: "Retail & E-Commerce", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop", text: "Solving the uphill battle of retail hiring with precision." },
   { title: "Construction", image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop", text: "Building high-performing construction teams with strategic investment." },
   { title: "Marketing", image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?q=80&w=2070&auto=format&fit=crop", text: "Finding marketers who truly understand your brand vision." },
   { title: "Sales", image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2070&auto=format&fit=crop", text: "High-stakes recruitment for top-tier sales professionals." }
