@@ -1,5 +1,6 @@
 "use client";
 
+import { Typewriter } from "@/components/Typewriter";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowRight, Check, Users, Briefcase, FileText, Clock, TrendingUp, Search, Globe, ChevronDown, Plus, Minus, MapPin } from "lucide-react";
@@ -30,39 +31,41 @@ export default function Home() {
           />
           {/* Subtle Premium Orbs */}
           <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/5 blur-[120px] rounded-full animate-pulse transition-all duration-[5000ms]"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gold/10 blur-[150px] rounded-full animate-float transition-all duration-[7000ms]"></div>
+            <div className="btn-rotating-border absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 blur-[120px] rounded-full animate-pulse transition-all duration-[5000ms] btn-auto-sheen border border-white/5"></div>
+            <div className="btn-rotating-border absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-white/10 blur-[150px] rounded-full animate-float transition-all duration-[7000ms] btn-auto-sheen border border-white/5"></div>
           </div>
           {/* Abstract Pattern Overlay */}
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12 py-24">
-          <div className="space-y-8 animate-fade-up">
-            <div className="inline-block px-6 py-2.5 bg-gold/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-4 backdrop-blur-md">
+          <div className="space-y-8">
+            <div className="btn-rotating-border inline-block px-6 py-2.5 bg-white/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-4 backdrop-blur-md animate-fade-in-up btn-auto-sheen border border-white/5">
               Premium Global Recruitment & Workforce Solutions
             </div>
             <h1 className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-[0.9] drop-shadow-2xl">
+            <Typewriter>
               Connecting Exceptional Talent With <br className="hidden md:block" />
               <span className="text-shimmer">Forward-Looking Companies Worldwide</span>
-            </h1>
+            </Typewriter>
+          </h1>
           </div>
 
-          <p className="text-lg md:text-xl font-medium text-slate-400 tracking-tight max-w-4xl mx-auto animate-fade-up delay-200 leading-relaxed">
+          <p className="text-lg md:text-xl font-medium text-slate-400 tracking-tight max-w-4xl mx-auto animate-fade-in-up animate-delay-200 leading-relaxed">
             NAYA Staffing helps businesses hire with confidence and helps professionals move forward with purpose. From executive search and permanent recruitment to contract staffing, RPO, and global hiring solutions, we deliver strategic talent acquisition services designed for growth, speed, and long-term success.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-12 animate-fade-up delay-300">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-12 animate-fade-in-up animate-delay-300">
             <Link
               href="/contact-us"
-              className="w-full sm:w-auto px-14 py-6 text-[11px] font-black rounded-full text-navy-dark bg-gold hover:bg-gold-hover shadow-[0_8px_40px_rgba(212,175,55,0.3)] transition-all duration-500 transform hover:-translate-y-2 uppercase tracking-[0.25em] text-center"
+              className="w-full sm:w-auto px-14 py-6 text-[11px] font-black rounded-full text-white hover:text-gold bg-white/5 border border-white/5 transition-all duration-500 transform hover:-translate-y-2 uppercase tracking-[0.25em] text-center btn-rotating-border btn-sheen shadow-[0_8px_40px_rgba(212,175,55,0.1)]"
             >
               Schedule Consultation
             </Link>
 
             <Link
               href="/job-openings"
-              className="w-full sm:w-auto px-14 py-6 text-[11px] font-black rounded-full text-white border border-white/20 hover:border-gold hover:text-gold transition-all duration-500 transform hover:-translate-y-2 uppercase tracking-[0.25em] backdrop-blur-md text-center"
+              className="w-full sm:w-auto px-14 py-6 text-[11px] font-black rounded-full text-white border border-white/20 hover:border-gold hover:text-gold transition-all duration-500 transform hover:-translate-y-2 uppercase tracking-[0.25em] backdrop-blur-md text-center btn-sheen"
             >
               Browse Open Jobs
             </Link>
@@ -72,7 +75,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="pt-20 animate-fade-up delay-400 border-t border-white/5 max-w-3xl mx-auto">
+          <div className="pt-20 animate-fade-in-up animate-delay-400 border-t border-white/5 max-w-3xl mx-auto">
             <p className="text-[11px] font-black uppercase tracking-[0.45em] text-slate-500 leading-loose">
               Trusted recruitment support for growing businesses, established organizations, and ambitious professionals across diverse industries and markets.
             </p>
@@ -90,9 +93,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-[11px] font-black text-gold uppercase tracking-[0.6em] mb-4">Built for Modern Hiring Needs</h2>
-            <div className="h-px w-24 bg-gold/30 mx-auto rounded-full"></div>
+            <div className="btn-rotating-border h-px w-24 bg-white/30 mx-auto rounded-full btn-auto-sheen border border-white/5"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-10">
             {[
               {
                 title: "Strategic Recruitment Expertise",
@@ -115,10 +118,10 @@ export default function Home() {
                 icon: Globe
               },
             ].map((pillar, idx) => (
-              <div key={idx} className="group relative p-10 rounded-[40px] bg-white/[0.02] border border-white/5 hover:border-gold/30 transition-all duration-700 hover:shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
+              <div key={idx} className="group relative p-10 rounded-[40px] bg-white/[0.02] border border-white/5 hover:border-gold/30 hover:shadow-[0_20px_80px_rgba(0,0,0,0.5)] card-hover-premium">
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-[40px]"></div>
                 <div className="relative z-10">
-                  <div className="w-12 h-12 bg-gold/5 border border-gold/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-gold group-hover:text-navy-dark transition-all duration-500">
+                  <div className="btn-rotating-border w-12 h-12 bg-white/5 border border-gold/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-white/5 group-hover:text-white hover:text-gold transition-all duration-500 btn-auto-sheen border border-white/5">
                     <pillar.icon className="w-6 h-6 text-gold group-hover:text-inherit transition-colors" />
                   </div>
                   <h3 className="text-white font-black text-[13px] uppercase tracking-widest mb-4 group-hover:text-gold transition-colors leading-tight">
@@ -147,14 +150,14 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xl:gap-10">
             {/* Left Block: For Employers */}
-            <div className="group relative bg-[#060c1d] rounded-[56px] p-8 lg:p-12 2xl:p-16 border border-white/5 hover:border-gold/30 transition-all duration-700 hover:shadow-[0_40px_100px_rgba(0,0,0,0.6)] flex flex-col h-full overflow-hidden">
+            <div className="group relative bg-[#060c1d] rounded-[56px] p-8 lg:p-12 2xl:p-16 border border-white/5 hover:border-gold/30 hover:shadow-[0_40px_100px_rgba(0,0,0,0.6)] flex flex-col h-full overflow-hidden card-hover-premium">
               {/* Background Accent */}
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-gold/5 blur-[100px] rounded-full group-hover:bg-gold/10 transition-all duration-700"></div>
+              <div className="btn-rotating-border absolute -top-20 -right-20 w-64 h-64 bg-white/5 blur-[100px] rounded-full group-hover:bg-white/10 transition-all duration-700 btn-auto-sheen border border-white/5"></div>
 
               <div className="relative z-10">
-                <div className="text-gold font-black text-[11px] uppercase tracking-[0.5em] mb-10 px-4 py-1.5 bg-gold/5 border border-gold/10 inline-block rounded-full">
+                <div className="btn-rotating-border text-gold font-black text-[11px] uppercase tracking-[0.5em] mb-10 px-4 py-1.5 bg-white/5 border border-gold/10 inline-block rounded-full btn-auto-sheen border border-white/5">
                   For Employers
                 </div>
                 <h3 className="text-4xl md:text-4xl font-black text-white mb-8 tracking-tighter">Empowering <span className="text-shimmer">Businesses</span></h3>
@@ -171,26 +174,26 @@ export default function Home() {
                     "Global and remote hiring solutions"
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-center gap-4 text-[15px] font-semibold text-slate-300 group/item hover:text-white transition-colors">
-                      <div className="w-6 h-6 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0 group-hover/item:bg-gold group-hover/item:border-gold transition-all duration-300">
+                      <div className="btn-rotating-border w-6 h-6 rounded-full bg-white/10 border border-gold/20 flex items-center justify-center shrink-0 group-hover/item:bg-white/5 group-hover/item:border-gold transition-all duration-300 btn-auto-sheen border border-white/5">
                         <Check className="w-3.5 h-3.5 text-gold group-hover/item:text-navy-dark transition-colors" />
                       </div>
                       {item}
                     </li>
                   ))}
                 </ul>
-                <Link href="/employer-solutions" className="mt-auto inline-flex items-center px-10 py-5 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.3em] text-white hover:bg-gold hover:text-navy-dark hover:border-gold transition-all duration-500 group/btn">
+                <Link href="/employer-solutions" className="btn-rotating-border mt-auto inline-flex items-center px-10 py-5 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.3em] text-white hover:bg-white/5 hover:text-white hover:text-gold hover:border-gold transition-all duration-500 group/btn btn-auto-sheen border border-white/5">
                   Explore Employer Solutions <ArrowRight className="ml-3 w-5 h-5 group-hover/btn:translate-x-3 transition-transform" />
                 </Link>
               </div>
             </div>
 
             {/* Right Block: For Job Seekers */}
-            <div className="group relative bg-[#060c1d] rounded-[56px] p-8 lg:p-12 2xl:p-16 border border-white/5 hover:border-gold/30 transition-all duration-700 hover:shadow-[0_40px_100px_rgba(0,0,0,0.6)] flex flex-col h-full overflow-hidden">
+            <div className="group relative bg-[#060c1d] rounded-[56px] p-8 lg:p-12 2xl:p-16 border border-white/5 hover:border-gold/30 hover:shadow-[0_40px_100px_rgba(0,0,0,0.6)] flex flex-col h-full overflow-hidden card-hover-premium">
               {/* Background Accent */}
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-gold/5 blur-[100px] rounded-full group-hover:bg-gold/10 transition-all duration-700"></div>
+              <div className="btn-rotating-border absolute -top-20 -right-20 w-64 h-64 bg-white/5 blur-[100px] rounded-full group-hover:bg-white/10 transition-all duration-700 btn-auto-sheen border border-white/5"></div>
 
               <div className="relative z-10">
-                <div className="text-gold font-black text-[11px] uppercase tracking-[0.5em] mb-10 px-4 py-1.5 bg-gold/5 border border-gold/10 inline-block rounded-full">
+                <div className="btn-rotating-border text-gold font-black text-[11px] uppercase tracking-[0.5em] mb-10 px-4 py-1.5 bg-white/5 border border-gold/10 inline-block rounded-full btn-auto-sheen border border-white/5">
                   For Job Seekers
                 </div>
                 <h3 className="text-4xl md:text-5xl font-black text-white mb-8 tracking-tighter">Advancing <span className="text-shimmer">Careers</span></h3>
@@ -206,14 +209,14 @@ export default function Home() {
                     "Receive support through a professional recruitment process"
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-center gap-4 text-[15px] font-semibold text-slate-300 group/item hover:text-white transition-colors">
-                      <div className="w-6 h-6 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0 group-hover/item:bg-gold group-hover/item:border-gold transition-all duration-300">
+                      <div className="btn-rotating-border w-6 h-6 rounded-full bg-white/10 border border-gold/20 flex items-center justify-center shrink-0 group-hover/item:bg-white/5 group-hover/item:border-gold transition-all duration-300 btn-auto-sheen border border-white/5">
                         <Check className="w-3.5 h-3.5 text-gold group-hover/item:text-navy-dark transition-colors" />
                       </div>
                       {item}
                     </li>
                   ))}
                 </ul>
-                <Link href="/job-openings" className="mt-auto inline-flex items-center px-10 py-5 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.3em] text-white hover:bg-gold hover:text-navy-dark hover:border-gold transition-all duration-500 group/btn">
+                <Link href="/job-openings" className="btn-rotating-border mt-auto inline-flex items-center px-10 py-5 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.3em] text-white hover:bg-white/5 hover:text-white hover:text-gold hover:border-gold transition-all duration-500 group/btn btn-auto-sheen border border-white/5">
                   Browse Opportunities <ArrowRight className="ml-3 w-5 h-5 group-hover/btn:translate-x-3 transition-transform" />
                 </Link>
               </div>
@@ -234,7 +237,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
             {[
               {
                 title: "Executive Search",
@@ -273,11 +276,11 @@ export default function Home() {
                 href: "/screening-assessment"
               },
             ].map((service, idx) => (
-              <div key={idx} className="group relative bg-[#0a1125] border border-white/5 p-10 rounded-[48px] hover:border-gold/30 transition-all duration-700 hover:shadow-[0_30px_90px_rgba(0,0,0,0.6)] flex flex-col h-full overflow-hidden">
+              <div key={idx} className="group relative bg-[#0a1125] border border-white/5 p-10 rounded-[48px] hover:border-gold/30 hover:shadow-[0_30px_90px_rgba(0,0,0,0.6)] flex flex-col h-full overflow-hidden card-hover-premium">
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-[48px]"></div>
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gold/5 border border-gold/10 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-gold group-hover:text-navy-dark transition-all duration-500 transform group-hover:rotate-6">
+                  <div className="btn-rotating-border w-16 h-16 bg-white/5 border border-gold/10 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-white/5 group-hover:text-white hover:text-gold transition-all duration-500 transform group-hover:rotate-6 btn-auto-sheen border border-white/5">
                     <service.icon className="w-8 h-8 text-gold group-hover:text-inherit transition-colors" />
                   </div>
                   <h3 className="text-2xl md:text-3xl font-black text-white mb-6 group-hover:text-gold transition-colors tracking-tighter leading-tight">
@@ -301,7 +304,7 @@ export default function Home() {
             <p className="text-slate-400 font-medium mb-16 max-w-4xl mx-auto text-lg leading-relaxed">
               <span className="text-gold font-bold">Need a tailored solution?</span> NAYA Staffing also supports <span className="text-white/80 font-bold">talent mapping, employer branding, startup hiring, technical recruitment, sales recruitment, remote hiring, diversity hiring, and turnkey recruitment projects.</span>
             </p>
-            <Link href="/services" className="inline-flex items-center px-14 py-6 bg-gold text-navy-dark rounded-full font-black text-[11px] uppercase tracking-[0.3em] hover:bg-gold-hover shadow-[0_10px_40px_rgba(212,175,55,0.2)] transition-all transform hover:-translate-y-2">
+            <Link href="/services" className="inline-flex items-center px-14 py-6 bg-white/5 text-white hover:text-gold rounded-full font-black text-[11px] uppercase tracking-[0.3em] hover:bg-white/10 shadow-[0_10px_40px_rgba(212,175,55,0.2)] transition-all transform hover:-translate-y-2 btn-rotating-border btn-auto-sheen border border-white/5">
               View All Services
             </Link>
           </div>
@@ -320,7 +323,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 xl:grid-cols-5 gap-6">
             {[
               { title: "Information Technology", desc: "Technology hiring support across software development, infrastructure, cybersecurity, cloud, data, AI, and digital product teams." },
               { title: "Healthcare", desc: "Talent solutions for clinical, non-clinical, healthcare operations, allied health, medical administration, and healthcare support roles." },
@@ -333,7 +336,7 @@ export default function Home() {
               { title: "Construction", desc: "Hiring for project management, civil engineering, site operations, technical roles, and skilled trades across construction environments." },
               { title: "Sales & Marketing", desc: "Recruitment for business development, account management, growth, digital marketing, content, brand, and revenue-generating teams." }
             ].map((industry, idx) => (
-              <div key={idx} className="group p-8 rounded-3xl bg-[#0a1125] border border-white/5 hover:border-gold/30 transition-all duration-500 hover:shadow-xl flex flex-col h-full">
+              <div key={idx} className="group p-8 rounded-3xl bg-[#0a1125] border border-white/5 hover:border-gold/30 hover:shadow-xl flex flex-col h-full card-hover-premium">
                 <h4 className="text-lg font-black text-white mb-4 group-hover:text-gold transition-colors leading-tight tracking-tight">{industry.title}</h4>
                 <p className="text-slate-400 text-[13px] font-medium leading-relaxed transition-all">{industry.desc}</p>
               </div>
@@ -341,7 +344,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-20">
-            <Link href="/our-industries" className="inline-flex items-center px-12 py-5 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.3em] text-white hover:bg-gold hover:text-navy-dark hover:border-gold transition-all duration-500 group/btn">
+            <Link href="/our-industries" className="inline-flex items-center px-12 py-5 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.3em] text-white hover:bg-white/5 hover:text-white hover:text-gold hover:border-gold transition-all duration-500 group/btn btn-rotating-border btn-auto-sheen border border-white/5">
               Explore Industries We Serve <ArrowRight className="ml-3 w-5 h-5 group-hover/btn:translate-x-2 transition-transform" />
             </Link>
           </div>
@@ -351,17 +354,17 @@ export default function Home() {
       {/* 7. Why Choose NAYA Staffing */}
       <section className="bg-navy py-20 lg:py-24 2xl:py-32 border-y border-white/5 relative overflow-hidden">
         {/* Abstract background elements */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 blur-[120px] rounded-full -mr-64 -mt-64"></div>
+        <div className="btn-rotating-border absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 blur-[120px] rounded-full -mr-64 -mt-64 btn-auto-sheen border border-white/5"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-navy-light/20 blur-[120px] rounded-full -ml-64 -mb-64"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16 2xl:gap-24">
+          <div className="flex flex-col lg:flex-row items-start gap-8 xl:gap-12 lg:gap-10 xl:gap-16 2xl:gap-24">
             <div className="lg:w-1/2 sticky top-32">
               <div className="space-y-8 text-center lg:text-left">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white tracking-tighter leading-[0.95]">
                   Why Businesses and Professionals <span className="text-gold">Choose NAYA Staffing</span>
                 </h2>
-                <div className="h-1 w-20 bg-gold/30 rounded-full mx-auto lg:mx-0"></div>
+                <div className="btn-rotating-border h-1 w-20 bg-white/30 rounded-full mx-auto lg:mx-0 btn-auto-sheen border border-white/5"></div>
                 <p className="text-lg md:text-xl text-slate-400 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
                   Recruitment success depends on more than filling roles. It requires a clear process, market understanding, strong communication, and a commitment to quality at every stage. NAYA Staffing is built to provide a more strategic recruitment experience for both clients and candidates.
                 </p>
@@ -395,8 +398,8 @@ export default function Home() {
                   desc: "We understand the evolving realities of remote work, international hiring, distributed teams, and modern workforce planning."
                 }
               ].map((item, idx) => (
-                <div key={idx} className="group p-8 rounded-[32px] bg-[#0a1125] border border-white/5 hover:border-gold/30 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] flex flex-col">
-                  <div className="w-10 h-10 rounded-xl bg-gold/5 border border-gold/10 flex items-center justify-center mb-6 group-hover:bg-gold group-hover:text-navy-dark transition-all duration-500">
+                <div key={idx} className="group p-8 rounded-[32px] bg-[#0a1125] border border-white/5 hover:border-gold/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] flex flex-col card-hover-premium">
+                  <div className="btn-rotating-border w-10 h-10 rounded-xl bg-white/5 border border-gold/10 flex items-center justify-center mb-6 group-hover:bg-white/5 group-hover:text-white hover:text-gold transition-all duration-500 btn-auto-sheen border border-white/5">
                     <Check className="w-5 h-5 text-gold group-hover:text-inherit transition-colors" />
                   </div>
                   <h4 className="text-white font-black text-[13px] uppercase tracking-widest mb-4 group-hover:text-gold transition-colors leading-tight">
@@ -415,7 +418,7 @@ export default function Home() {
       {/* 8. Our Recruitment Process */}
       <section className="bg-navy-dark py-20 lg:py-24 2xl:py-32 relative overflow-hidden">
         {/* Background Accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-gold/[0.02] blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="btn-rotating-border absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-white/[0.02] blur-[150px] rounded-full pointer-events-none btn-auto-sheen border border-white/5"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-28 max-w-5xl mx-auto">
@@ -427,7 +430,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
             {[
               { step: "01", title: "Understand the Requirement", desc: "We begin by understanding the role, hiring expectations, business context, team structure, and success profile." },
               { step: "02", title: "Source and Identify Talent", desc: "We activate targeted search strategies to identify qualified professionals through relevant channels and talent networks." },
@@ -436,8 +439,8 @@ export default function Home() {
               { step: "05", title: "Coordinate the Hiring Journey", desc: "We support interview coordination, candidate communication, feedback flow, and overall process management." },
               { step: "06", title: "Support Successful Placement", desc: "We stay engaged through the final stages to help ensure a smoother hiring experience and a stronger placement outcome." }
             ].map((step, idx) => (
-              <div key={idx} className="group relative p-12 rounded-[48px] bg-[#0a1125] border border-white/5 hover:border-gold/30 transition-all duration-700 hover:shadow-[0_30px_80px_rgba(0,0,0,0.5)] flex flex-col h-full overflow-hidden">
-                <div className="absolute -top-12 -right-12 w-32 h-32 bg-gold/5 blur-3xl rounded-full group-hover:bg-gold/10 transition-all duration-700"></div>
+              <div key={idx} className="group relative p-12 rounded-[48px] bg-[#0a1125] border border-white/5 hover:border-gold/30 hover:shadow-[0_30px_80px_rgba(0,0,0,0.5)] flex flex-col h-full overflow-hidden card-hover-premium">
+                <div className="btn-rotating-border absolute -top-12 -right-12 w-32 h-32 bg-white/5 blur-3xl rounded-full group-hover:bg-white/10 transition-all duration-700 btn-auto-sheen border border-white/5"></div>
 
                 <div className="relative z-10">
                   <div className="flex items-center gap-6 mb-10">
@@ -458,7 +461,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-24">
-            <Link href="/our-proven-process" className="inline-flex items-center px-12 py-5 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.4em] text-white hover:bg-gold hover:text-navy-dark hover:border-gold transition-all duration-500 group/btn">
+            <Link href="/our-proven-process" className="inline-flex items-center px-12 py-5 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.4em] text-white hover:bg-white/5 hover:text-white hover:text-gold hover:border-gold transition-all duration-500 group/btn btn-rotating-border btn-auto-sheen border border-white/5">
               Learn More About Our Process <ArrowRight className="ml-3 w-5 h-5 group-hover/btn:translate-x-3 transition-transform" />
             </Link>
           </div>
@@ -468,11 +471,11 @@ export default function Home() {
       {/* 9. Global Hiring / Remote Hiring Section */}
       <section className="bg-navy py-20 lg:py-24 2xl:py-32 border-y border-white/5 relative overflow-hidden">
         {/* Animated Background Elements */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold/5 blur-[150px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+        <div className="btn-rotating-border absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 blur-[150px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none btn-auto-sheen border border-white/5"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-navy-light/10 blur-[120px] rounded-full -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 2xl:gap-24">
+          <div className="flex flex-col lg:flex-row items-center gap-8 xl:gap-12 lg:gap-10 xl:gap-16 2xl:gap-24">
             <div className="lg:w-1/2 space-y-10 text-center lg:text-left">
               <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white tracking-tighter leading-[0.95] mb-10">
                 Hiring Beyond Borders <span className="text-gold">With Confidence</span>
@@ -481,10 +484,10 @@ export default function Home() {
                 Today’s talent market is not limited by geography. NAYA Staffing supports businesses seeking to hire across cities, regions, and international markets by providing recruitment solutions aligned with remote hiring, distributed teams, and cross-market talent access. Whether you are expanding into new territories or building a more flexible workforce model, we help simplify the path to better hiring.
               </p>
               <div className="flex flex-row items-center justify-center lg:justify-start gap-4 pt-8">
-                <Link href="/global-hiring" className="px-8 py-5 bg-gold text-navy-dark font-black rounded-full hover:bg-gold-hover transition-all uppercase tracking-[0.3em] text-[10px] shadow-[0_10px_40px_rgba(212,175,55,0.2)] transform hover:-translate-y-1 whitespace-nowrap">
+                <Link href="/global-hiring" className="px-8 py-5 bg-white/5 text-white hover:text-gold font-black rounded-full hover:bg-white/10 transition-all uppercase tracking-[0.3em] text-[10px] shadow-[0_10px_40px_rgba(212,175,55,0.2)] transform hover:-translate-y-1 whitespace-nowrap btn-rotating-border btn-auto-sheen border border-white/5">
                   Explore Global Hiring Solutions
                 </Link>
-                <Link href="/contact-us" className="px-8 py-5 border border-white/20 text-white font-black rounded-full hover:border-gold hover:text-gold transition-all uppercase tracking-[0.3em] text-[10px] transform hover:-translate-y-1 whitespace-nowrap">
+                <Link href="/contact-us" className="px-8 py-5 border border-white/20 text-white font-black rounded-full hover:border-gold hover:text-gold transition-all uppercase tracking-[0.3em] text-[10px] transform hover:-translate-y-1 whitespace-nowrap btn-rotating-border">
                   Talk to Our Team
                 </Link>
               </div>
@@ -494,7 +497,7 @@ export default function Home() {
               <div className="relative w-full max-w-lg aspect-square">
                 {/* Orbit Circles */}
                 <div className="absolute inset-0 rounded-full border border-white/5 animate-spin-slow">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-gold rounded-full shadow-[0_0_30px_rgba(212,175,55,1)]"></div>
+                  <div className="btn-rotating-border absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white/5 rounded-full shadow-[0_0_30px_rgba(212,175,55,1)] btn-auto-sheen border border-white/5"></div>
                 </div>
                 <div className="absolute inset-12 rounded-full border border-white/5 animate-reverse-spin-slow">
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2 h-2 bg-white/40 rounded-full"></div>
@@ -504,7 +507,7 @@ export default function Home() {
                 {/* Central Globe */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-2/3 h-2/3 relative group">
-                    <div className="absolute inset-0 bg-gold/10 blur-[100px] rounded-full group-hover:bg-gold/20 transition-all"></div>
+                    <div className="btn-rotating-border absolute inset-0 bg-white/10 blur-[100px] rounded-full group-hover:bg-white/20 transition-all btn-auto-sheen border border-white/5"></div>
                     <Globe className="w-full h-full text-white/5 relative z-10 group-hover:text-white/10 transition-all duration-700" />
                   </div>
                 </div>
@@ -526,7 +529,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8 mb-24">
             {[
               { title: "Senior Software Architect", loc: "Remote / International", type: "Full-Time", ind: "Information Technology" },
               { title: "Clinical Operations Lead", loc: "New York, NY", type: "Full-Time", ind: "Healthcare" },
@@ -536,7 +539,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
                 <div className="relative z-10">
-                  <div className="text-gold font-black text-[10px] uppercase tracking-[0.5em] mb-8 inline-block px-4 py-1.5 bg-gold/5 border border-gold/10 rounded-full">
+                  <div className="btn-rotating-border text-gold font-black text-[10px] uppercase tracking-[0.5em] mb-8 inline-block px-4 py-1.5 bg-white/5 border border-gold/10 rounded-full btn-auto-sheen border border-white/5">
                     {job.ind}
                   </div>
                   <h4 className="text-2xl md:text-3xl font-black text-white mb-8 tracking-tighter leading-tight group-hover:text-gold transition-colors">
@@ -544,19 +547,19 @@ export default function Home() {
                   </h4>
                   <div className="space-y-4 mb-12">
                     <div className="flex items-center gap-4 text-sm font-semibold text-slate-300">
-                      <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-gold/10 group-hover:border-gold/20 transition-all">
+                      <div className="btn-rotating-border w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-white/10 group-hover:border-gold/20 transition-all btn-auto-sheen border border-white/5">
                         <MapPin className="w-4 h-4 text-gold" />
                       </div>
                       {job.loc}
                     </div>
                     <div className="flex items-center gap-4 text-sm font-semibold text-slate-300">
-                      <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-gold/10 group-hover:border-gold/20 transition-all">
+                      <div className="btn-rotating-border w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-white/10 group-hover:border-gold/20 transition-all btn-auto-sheen border border-white/5">
                         <Briefcase className="w-4 h-4 text-gold" />
                       </div>
                       {job.type}
                     </div>
                   </div>
-                  <Link href="/job-openings" className="w-full inline-flex items-center justify-center px-10 py-5 bg-white/5 border border-white/10 rounded-full font-black text-[11px] uppercase tracking-[0.3em] text-white hover:bg-gold hover:text-navy-dark hover:border-gold transition-all duration-500">
+                  <Link href="/job-openings" className="w-full inline-flex items-center justify-center px-10 py-5 bg-white/5 border border-white/10 rounded-full font-black text-[11px] uppercase tracking-[0.3em] text-white hover:bg-white/5 hover:text-white hover:text-gold hover:border-gold transition-all duration-500 btn-rotating-border btn-auto-sheen border border-white/5">
                     Apply Now
                   </Link>
                 </div>
@@ -565,10 +568,13 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link href="/job-openings" className="w-full sm:w-auto px-12 py-5 bg-gold text-navy-dark font-black rounded-full hover:bg-gold-hover transition-all uppercase tracking-[0.3em] text-[11px] shadow-[0_15px_45px_rgba(212,175,55,0.2)] transform hover:-translate-y-1">
+            <Link 
+              href="/job-openings" 
+              className="w-full sm:w-auto px-12 py-5 text-[11px] font-black rounded-full text-white hover:text-gold bg-white/5 border border-white/5 transition-all duration-500 transform hover:-translate-y-2 uppercase tracking-[0.3em] btn-rotating-border btn-sheen shadow-[0_15px_45px_rgba(212,175,55,0.1)] text-center"
+            >
               Browse All Open Jobs
             </Link>
-            <Link href="/register-upload-resume" className="w-full sm:w-auto px-12 py-5 border border-white/20 text-white font-black rounded-full hover:border-gold hover:text-gold transition-all uppercase tracking-[0.3em] text-[11px] transform hover:-translate-y-1">
+            <Link href="/register-upload-resume" className="w-full sm:w-auto px-12 py-5 border border-white/20 text-white font-black rounded-full hover:border-gold hover:text-gold transition-all uppercase tracking-[0.3em] text-[11px] transform hover:-translate-y-1 btn-rotating-border btn-sheen text-center">
               Upload Resume
             </Link>
           </div>
@@ -578,10 +584,10 @@ export default function Home() {
       {/* 11. About NAYA Staffing Preview */}
       <section className="bg-navy py-20 lg:py-24 2xl:py-32 border-b border-white/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 2xl:gap-24">
+          <div className="flex flex-col lg:flex-row items-center gap-8 xl:gap-12 lg:gap-10 xl:gap-16 2xl:gap-24">
             <div className="lg:w-1/2 relative group">
-              <div className="absolute inset-0 bg-gold/20 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-              <div className="relative rounded-[56px] overflow-hidden border border-white/10 group-hover:border-gold/30 transition-all duration-700 shadow-2xl">
+              <div className="btn-rotating-border absolute inset-0 bg-white/20 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000 btn-auto-sheen border border-white/5"></div>
+              <div className="relative rounded-[56px] overflow-hidden border border-white/10 group-hover:border-gold/30 transition-all duration-700 shadow-2xl btn-sheen">
                 <img
                   src="/about-naya.png"
                   alt="About NAYA Staffing"
@@ -596,13 +602,13 @@ export default function Home() {
                 <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white tracking-tighter leading-[0.95]">
                   About <span className="text-gold">NAYA Staffing</span>
                 </h2>
-                <div className="h-1 w-20 bg-gold/30 rounded-full mx-auto lg:mx-0"></div>
+                <div className="btn-rotating-border h-1 w-20 bg-white/30 rounded-full mx-auto lg:mx-0 btn-auto-sheen border border-white/5"></div>
               </div>
               <p className="text-lg md:text-xl text-slate-400 font-medium leading-relaxed">
                 NAYA Staffing is a modern recruitment and workforce solutions company focused on delivering smarter hiring experiences for employers and stronger opportunities for candidates. With a broad industry scope, a premium service mindset, and a commitment to long-term value, we help bridge the gap between talent and business growth.
               </p>
               <div className="pt-6">
-                <Link href="/about-us" className="inline-flex items-center px-12 py-5 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.4em] text-white hover:bg-gold hover:text-navy-dark hover:border-gold transition-all duration-500 group/btn">
+                <Link href="/about-us" className="inline-flex items-center px-12 py-5 text-[11px] font-black rounded-full text-white hover:text-gold bg-white/5 border border-white/5 transition-all duration-500 transform hover:-translate-y-2 uppercase tracking-[0.4em] btn-rotating-border">
                   Learn More About Us <ArrowRight className="ml-3 w-5 h-5 group-hover/btn:translate-x-3 transition-transform" />
                 </Link>
               </div>
@@ -614,7 +620,7 @@ export default function Home() {
       {/* 15. Insights / Resources Section */}
       <section className="bg-navy py-20 lg:py-24 2xl:py-32 border-y border-white/5 relative overflow-hidden">
         {/* Background Accent */}
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gold/5 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+        <div className="btn-rotating-border absolute top-0 left-0 w-[600px] h-[600px] bg-white/5 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none btn-auto-sheen border border-white/5"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-24 max-w-5xl mx-auto">
@@ -626,7 +632,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 xl:gap-8 mb-20">
             {[
               {
                 title: "Hiring Trends Across Competitive Industries",
@@ -665,7 +671,7 @@ export default function Home() {
           </div>
 
           <div className="text-center">
-            <Link href="/insights" className="inline-flex items-center px-12 py-5 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.4em] text-white hover:bg-gold hover:text-navy-dark hover:border-gold transition-all duration-500 group/btn">
+            <Link href="/insights" className="inline-flex items-center px-12 py-5 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.4em] text-white hover:bg-white/5 hover:text-white hover:text-gold hover:border-gold transition-all duration-500 group/btn btn-rotating-border btn-auto-sheen border border-white/5">
               Visit Our Blog / Insights <ArrowRight className="ml-3 w-5 h-5 group-hover/btn:translate-x-3 transition-transform" />
             </Link>
           </div>
@@ -681,14 +687,14 @@ export default function Home() {
               <span className="text-gold">Valued by Candidates.</span>
             </h2>
             <p className="text-lg md:text-xl text-slate-400 font-medium leading-relaxed max-w-4xl mx-auto">
-              We believe strong recruitment partnerships are built on trust, communication, and results. As NAYA Staffing grows, this section should highlight real feedback from employers and candidates who have experienced our approach firsthand.
+              We believe strong recruitment partnerships are built on trust, communication, and results. As NAYA Staffing grows, this section highlights the real feedback from employers and candidates who have experienced our approach firsthand.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="group relative p-10 lg:p-16 2xl:p-20 rounded-[56px] bg-white/[0.02] border border-white/10 border-dashed flex flex-col items-center justify-center text-center space-y-8 hover:bg-white/[0.04] transition-all duration-700">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 xl:gap-8">
+            <div className="group relative p-10 lg:p-16 2xl:p-20 rounded-[56px] bg-white/[0.02] border border-white/10 border-dashed flex flex-col items-center justify-center text-center space-y-8 hover:bg-white/[0.04] transition-all duration-700 btn-sheen">
               <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-[56px]"></div>
-              <div className="w-20 h-20 rounded-full bg-navy border border-white/10 flex items-center justify-center text-white/20 group-hover:border-gold/30 group-hover:text-gold/40 transition-all duration-700">
+              <div className="w-20 h-20 rounded-full bg-navy border border-white/10 flex items-center justify-center text-white/20 group-hover:border-gold/30 group-hover:text-gold/40 transition-all duration-700 btn-sheen">
                 <Users className="w-10 h-10" />
               </div>
               <div className="space-y-2">
@@ -697,9 +703,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="group relative p-10 lg:p-16 2xl:p-20 rounded-[56px] bg-white/[0.02] border border-white/10 border-dashed flex flex-col items-center justify-center text-center space-y-8 hover:bg-white/[0.04] transition-all duration-700">
+            <div className="group relative p-10 lg:p-16 2xl:p-20 rounded-[56px] bg-white/[0.02] border border-white/10 border-dashed flex flex-col items-center justify-center text-center space-y-8 hover:bg-white/[0.04] transition-all duration-700 btn-sheen">
               <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-[56px]"></div>
-              <div className="w-20 h-20 rounded-full bg-navy border border-white/10 flex items-center justify-center text-white/20 group-hover:border-gold/30 group-hover:text-gold/40 transition-all duration-700">
+              <div className="w-20 h-20 rounded-full bg-navy border border-white/10 flex items-center justify-center text-white/20 group-hover:border-gold/30 group-hover:text-gold/40 transition-all duration-700 btn-sheen">
                 <TrendingUp className="w-10 h-10" />
               </div>
               <div className="space-y-2">
@@ -714,14 +720,14 @@ export default function Home() {
       {/* 17. FAQ Section */}
       <section className="bg-navy-dark py-20 lg:py-24 2xl:py-32 relative overflow-hidden">
         {/* Abstract Background Element */}
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold/5 blur-[120px] rounded-full translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+        <div className="btn-rotating-border absolute bottom-0 right-0 w-[500px] h-[500px] bg-white/5 blur-[120px] rounded-full translate-x-1/2 translate-y-1/2 pointer-events-none btn-auto-sheen border border-white/5"></div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-8 leading-[0.95]">
               Frequently Asked <span className="text-gold">Questions</span>
             </h2>
-            <div className="h-1 w-20 bg-gold/30 rounded-full mx-auto"></div>
+            <div className="btn-rotating-border h-1 w-20 bg-white/30 rounded-full mx-auto btn-auto-sheen border border-white/5"></div>
             <p className="text-lg text-slate-400 font-medium mt-8">Everything you need to know about partnering with NAYA Staffing.</p>
           </div>
 
@@ -762,7 +768,7 @@ export default function Home() {
       <section className="relative py-24 lg:py-32 2xl:py-48 px-4 overflow-hidden bg-navy-dark border-t border-white/5">
         {/* Deep Atmospheric Background */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gold/[0.03] blur-[180px] rounded-full"></div>
+          <div className="btn-rotating-border absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-white/[0.03] blur-[180px] rounded-full btn-auto-sheen border border-white/5"></div>
           <div className="absolute top-0 left-0 w-full h-full opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
         </div>
 
@@ -777,25 +783,31 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col items-center gap-12 pt-8">
+          <div className="flex flex-col items-center gap-8 xl:gap-12 pt-8">
             {/* Primary Employer CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-2xl">
-              <Link href="/contact-us" className="w-full sm:w-auto px-14 py-6 bg-gold text-navy-dark font-black rounded-full hover:bg-gold-hover hover:-translate-y-1.5 transition-all shadow-[0_20px_50px_rgba(212,175,55,0.3)] uppercase tracking-[0.3em] text-[11px]">
+              <Link 
+                href="/contact-us" 
+                className="w-full sm:w-auto px-14 py-6 text-[11px] font-black rounded-full text-white hover:text-gold bg-white/5 border border-white/5 transition-all duration-500 transform hover:-translate-y-1.5 uppercase tracking-[0.25em] text-center btn-rotating-border btn-sheen shadow-[0_20px_50px_rgba(212,175,55,0.1)]"
+              >
                 Schedule Consultation
               </Link>
-              <Link href="/become-a-client" className="w-full sm:w-auto px-14 py-6 border border-white/20 text-white font-black rounded-full hover:border-gold hover:text-gold hover:-translate-y-1.5 transition-all uppercase tracking-[0.3em] text-[11px] backdrop-blur-md">
+              <Link 
+                href="/become-a-client" 
+                className="w-full sm:w-auto px-14 py-6 border border-white/20 text-white font-black rounded-full hover:border-gold hover:text-gold hover:-translate-y-1.5 transition-all uppercase tracking-[0.3em] text-[11px] backdrop-blur-md btn-sheen text-center"
+              >
                 Become a Client
               </Link>
             </div>
 
             {/* Secondary Candidate CTAs */}
-            <div className="flex items-center justify-center gap-12 pt-4 border-t border-white/5 w-full max-w-lg">
+            <div className="flex items-center justify-center gap-8 xl:gap-12 pt-4 border-t border-white/5 w-full max-w-lg">
               <Link href="/job-openings" className="group flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.4em] text-white/40 hover:text-gold transition-all">
-                <span className="w-2 h-2 rounded-full bg-gold/40 group-hover:bg-gold transition-colors"></span>
+                <span className="btn-rotating-border w-2 h-2 rounded-full bg-white/40 group-hover:bg-white/5 transition-colors btn-auto-sheen border border-white/5"></span>
                 Browse Open Jobs
               </Link>
               <Link href="/register-upload-resume" className="group flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.4em] text-white/40 hover:text-gold transition-all">
-                <span className="w-2 h-2 rounded-full bg-gold/40 group-hover:bg-gold transition-colors"></span>
+                <span className="btn-rotating-border w-2 h-2 rounded-full bg-white/40 group-hover:bg-white/5 transition-colors btn-auto-sheen border border-white/5"></span>
                 Upload Resume
               </Link>
             </div>

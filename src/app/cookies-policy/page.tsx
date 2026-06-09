@@ -1,5 +1,6 @@
 "use client";
 
+import { Typewriter } from "@/components/Typewriter";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -12,8 +13,10 @@ export default function CookiesPolicy() {
         </Link>
         
         <div className="space-y-12">
-          <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-tight">
-            Cookies <span className="text-shimmer">Policy</span>
+          <h1 className="text-4xl md:text-5xl xl:text-7xl font-black text-white tracking-tighter leading-tight">
+            <Typewriter>
+              Cookies <span className="text-shimmer">Policy</span>
+            </Typewriter>
           </h1>
           
           <div className="space-y-10 text-slate-400 font-medium leading-relaxed">

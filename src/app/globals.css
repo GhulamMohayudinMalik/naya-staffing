@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 :root {
   --background: #040814;
   --foreground: #FFFFFF;
@@ -22,23 +28,66 @@
 
   /* Custom Animations */
   --animate-float: float 6s ease-in-out infinite;
-  --animate-fade-up: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-up: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in-up: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-spin-slow: borderSpin 4s linear infinite;
   --animate-shimmer: shimmer 2.5s linear infinite;
-}
+  --animate-reveal-word: revealWord 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-reveal-letter: revealLetter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
+  @keyframes revealWord {
+    from {
+      opacity: 0;
+      transform: translateY(12px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+  @keyframes revealLetter {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+      filter: blur(2px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
 
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes borderSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes borderSpinAngle {
+    from { --angle: 0deg; }
+    to { --angle: 360deg; }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
 }
 
 body {
@@ -63,4 +112,121 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   animation: shimmer 5s linear infinite;
+}
+
+@utility animate-delay-100 {
+  animation-delay: 100ms !important;
+}
+@utility animate-delay-200 {
+  animation-delay: 200ms !important;
+}
+@utility animate-delay-300 {
+  animation-delay: 300ms !important;
+}
+@utility animate-delay-400 {
+  animation-delay: 400ms !important;
+}
+@utility animate-delay-500 {
+  animation-delay: 500ms !important;
+}
+
+@utility btn-sheen {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: left 0.7s ease-in-out;
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    left: 120%;
+  }
+}
+
+@utility btn-auto-sheen {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.25) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    animation: btnSheenSweep 5s infinite ease-in-out;
+    pointer-events: none;
+  }
+}
+
+@keyframes btnSheenSweep {
+  0%, 70% {
+    left: -150%;
+  }
+  85%, 100% {
+    left: 150%;
+  }
+}
+
+@utility btn-rotating-border {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px; /* Border thickness */
+    background: conic-gradient(
+      from var(--angle),
+      transparent 0%,
+      #D4AF37 25%,
+      transparent 50%,
+      #D4AF37 75%,
+      transparent 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+    pointer-events: none;
+    animation: borderSpinAngle 4s linear infinite;
+  }
+
+  &:hover::before {
+    animation: borderSpinAngle 2s linear infinite;
+  }
+}
+
+@utility card-hover-premium {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: rgba(212, 175, 55, 0.3) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(212, 175, 55, 0.03);
+  }
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import { Typewriter } from "@/components/Typewriter";
 import React from 'react';
 import Link from 'next/link';
 import { 
@@ -108,7 +109,7 @@ export default function TemporaryStaffingPage() {
   return (
     <main className="bg-[#040814] text-white min-h-screen">
       {/* --- HERO SECTION --- */}
-      <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative pt-24 md:pt-32 xl:pt-40 pb-16 md:pb-20 xl:pb-24 overflow-hidden">
         <video 
           autoPlay 
           muted 
@@ -123,25 +124,27 @@ export default function TemporaryStaffingPage() {
         <div className="absolute inset-0 bg-linear-to-b from-[#040814]/80 via-transparent to-[#040814]" />
         <div className="absolute inset-0 bg-linear-to-r from-[#040814] via-transparent to-transparent opacity-60" />
 
-        <div className="container mx-auto px-6 relative z-10 pt-20">
-          <div className="max-w-4xl animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 mb-6 backdrop-blur-md">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+            <div className="btn-rotating-border inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-gold/20 mb-6 backdrop-blur-md animate-fade-in-up btn-auto-sheen border border-white/5">
               <Clock className="w-4 h-4 text-gold" />
               <span className="text-gold text-xs font-bold uppercase tracking-widest">Agile Workforce Solutions</span>
             </div>
-            <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-none">
+            <h1 className="text-5xl md:text-6xl xl:text-8xl font-black tracking-tighter mb-6 leading-none">
+            <Typewriter>
               Temporary <br/>
               <span className="text-transparent bg-clip-text bg-linear-to-r from-gold via-gold-dark to-gold animate-gradient">
                 Staffing
               </span>
-            </h1>
+            </Typewriter>
+          </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-2xl font-light leading-relaxed mb-10">
               On-demand staffing for short-term needs—fast, flexible, and consistently reliable. We keep your business moving when demand peaks.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 justify-center animate-fade-in-up animate-delay-300">
               <Link 
                 href="/become-a-client" 
-                className="group relative px-8 py-4 bg-gold hover:bg-gold-hover text-navy-dark font-bold rounded-full transition-all duration-300 overflow-hidden shadow-2xl shadow-gold/20"
+                className="btn-rotating-border group relative px-8 py-4 bg-white/5 hover:bg-white/10 text-white hover:text-gold font-bold rounded-full transition-all duration-300 overflow-hidden shadow-2xl shadow-gold/20 btn-auto-sheen border border-white/5"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Request Staffing Now <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -149,7 +152,7 @@ export default function TemporaryStaffingPage() {
               </Link>
               <Link 
                 href="/job-openings" 
-                className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-full border border-white/10 transition-all duration-300 backdrop-blur-xl"
+                className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-full border border-white/10 transition-all duration-300 backdrop-blur-xl btn-sheen"
               >
                 Search Temporary Roles
               </Link>
@@ -159,24 +162,24 @@ export default function TemporaryStaffingPage() {
 
         {/* Floating Accent */}
         <div className="absolute bottom-0 right-0 p-10 hidden lg:block animate-pulse">
-          <div className="w-64 h-64 bg-gold/10 rounded-full blur-3xl" />
+          <div className="btn-rotating-border w-64 h-64 bg-white/10 rounded-full blur-3xl btn-auto-sheen border border-white/5" />
         </div>
       </section>
 
       {/* --- INTRO SECTION --- */}
       <section className="py-24 relative overflow-hidden">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 xl:gap-16 items-center">
             <div className="relative group">
-              <div className="absolute -inset-4 bg-gold/5 rounded-3xl blur-2xl group-hover:bg-gold/10 transition-all duration-500" />
-              <div className="relative glass-panel rounded-3xl p-8 border border-white/10">
+              <div className="btn-rotating-border absolute -inset-4 bg-white/5 rounded-3xl blur-2xl group-hover:bg-white/10 transition-all duration-500 btn-auto-sheen border border-white/5" />
+              <div className="relative glass-panel rounded-3xl p-8 border border-white/10 btn-sheen">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 rounded-2xl bg-gold/20 flex items-center justify-center">
+                  <div className="btn-rotating-border w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center btn-auto-sheen border border-white/5">
                     <Briefcase className="w-8 h-8 text-gold" />
                   </div>
                   <div>
                     <h2 className="text-3xl font-bold">What is Temporary Staffing?</h2>
-                    <div className="w-20 h-1 bg-gold mt-2 rounded-full" />
+                    <div className="btn-rotating-border w-20 h-1 bg-white/5 mt-2 rounded-full btn-auto-sheen border border-white/5" />
                   </div>
                 </div>
                 <div className="space-y-6 text-gray-300 leading-relaxed text-lg font-light">
@@ -213,11 +216,11 @@ export default function TemporaryStaffingPage() {
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-6 pt-6">
-                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-gold/30 transition-colors">
+                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-gold/30 transition-colors btn-sheen">
                   <h3 className="text-3xl font-black text-gold mb-1">98%</h3>
                   <p className="text-xs uppercase tracking-widest text-gray-400 font-bold">Placement Rate</p>
                 </div>
-                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-gold/30 transition-colors">
+                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-gold/30 transition-colors btn-sheen">
                   <h3 className="text-3xl font-black text-gold mb-1">20yr+</h3>
                   <p className="text-xs uppercase tracking-widest text-gray-400 font-bold">Industry Expertise</p>
                 </div>
@@ -230,7 +233,7 @@ export default function TemporaryStaffingPage() {
       {/* --- BENEFITS (Sticky Scroll Concept) --- */}
       <section className="py-24 bg-navy-dark/50 relative">
         <div className="container mx-auto px-6 text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 mb-4">
+          <div className="btn-rotating-border inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-gold/20 mb-4 btn-auto-sheen border border-white/5">
             <TrendingUp className="w-4 h-4 text-gold" />
             <span className="text-gold text-xs font-black uppercase tracking-widest">Value Driven</span>
           </div>
@@ -241,14 +244,14 @@ export default function TemporaryStaffingPage() {
         </div>
 
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-8">
             {benefits.map((benefit, idx) => (
               <div 
                 key={idx} 
                 className="group relative p-8 rounded-3xl bg-navy border border-white/5 hover:border-gold/50 transition-all duration-500 hover:-translate-y-2 overflow-hidden"
               >
-                <div className="absolute -right-4 -top-4 w-24 h-24 bg-gold/5 rounded-full blur-2xl group-hover:bg-gold/20 transition-all" />
-                <div className="mb-6 p-4 bg-gold/10 rounded-2xl w-fit group-hover:scale-110 transition-transform duration-500">
+                <div className="btn-rotating-border absolute -right-4 -top-4 w-24 h-24 bg-white/5 rounded-full blur-2xl group-hover:bg-white/20 transition-all btn-auto-sheen border border-white/5" />
+                <div className="btn-rotating-border mb-6 p-4 bg-white/10 rounded-2xl w-fit group-hover:scale-110 transition-transform duration-500 btn-auto-sheen border border-white/5">
                   {benefit.icon}
                 </div>
                 <div className="text-gold font-black text-sm uppercase tracking-widest mb-2 opacity-60">
@@ -275,10 +278,10 @@ export default function TemporaryStaffingPage() {
               <p className="text-gray-400 font-light text-lg">Why industry leaders trust us with their critical short-term needs.</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 relative z-10">
+            <div className="grid md:grid-cols-2 gap-8 xl:gap-12 relative z-10">
               {advantages.map((adv, idx) => (
                 <div key={idx} className="flex gap-6 group">
-                  <div className="shrink-0 w-14 h-14 rounded-2xl bg-gold flex items-center justify-center text-navy-dark group-hover:rotate-12 transition-transform duration-300 shadow-xl shadow-gold/20">
+                  <div className="btn-rotating-border shrink-0 w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-white hover:text-gold group-hover:rotate-12 transition-transform duration-300 shadow-xl shadow-gold/20 btn-auto-sheen border border-white/5">
                     {adv.icon}
                   </div>
                   <div>
@@ -289,7 +292,7 @@ export default function TemporaryStaffingPage() {
               ))}
             </div>
 
-            <div className="mt-20 p-8 rounded-3xl bg-white/5 border border-white/10 text-center relative z-10">
+            <div className="mt-20 p-8 rounded-3xl bg-white/5 border border-white/10 text-center relative z-10 btn-sheen">
               <h4 className="text-2xl font-bold mb-4">Looking for a long-term commitment?</h4>
               <p className="text-gray-400 mb-8 max-w-2xl mx-auto font-light">
                 Certain roles require specialized skills better suited for our direct hire services. We can help you evaluate which strategy fits your stability goals.
@@ -313,7 +316,7 @@ export default function TemporaryStaffingPage() {
         </div>
         
         <div className="relative flex overflow-hidden">
-          <div className="flex animate-marquee whitespace-nowrap gap-12 py-4">
+          <div className="flex animate-marquee whitespace-nowrap gap-8 xl:gap-12 py-4">
             {[...industries, ...industries].map((ind, i) => (
               <span key={i} className="text-4xl md:text-6xl font-black text-white/10 hover:text-gold/30 transition-colors cursor-default uppercase tracking-tighter">
                 {ind}
@@ -332,7 +335,7 @@ export default function TemporaryStaffingPage() {
                 What People Say <br/>
                 <span className="text-gold">About NAYA Staffing</span>
               </h2>
-              <div className="w-24 h-1.5 bg-gold rounded-full" />
+              <div className="btn-rotating-border w-24 h-1.5 bg-white/5 rounded-full btn-auto-sheen border border-white/5" />
             </div>
             <Link href="/testimonials" className="group flex items-center gap-3 text-gold font-bold uppercase tracking-widest text-sm">
               View All Success Stories <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -345,9 +348,9 @@ export default function TemporaryStaffingPage() {
       {/* --- FAQs --- */}
       <section className="py-24 bg-navy relative">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-3 gap-16">
+          <div className="grid lg:grid-cols-3 gap-10 xl:gap-16">
             <div className="lg:sticky lg:top-32 h-fit">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 mb-6">
+              <div className="btn-rotating-border inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-gold/20 mb-6 btn-auto-sheen border border-white/5">
                 <ShieldCheck className="w-4 h-4 text-gold" />
                 <span className="text-gold text-xs font-bold uppercase tracking-widest">Expert Insights</span>
               </div>
@@ -355,7 +358,7 @@ export default function TemporaryStaffingPage() {
               <p className="text-gray-400 font-light text-lg mb-8 leading-relaxed">
                 Everything you need to know about our temporary staffing process and how we ensure quality for your team.
               </p>
-              <div className="p-8 rounded-3xl bg-gold/5 border border-gold/20 relative overflow-hidden group">
+              <div className="btn-rotating-border p-8 rounded-3xl bg-white/5 border border-gold/20 relative overflow-hidden group btn-auto-sheen border border-white/5">
                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                   <Briefcase className="w-24 h-24 text-gold" />
                 </div>
@@ -381,10 +384,10 @@ export default function TemporaryStaffingPage() {
         <div className="absolute inset-0 bg-gold/5 animate-pulse" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="glass-panel p-12 md:p-20 rounded-[3rem] text-center border border-gold/20 shadow-2xl shadow-gold/10">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gold text-navy-dark mb-8 shadow-xl shadow-gold/30">
+            <div className="btn-rotating-border inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/5 text-white hover:text-gold mb-8 shadow-xl shadow-gold/30 btn-auto-sheen border border-white/5">
               <Users2 className="w-10 h-10" />
             </div>
-            <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter">
+            <h2 className="text-4xl md:text-5xl xl:text-7xl font-black mb-8 tracking-tighter">
               Ready to <span className="text-gold">Scale Your Team?</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
@@ -393,13 +396,13 @@ export default function TemporaryStaffingPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link 
                 href="/become-a-client" 
-                className="group w-full sm:w-auto px-10 py-5 bg-gold hover:bg-gold-hover text-navy-dark font-black rounded-full transition-all flex items-center justify-center gap-3 shadow-2xl"
+                className="btn-rotating-border group w-full sm:w-auto px-10 py-5 bg-white/5 hover:bg-white/10 text-white hover:text-gold font-black rounded-full transition-all flex items-center justify-center gap-3 shadow-2xl btn-auto-sheen border border-white/5"
               >
                 Get in Touch <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link 
                 href="/contact-us" 
-                className="w-full sm:w-auto px-10 py-5 bg-white/5 hover:bg-white/10 text-white font-bold rounded-full border border-white/10 transition-all backdrop-blur-xl"
+                className="w-full sm:w-auto px-10 py-5 bg-white/5 hover:bg-white/10 text-white font-bold rounded-full border border-white/10 transition-all backdrop-blur-xl btn-sheen"
               >
                 Schedule a Consultation
               </Link>

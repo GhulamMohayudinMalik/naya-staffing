@@ -1,5 +1,6 @@
 "use client";
 
+import { Typewriter } from "@/components/Typewriter";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
@@ -64,22 +65,24 @@ export default function ContractToHirePage() {
             src="/videos/hero.mp4"
             overlayOpacity="bg-navy-dark/80"
           />
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[120px] rounded-full animate-pulse transition-all duration-[5000ms]"></div>
+          <div className="btn-rotating-border absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 blur-[120px] rounded-full animate-pulse transition-all duration-[5000ms] btn-auto-sheen border border-white/5"></div>
           <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-navy-light/20 blur-[150px] rounded-full animate-float transition-all duration-[7000ms]"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
           <div className="space-y-8 animate-fade-up">
-            <div className="inline-block px-6 py-2 bg-gold/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-4 shadow-2xl backdrop-blur-md">
+            <div className="btn-rotating-border inline-block px-6 py-2 bg-white/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-4 shadow-2xl backdrop-blur-md btn-auto-sheen border border-white/5">
               Hybrid Staffing
             </div>
             <h1 className="text-5xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter leading-[0.85] drop-shadow-2xl">
+            <Typewriter>
               Contract-to <br />
               <span className="text-gold text-shimmer">Hire.</span>
-            </h1>
+            </Typewriter>
+          </h1>
           </div>
 
-          <p className="text-lg md:text-2xl font-semibold text-slate-400 tracking-tight max-w-4xl mx-auto animate-fade-up delay-200 italic leading-relaxed">
+          <p className="text-lg md:text-2xl font-semibold text-slate-400 tracking-tight max-w-4xl mx-auto animate-fade-up animate-delay-200 italic leading-relaxed">
             "We do smart hiring that works for both sides — <span className="text-white">contract today, full-time tomorrow.</span>"
           </p>
         </div>
@@ -112,13 +115,13 @@ export default function ContractToHirePage() {
               </div>
               <div className="space-y-6 text-lg text-slate-400 font-semibold leading-relaxed">
                 <p>Contract-to-hire is an approach that’s becoming increasingly popular. It blends the principles of temporary and permanent hiring. Job seekers may start as contract hires, facilitating businesses to evaluate their skill set, work approach, and organizational fit.</p>
-                <div className="p-8 glass-panel rounded-[40px] border-white/10 bg-white/[0.02] border-l-gold border-l-4">
+                <div className="p-8 glass-panel rounded-[40px] border-white/10 bg-white/[0.02] border-l-gold border-l-4 btn-sheen">
                   <p className="text-white">After this employee trial run, a transition to a permanent role can be initiated if all goes well. This strategic recruitment process reduces the uncertainties tied to direct long-term hires.</p>
                 </div>
               </div>
             </div>
             <div className="relative">
-              <div className="relative glass-panel p-4 rounded-[64px] border-white/10 overflow-hidden group">
+              <div className="relative glass-panel p-4 rounded-[64px] border-white/10 overflow-hidden group btn-sheen">
                 <div className="rounded-[48px] overflow-hidden aspect-[4/5] relative">
                   <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2076&auto=format&fit=crop" alt="Interview" className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
                   <div className="absolute inset-0 bg-linear-to-t from-navy-dark/95 via-transparent to-transparent"></div>
@@ -132,21 +135,21 @@ export default function ContractToHirePage() {
       {/* 5. Benefits Listing Section - Redesigned for High Impact */}
       <section className="py-32 bg-navy relative overflow-hidden">
         {/* Decorative elements */}
-        <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-gold/5 blur-[150px] rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="btn-rotating-border absolute top-1/2 left-0 w-[600px] h-[600px] bg-white/5 blur-[150px] rounded-full -translate-x-1/2 -translate-y-1/2 btn-auto-sheen border border-white/5"></div>
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-navy-light/10 blur-[120px] rounded-full translate-x-1/2"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-16 items-start">
             
             {/* Sticky Header Column */}
             <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-8 animate-fade-up">
-              <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-2 shadow-xl backdrop-blur-md">
+              <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-2 shadow-xl backdrop-blur-md btn-auto-sheen border border-white/5">
                 Try Before You Buy
               </div>
               <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter leading-[0.9]">
                 Benefits <br />of <span className="text-gold">Hybrid Hiring.</span>
               </h2>
-              <div className="h-1.5 w-24 bg-gold rounded-full shadow-lg shadow-gold/20"></div>
+              <div className="btn-rotating-border h-1.5 w-24 bg-white/5 rounded-full shadow-lg shadow-gold/20 btn-auto-sheen border border-white/5"></div>
               <p className="text-lg md:text-xl text-slate-400 font-semibold leading-relaxed border-l-2 border-white/10 pl-8 max-w-lg">
                 Numerous advantages of contract-to-hire staffing can make it an attractive option for organizations seeking a strategic approach to hiring.
               </p>
@@ -174,11 +177,11 @@ export default function ContractToHirePage() {
                   num: "03"
                 }
               ].map((benefit, i) => (
-                <div key={i} className="group p-1 md:p-12 glass-panel rounded-[48px] border-white/5 hover:border-gold/30 hover:bg-white/4 transition-all duration-700 hover:shadow-2xl hover:shadow-gold/5 flex flex-col md:flex-row gap-8 items-start relative overflow-hidden animate-fade-up">
+                <div key={i} className="group p-1 md:p-12 glass-panel rounded-[48px] border-white/5 hover:border-gold/30 hover:bg-white/4 transition-all duration-700 hover:shadow-2xl hover:shadow-gold/5 flex flex-col md:flex-row gap-6 xl:gap-8 items-start relative overflow-hidden animate-fade-up">
                   {/* Number Badge */}
                   <div className="absolute top-8 right-12 text-[100px] font-black text-white/2 leading-none group-hover:text-gold/5 transition-colors select-none">{benefit.num}</div>
 
-                  <div className="w-16 h-16 shrink-0 rounded-[24px] bg-gold/10 flex items-center justify-center border border-gold/20 group-hover:bg-gold group-hover:text-navy-dark transition-all duration-500 shadow-xl">
+                  <div className="btn-rotating-border w-16 h-16 shrink-0 rounded-[24px] bg-white/10 flex items-center justify-center border border-gold/20 group-hover:bg-white/5 group-hover:text-white hover:text-gold transition-all duration-500 shadow-xl btn-auto-sheen border border-white/5">
                     <benefit.icon className="w-8 h-8" />
                   </div>
 
@@ -202,7 +205,7 @@ export default function ContractToHirePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-24">
             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-8 leading-tight">Strategic <br /><span className="text-gold">Considerations</span></h2>
-            <div className="h-1.5 w-40 bg-gold mx-auto rounded-full shadow-lg shadow-gold/20"></div>
+            <div className="btn-rotating-border h-1.5 w-40 bg-white/5 mx-auto rounded-full shadow-lg shadow-gold/20 btn-auto-sheen border border-white/5"></div>
           </div>
 
           <div className="max-w-4xl mx-auto space-y-12">
@@ -211,7 +214,7 @@ export default function ContractToHirePage() {
                 We weigh the advantages of contract-to-hire staffing against other options. Direct placement is more suitable for long-term roles that require an immediate, full-time commitment. A strict contract staffing arrangement could be an effective solution for temporary workforce needs during peak business periods.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 xl:gap-8">
                 <div className="p-10 glass-panel rounded-[40px] border-white/5">
                     <h3 className="text-2xl font-black text-white mb-6">Expert Partnership</h3>
                     <p className="text-slate-400 font-semibold leading-relaxed">Picking the right recruiting firm to operate on your behalf is vital. A quality recruiting partner will invest time to understand your unique business needs and culture.</p>
@@ -231,7 +234,7 @@ export default function ContractToHirePage() {
           <div className="text-center mb-24">
             <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter mb-8 leading-tight">Advantages of Working With <span className="text-gold text-shimmer">NAYA Staffing.</span></h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-8">
             {[
               { title: "Our Team is Your Team", text: "We act as an extension of your internal hiring team. Our professionals work closely to ensure the perfect fit for your contract-to-hire positions.", icon: Users },
               { title: "Custom Recruiting", text: "We provide personalized recruiting solutions tailored to your organization’s evolving requirements and staffing strategies.", icon: Target },
@@ -239,7 +242,7 @@ export default function ContractToHirePage() {
               { title: "Higher Quality Talent", text: "We scour our massive internal database and external resources to find candidates who meet the specific requirements of each role.", icon: ShieldCheck }
             ].map((adv, i) => (
               <div key={i} className="glass-panel p-10 rounded-[48px] border-white/5 flex flex-col items-center text-center group hover:border-gold/30 hover:shadow-gold/10 transition-all duration-1000">
-                <div className="w-20 h-20 rounded-[28px] bg-gold/5 flex items-center justify-center mb-10 text-gold group-hover:bg-gold group-hover:text-navy-dark transition-all shadow-xl shadow-gold/5 border border-gold/10">
+                <div className="btn-rotating-border w-20 h-20 rounded-[28px] bg-white/5 flex items-center justify-center mb-10 text-gold group-hover:bg-white/5 group-hover:text-white hover:text-gold transition-all shadow-xl shadow-gold/5 border border-gold/10 btn-auto-sheen border border-white/5">
                   <adv.icon className="w-10 h-10" />
                 </div>
                 <h4 className="text-xl font-black text-white mb-6 tracking-tight group-hover:text-gold transition-colors">{adv.title}</h4>
@@ -257,7 +260,7 @@ export default function ContractToHirePage() {
         </div>
         <div className="marquee-container overflow-hidden pb-12">
           <style dangerouslySetInnerHTML={{ __html: `@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } } .dark-marquee { display: flex; width: max-content; animation: marquee 80s linear infinite; } .dark-marquee:hover { animation-play-state: paused; }` }} />
-          <div className="dark-marquee gap-8">
+          <div className="dark-marquee gap-6 xl:gap-8">
             {industriesData.concat(industriesData).map((industry, idx) => (
               <div key={idx} className="w-[450px] flex-shrink-0">
                 <div className="glass-panel group h-[450px] rounded-[56px] overflow-hidden relative border border-white/5 transition-all duration-500 hover:border-gold/30">
@@ -284,11 +287,11 @@ export default function ContractToHirePage() {
       <section className="bg-navy py-32 overflow-hidden border-y border-white/5">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-20 space-y-6 text-center">
-            <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-2 shadow-xl backdrop-blur-md">
+            <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-2 shadow-xl backdrop-blur-md btn-auto-sheen border border-white/5">
               Hybrid Staffing FAQ
             </div>
             <h2 className="text-4xl md:text-7xl font-black text-white leading-[0.9] tracking-tighter">Frequently <span className="text-shimmer">Asked Questions.</span></h2>
-            <div className="h-2 w-24 bg-gold mx-auto rounded-full shadow-lg shadow-gold/20"></div>
+            <div className="btn-rotating-border h-2 w-24 bg-white/5 mx-auto rounded-full shadow-lg shadow-gold/20 btn-auto-sheen border border-white/5"></div>
           </div>
           <div className="space-y-4">
             {faqs.map((faq, i) => (
@@ -301,13 +304,13 @@ export default function ContractToHirePage() {
       {/* 9. Contact CTA */}
       <section className="relative py-32 bg-navy-dark overflow-hidden group">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gold/[0.03] blur-[200px] rounded-full group-hover:bg-gold/[0.05] transition-all duration-1000"></div>
+          <div className="btn-rotating-border absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/[0.03] blur-[200px] rounded-full group-hover:bg-white/[0.05] transition-all duration-1000 btn-auto-sheen border border-white/5"></div>
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-navy-light/10 blur-[150px] rounded-full translate-x-1/3 translate-y-1/3"></div>
         </div>
 
         <div className="max-w-5xl mx-auto px-4 relative z-10 text-center space-y-16">
           <div className="space-y-6">
-            <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-4 shadow-xl backdrop-blur-md">
+            <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-4 shadow-xl backdrop-blur-md btn-auto-sheen border border-white/5">
               Let's Connect
             </div>
             <h2 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-[0.85] group-hover:text-gold transition-colors duration-700">
@@ -318,10 +321,10 @@ export default function ContractToHirePage() {
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 xl:gap-8">
             <Link 
               href="/become-a-client" 
-              className="group relative flex items-center gap-6 px-16 py-8 bg-gold text-navy-dark font-black rounded-[32px] hover:bg-gold-hover transition-all shadow-2xl hover:scale-105 active:scale-95 uppercase tracking-[0.3em] text-[10px]"
+              className="btn-rotating-border group relative flex items-center gap-6 px-16 py-8 bg-white/5 text-white hover:text-gold font-black rounded-[32px] hover:bg-white/10 transition-all shadow-2xl hover:scale-105 active:scale-95 uppercase tracking-[0.3em] text-[10px] btn-auto-sheen border border-white/5"
             >
               Get In Touch
               <ArrowRight className="w-6 h-6 group-hover:translate-x-3 transition-transform duration-500" />
@@ -329,7 +332,7 @@ export default function ContractToHirePage() {
             
             <Link 
               href="/contact-us" 
-              className="group flex items-center gap-4 px-12 py-8 bg-white/5 border border-white/10 text-white font-black rounded-[32px] hover:bg-white/10 transition-all uppercase tracking-[0.3em] text-[10px]"
+              className="group flex items-center gap-4 px-12 py-8 bg-white/5 border border-white/10 text-white font-black rounded-[32px] hover:bg-white/10 transition-all uppercase tracking-[0.3em] text-[10px] btn-sheen"
             >
               Contact Support
             </Link>

@@ -1,5 +1,6 @@
 "use client";
 
+import { Typewriter } from "@/components/Typewriter";
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { 
@@ -60,15 +61,17 @@ export default function SupportPage() {
         />
         
         {/* Ambient Glows */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[120px] rounded-full animate-pulse transition-all duration-5000"></div>
+        <div className="btn-rotating-border absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 blur-[120px] rounded-full animate-pulse transition-all duration-5000 btn-auto-sheen border border-white/5"></div>
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-navy-light/20 blur-[150px] rounded-full animate-float transition-all duration-7000"></div>
 
         <div className="container mx-auto px-6 relative z-10 text-center animate-fade-in">
-          <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-8 shadow-xl backdrop-blur-md">
+          <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-8 shadow-xl backdrop-blur-md btn-auto-sheen border border-white/5">
             Help Desk
           </div>
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-tight">
-            Support <span className="text-gold">Center.</span>
+          <h1 className="text-5xl md:text-6xl xl:text-8xl font-black tracking-tighter mb-6 leading-tight">
+            <Typewriter>
+              Support <span className="text-gold">Center.</span>
+            </Typewriter>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto font-medium leading-relaxed">
             How can we assist you today?
@@ -97,7 +100,7 @@ export default function SupportPage() {
                     type="text" 
                     placeholder="Full Name" 
                     required 
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                   />
@@ -109,7 +112,7 @@ export default function SupportPage() {
                     type="email" 
                     placeholder="email@domain.com" 
                     required 
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                   />
@@ -118,7 +121,7 @@ export default function SupportPage() {
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-gold/60 ml-2">Support Topic</label>
                   <select 
-                    className="w-full bg-[#0a1125] border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-gold/50 focus:bg-white/10 outline-none transition-all"
+                    className="w-full bg-[#0a1125] border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
                     value={formData.topic}
                     onChange={(e) => setFormData({...formData, topic: e.target.value})}
                   >
@@ -134,7 +137,7 @@ export default function SupportPage() {
                   <textarea 
                     rows={4} 
                     placeholder="Explain how we can help you..." 
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all resize-none"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all resize-none btn-sheen"
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                   />
@@ -142,7 +145,7 @@ export default function SupportPage() {
 
                 <button 
                   type="submit" 
-                  className="group w-full px-12 py-6 bg-gold hover:bg-gold-hover text-navy-dark font-black rounded-2xl transition-all flex items-center justify-center gap-4 shadow-xl uppercase tracking-widest text-xs"
+                  className="btn-rotating-border group w-full px-12 py-6 bg-white/5 hover:bg-white/10 text-white hover:text-gold font-black rounded-2xl transition-all flex items-center justify-center gap-4 shadow-xl uppercase tracking-widest text-xs btn-auto-sheen border border-white/5"
                 >
                   Submit Ticket <Send className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                 </button>
@@ -152,7 +155,7 @@ export default function SupportPage() {
             {/* Right Column: Contact Cards */}
             <div className="space-y-12 order-1 lg:order-2 flex flex-col justify-center">
               <div className="space-y-8 animate-fade-up">
-                <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none">
+                <h2 className="text-4xl md:text-5xl xl:text-7xl font-black text-white tracking-tighter leading-none">
                   Always Here <br />to <span className="text-gold">Help.</span>
                 </h2>
                 <p className="text-gray-400 text-xl leading-relaxed max-w-md font-light">
@@ -160,10 +163,10 @@ export default function SupportPage() {
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-8">
+              <div className="grid sm:grid-cols-2 gap-6 xl:gap-8">
                 {/* Phone Card */}
-                <div className="p-8 rounded-[32px] bg-white/5 border border-white/10 hover:border-gold/30 transition-all hover:bg-white/10 group">
-                  <div className="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center text-gold mb-6 group-hover:scale-110 transition-transform">
+                <div className="p-8 rounded-[32px] bg-white/5 border border-white/10 hover:border-gold/30 transition-all hover:bg-white/10 group btn-sheen">
+                  <div className="btn-rotating-border w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-gold mb-6 group-hover:scale-110 transition-transform btn-auto-sheen border border-white/5">
                     <Phone className="w-8 h-8" />
                   </div>
                   <h4 className="text-gold font-black uppercase tracking-widest text-[10px] mb-2">Call Support</h4>
@@ -171,8 +174,8 @@ export default function SupportPage() {
                 </div>
 
                 {/* Mail Card */}
-                <div className="p-8 rounded-[32px] bg-white/5 border border-white/10 hover:border-gold/30 transition-all hover:bg-white/10 group">
-                  <div className="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center text-gold mb-6 group-hover:scale-110 transition-transform">
+                <div className="p-8 rounded-[32px] bg-white/5 border border-white/10 hover:border-gold/30 transition-all hover:bg-white/10 group btn-sheen">
+                  <div className="btn-rotating-border w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-gold mb-6 group-hover:scale-110 transition-transform btn-auto-sheen border border-white/5">
                     <Mail className="w-8 h-8" />
                   </div>
                   <h4 className="text-gold font-black uppercase tracking-widest text-[10px] mb-2">Support Email</h4>
@@ -181,7 +184,7 @@ export default function SupportPage() {
               </div>
 
               {/* Status Badge */}
-              <div className="flex items-center gap-4 p-4 bg-gold/5 border border-gold/10 rounded-2xl w-fit">
+              <div className="btn-rotating-border flex items-center gap-4 p-4 bg-white/5 border border-gold/10 rounded-2xl w-fit btn-auto-sheen border border-white/5">
                 <Clock className="text-gold w-5 h-5" />
                 <span className="text-xs font-black uppercase tracking-widest text-gold">Live Support desk: Mon - Fri</span>
               </div>
@@ -195,11 +198,11 @@ export default function SupportPage() {
       <section className="bg-navy py-32 overflow-hidden border-b border-white/5">
         <div className="container mx-auto px-6 max-w-4xl">
            <div className="text-center mb-20 space-y-6">
-              <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-6 shadow-xl backdrop-blur-md">
+              <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-6 shadow-xl backdrop-blur-md btn-auto-sheen border border-white/5">
                 Quick Answers
               </div>
               <h2 className="text-5xl font-black mb-6">Support <span className="text-gold text-shimmer">FAQ.</span></h2>
-              <div className="h-1.5 w-24 bg-gold mx-auto rounded-full"></div>
+              <div className="btn-rotating-border h-1.5 w-24 bg-white/5 mx-auto rounded-full btn-auto-sheen border border-white/5"></div>
            </div>
 
            <div className="space-y-4">

@@ -43,9 +43,12 @@ export default function Footer() {
             <ul className="space-y-5">
               {[
                 { name: "About Us", href: "/about-us" },
+                { name: "About Company", href: "/about-us/about-company" },
                 { name: "Contact Us", href: "/contact-us" },
                 { name: "Blog / Insights", href: "/insights" },
                 { name: "Testimonials", href: "/testimonials" },
+                { name: "Success Stories", href: "/success-stories" },
+                { name: "Case Studies", href: "/case-studies" },
                 { name: "FAQs", href: "/faqs" }
               ].map((link) => (
                 <li key={link.name}>
@@ -85,10 +88,10 @@ export default function Footer() {
             <h4 className="text-white font-black text-[10px] uppercase tracking-[0.5em] opacity-50">Employers</h4>
             <ul className="space-y-5">
               {[
-                { name: "Employer Solutions", href: "/employer-solutions" },
-                { name: "Become a Client", href: "/become-a-client" },
-                { name: "Our Proven Process", href: "/our-proven-process" },
-                { name: "Schedule Consultation", href: "/contact-us" }
+                { name: "Employers Overview", href: "/employers" },
+                { name: "Employer Solutions", href: "/employers/employer-solutions" },
+                { name: "Become a Client", href: "/employers/become-a-client" },
+                { name: "Our Proven Process", href: "/employers/our-proven-process" }
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-slate-400 hover:text-gold transition-all duration-300 font-semibold text-xs uppercase tracking-widest flex items-center group">
@@ -105,11 +108,13 @@ export default function Footer() {
             <h4 className="text-white font-black text-[10px] uppercase tracking-[0.5em] opacity-50">Job Seekers</h4>
             <ul className="space-y-5">
               {[
-                { name: "Why Candidates Choose NAYA", href: "/why-candidates-choose-naya" },
-                { name: "Reverse Recruitment", href: "/reverse-recruitment" },
-                { name: "Pricing", href: "/pricing" },
-                { name: "Register & Upload Resume", href: "/register-upload-resume" },
-                { name: "Job Openings", href: "/job-openings" }
+                { name: "Job Seekers Overview", href: "/job-seekers" },
+                { name: "Why Choose Us", href: "/job-seekers/why-choose-us" },
+                { name: "Reverse Recruitment", href: "/job-seekers/reverse-recruitment" },
+                { name: "Pricing", href: "/job-seekers/pricing" },
+                { name: "Register & Upload Resume", href: "/job-seekers/register-upload-resume" },
+                { name: "Job Openings", href: "/job-openings" },
+                { name: "Career Advice", href: "/career-advice" }
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-slate-400 hover:text-gold transition-all duration-300 font-semibold text-xs uppercase tracking-widest flex items-center group">

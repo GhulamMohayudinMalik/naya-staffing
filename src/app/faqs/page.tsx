@@ -1,5 +1,6 @@
 'use client';
 
+import { Typewriter } from "@/components/Typewriter";
 import React from 'react';
 import Link from 'next/link';
 import { 
@@ -101,11 +102,13 @@ export default function FAQPage() {
           overlayOpacity="bg-navy-dark/75"
         />
         <div className="container mx-auto px-6 relative z-10 text-center animate-fade-in">
-          <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-8 shadow-xl backdrop-blur-md">
+          <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-8 shadow-xl backdrop-blur-md btn-auto-sheen border border-white/5">
             Help Center
           </div>
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-tight">
-            FAQ’s.
+          <h1 className="text-5xl md:text-6xl xl:text-8xl font-black tracking-tighter mb-6 leading-tight">
+            <Typewriter>
+              FAQ’s.
+            </Typewriter>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto font-medium leading-relaxed">
             Got Questions? We’ve Got Answers.
@@ -119,15 +122,15 @@ export default function FAQPage() {
             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter">
               You'll Find Answers <span className="text-gold">Here!</span>
             </h2>
-            <div className="h-1.5 w-24 bg-gold mx-auto rounded-full"></div>
+            <div className="btn-rotating-border h-1.5 w-24 bg-white/5 mx-auto rounded-full btn-auto-sheen border border-white/5"></div>
             <p className="text-slate-400 text-lg leading-relaxed font-semibold">
               At NAYA Staffing, we believe in transparency and making the hiring process seamless for our clients. Whether you’re curious about our services, pricing, or how we connect you with top talent, our FAQ section covers it all. 
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6 pt-4">
-               <Link href="/contact-us" className="px-10 py-5 bg-gold hover:bg-gold-hover text-navy-dark font-black rounded-full transition-all flex items-center gap-4 uppercase tracking-[0.2em] text-xs">
+               <Link href="/contact-us" className="btn-rotating-border px-10 py-5 bg-white/5 hover:bg-white/10 text-white hover:text-gold font-black rounded-full transition-all flex items-center gap-4 uppercase tracking-[0.2em] text-xs btn-auto-sheen border border-white/5">
                   Contact Us <ArrowRight className="w-4 h-4" />
                </Link>
-               <a href="https://calendly.com/nayastaffing/meeting" className="px-10 py-5 border border-white/20 hover:bg-white/10 text-white font-black rounded-full transition-all flex items-center gap-4 uppercase tracking-[0.2em] text-xs">
+               <a href="https://calendly.com/nayastaffing/meeting" className="px-10 py-5 border border-white/20 hover:bg-white/10 text-white font-black rounded-full transition-all flex items-center gap-4 uppercase tracking-[0.2em] text-xs btn-sheen">
                   Schedule Call <Calendar className="w-4 h-4" />
                </a>
             </div>
@@ -137,12 +140,12 @@ export default function FAQPage() {
       {/* 3. FAQ CATEGORIES GRID */}
       <section className="py-32 bg-[#040814]">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-10 xl:gap-16">
             
             {/* Category: General Inquiries */}
             <div className="space-y-12">
                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-gold/10 border border-gold/20 rounded-2xl flex items-center justify-center text-gold">
+                  <div className="btn-rotating-border w-12 h-12 bg-white/10 border border-gold/20 rounded-2xl flex items-center justify-center text-gold btn-auto-sheen border border-white/5">
                     <HelpCircle className="w-6 h-6" />
                   </div>
                   <h3 className="text-3xl font-black text-white italic tracking-tight">General Inquiries</h3>
@@ -157,7 +160,7 @@ export default function FAQPage() {
             {/* Category: Services & Setup */}
             <div className="space-y-12">
                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-gold/10 border border-gold/20 rounded-2xl flex items-center justify-center text-gold">
+                  <div className="btn-rotating-border w-12 h-12 bg-white/10 border border-gold/20 rounded-2xl flex items-center justify-center text-gold btn-auto-sheen border border-white/5">
                     <Briefcase className="w-6 h-6" />
                   </div>
                   <h3 className="text-3xl font-black text-white italic tracking-tight">Services & Setup</h3>
@@ -172,7 +175,7 @@ export default function FAQPage() {
             {/* Category: Direct Hire & Executive Search */}
             <div className="space-y-12">
                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-gold/10 border border-gold/20 rounded-2xl flex items-center justify-center text-gold">
+                  <div className="btn-rotating-border w-12 h-12 bg-white/10 border border-gold/20 rounded-2xl flex items-center justify-center text-gold btn-auto-sheen border border-white/5">
                     <Users className="w-6 h-6" />
                   </div>
                   <h3 className="text-3xl font-black text-white italic tracking-tight">Direct Hire & Executive Search</h3>
@@ -187,7 +190,7 @@ export default function FAQPage() {
             {/* Category: Contract-to-Hire */}
             <div className="space-y-12">
                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-gold/10 border border-gold/20 rounded-2xl flex items-center justify-center text-gold">
+                  <div className="btn-rotating-border w-12 h-12 bg-white/10 border border-gold/20 rounded-2xl flex items-center justify-center text-gold btn-auto-sheen border border-white/5">
                     <ShieldCheck className="w-6 h-6" />
                   </div>
                   <h3 className="text-3xl font-black text-white italic tracking-tight">Contract-to-Hire</h3>
@@ -206,14 +209,14 @@ export default function FAQPage() {
       {/* 4. BOTTOM ACTION STRIP */}
       <section className="py-24 bg-navy relative border-t border-white/5">
          <div className="container mx-auto px-6 text-center space-y-12">
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white">Still have <span className="text-gold">Questions?</span></h2>
+            <h2 className="text-4xl md:text-5xl xl:text-7xl font-black tracking-tighter text-white">Still have <span className="text-gold">Questions?</span></h2>
             <p className="text-slate-400 font-semibold text-xl max-w-2xl mx-auto">
               Our experts are ready to guide you through every stage of the recruitment cycle.
             </p>
             <div className="flex justify-center">
                <Link 
                 href="/contact-us" 
-                className="group px-16 py-8 bg-gold hover:bg-gold-hover text-navy-dark font-black rounded-2xl transition-all flex items-center gap-6 shadow-2xl uppercase tracking-[0.2em] text-xs"
+                className="btn-rotating-border group px-16 py-8 bg-white/5 hover:bg-white/10 text-white hover:text-gold font-black rounded-2xl transition-all flex items-center gap-6 shadow-2xl uppercase tracking-[0.2em] text-xs btn-auto-sheen border border-white/5"
               >
                 Let’s Talk Strategy <ArrowRight className="w-6 h-6 group-hover:translate-x-3 transition-transform duration-500" />
               </Link>

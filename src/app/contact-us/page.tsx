@@ -1,5 +1,6 @@
 'use client';
 
+import { Typewriter } from "@/components/Typewriter";
 import React, { useState } from 'react';
 import { 
   Send, 
@@ -38,11 +39,13 @@ export default function ContactUsPage() {
           overlayOpacity="bg-navy-dark/75"
         />
         <div className="container mx-auto px-6 relative z-10 text-center animate-fade-in">
-          <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-8 shadow-xl backdrop-blur-md">
+          <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-8 shadow-xl backdrop-blur-md btn-auto-sheen border border-white/5">
             Get In Touch
           </div>
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-tight">
-            Contact <span className="text-gold">Us.</span>
+          <h1 className="text-5xl md:text-6xl xl:text-8xl font-black tracking-tighter mb-6 leading-tight">
+            <Typewriter>
+              Contact <span className="text-gold">Us.</span>
+            </Typewriter>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto font-medium leading-relaxed">
             Let’s Start the Conversation
@@ -72,7 +75,7 @@ export default function ContactUsPage() {
                       type="text" 
                       placeholder="First Name" 
                       required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
                       value={formData.firstName}
                       onChange={(e) => setFormData({...formData, firstName: e.target.value})}
                     />
@@ -83,7 +86,7 @@ export default function ContactUsPage() {
                       type="text" 
                       placeholder="Last Name" 
                       required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
                       value={formData.lastName}
                       onChange={(e) => setFormData({...formData, lastName: e.target.value})}
                     />
@@ -97,7 +100,7 @@ export default function ContactUsPage() {
                       type="email" 
                       placeholder="email@company.com" 
                       required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                     />
@@ -108,7 +111,7 @@ export default function ContactUsPage() {
                       type="tel" 
                       placeholder="+1 (555) 000-0000" 
                       required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     />
@@ -121,7 +124,7 @@ export default function ContactUsPage() {
                     type="text" 
                     placeholder="How can we help?" 
                     required 
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
                     value={formData.subject}
                     onChange={(e) => setFormData({...formData, subject: e.target.value})}
                   />
@@ -132,7 +135,7 @@ export default function ContactUsPage() {
                   <textarea 
                     rows={4} 
                     placeholder="Details about your inquiry..." 
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all resize-none"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all resize-none btn-sheen"
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                   />
@@ -140,7 +143,7 @@ export default function ContactUsPage() {
 
                 <button 
                   type="submit" 
-                  className="group w-full px-12 py-6 bg-gold hover:bg-gold-hover text-navy-dark font-black rounded-2xl transition-all flex items-center justify-center gap-4 shadow-xl uppercase tracking-widest text-xs"
+                  className="btn-rotating-border group w-full px-12 py-6 bg-white/5 hover:bg-white/10 text-white hover:text-gold font-black rounded-2xl transition-all flex items-center justify-center gap-4 shadow-xl uppercase tracking-widest text-xs btn-auto-sheen border border-white/5"
                 >
                   Schedule Consultation <Send className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                 </button>
@@ -150,7 +153,7 @@ export default function ContactUsPage() {
             {/* Right Column: Contact Info & Accents */}
             <div className="space-y-12 order-1 lg:order-2 flex flex-col justify-center">
               <div className="space-y-8 animate-fade-up">
-                <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-none">
+                <h2 className="text-5xl md:text-6xl xl:text-8xl font-black text-white tracking-tighter leading-none">
                   Get in <br /><span className="text-gold">Touch!</span>
                 </h2>
                 <p className="text-gray-400 text-xl leading-relaxed max-w-md font-light">
@@ -158,10 +161,10 @@ export default function ContactUsPage() {
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-8">
+              <div className="grid sm:grid-cols-2 gap-6 xl:gap-8">
                 {/* Phone Card */}
-                <div className="p-8 rounded-[32px] bg-white/5 border border-white/10 hover:border-gold/30 transition-all hover:bg-white/10 group">
-                  <div className="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center text-gold mb-6 group-hover:scale-110 transition-transform">
+                <div className="p-8 rounded-[32px] bg-white/5 border border-white/10 hover:border-gold/30 transition-all hover:bg-white/10 group btn-sheen">
+                  <div className="btn-rotating-border w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-gold mb-6 group-hover:scale-110 transition-transform btn-auto-sheen border border-white/5">
                     <Phone className="w-8 h-8" />
                   </div>
                   <h4 className="text-gold font-black uppercase tracking-widest text-[10px] mb-2">Give us a Call</h4>
@@ -169,8 +172,8 @@ export default function ContactUsPage() {
                 </div>
 
                 {/* Mail Card */}
-                <div className="p-8 rounded-[32px] bg-white/5 border border-white/10 hover:border-gold/30 transition-all hover:bg-white/10 group">
-                  <div className="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center text-gold mb-6 group-hover:scale-110 transition-transform">
+                <div className="p-8 rounded-[32px] bg-white/5 border border-white/10 hover:border-gold/30 transition-all hover:bg-white/10 group btn-sheen">
+                  <div className="btn-rotating-border w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-gold mb-6 group-hover:scale-110 transition-transform btn-auto-sheen border border-white/5">
                     <Mail className="w-8 h-8" />
                   </div>
                   <h4 className="text-gold font-black uppercase tracking-widest text-[10px] mb-2">Send an Email</h4>
@@ -178,8 +181,8 @@ export default function ContactUsPage() {
                 </div>
 
                 {/* Office Card */}
-                <div className="p-8 rounded-[32px] bg-white/5 border border-white/10 hover:border-gold/30 transition-all hover:bg-white/10 group sm:col-span-2">
-                  <div className="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center text-gold mb-6 group-hover:scale-110 transition-transform">
+                <div className="p-8 rounded-[32px] bg-white/5 border border-white/10 hover:border-gold/30 transition-all hover:bg-white/10 group sm:col-span-2 btn-sheen">
+                  <div className="btn-rotating-border w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-gold mb-6 group-hover:scale-110 transition-transform btn-auto-sheen border border-white/5">
                     <MapPin className="w-8 h-8" />
                   </div>
                   <h4 className="text-gold font-black uppercase tracking-widest text-[10px] mb-2">Primary Office</h4>
@@ -188,7 +191,7 @@ export default function ContactUsPage() {
               </div>
 
               {/* Response Time Badge */}
-              <div className="flex items-center gap-4 p-4 bg-gold/5 border border-gold/10 rounded-2xl w-fit">
+              <div className="btn-rotating-border flex items-center gap-4 p-4 bg-white/5 border border-gold/10 rounded-2xl w-fit btn-auto-sheen border border-white/5">
                 <Clock className="text-gold w-5 h-5" />
                 <span className="text-xs font-black uppercase tracking-widest text-gold">Response Time: 2–4 Hours</span>
               </div>
@@ -217,7 +220,7 @@ export default function ContactUsPage() {
          <div className="container mx-auto px-6 text-center space-y-8">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">Ready to start your <span className="text-gold">Success Story?</span></h2>
             <div className="flex justify-center">
-               <button className="px-12 py-5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full font-bold transition-all flex items-center gap-4 shadow-xl">
+               <button className="px-12 py-5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full font-bold transition-all flex items-center gap-4 shadow-xl btn-sheen">
                   Explore Careers <ArrowRight className="w-5 h-5 text-gold" />
                </button>
             </div>

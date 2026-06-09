@@ -1,5 +1,6 @@
 'use client';
 
+import { Typewriter } from "@/components/Typewriter";
 import React from 'react';
 import Link from 'next/link';
 import { 
@@ -96,7 +97,7 @@ export default function VolumeRecruitmentPage() {
   return (
     <main className="bg-[#040814] text-white min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative pt-24 md:pt-32 xl:pt-40 pb-16 md:pb-20 xl:pb-24 overflow-hidden">
         <video 
           autoPlay 
           muted 
@@ -111,25 +112,27 @@ export default function VolumeRecruitmentPage() {
         <div className="absolute inset-0 bg-linear-to-b from-[#040814]/80 via-transparent to-[#040814]" />
         <div className="absolute inset-0 bg-linear-to-r from-[#040814] via-transparent to-transparent opacity-60" />
 
-        <div className="container mx-auto px-6 relative z-10 pt-20">
-          <div className="max-w-4xl animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 mb-6 backdrop-blur-md">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+            <div className="btn-rotating-border inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-gold/20 mb-6 backdrop-blur-md animate-fade-in-up btn-auto-sheen border border-white/5">
               <Zap className="w-4 h-4 text-gold" />
               <span className="text-gold text-xs font-bold uppercase tracking-widest">Rapid Scaling Solutions</span>
             </div>
-            <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-6 leading-none">
+            <h1 className="text-5xl md:text-6xl xl:text-8xl font-black tracking-tighter mb-6 leading-none">
+            <Typewriter>
               Volume <br/>
               <span className="text-transparent bg-clip-text bg-linear-to-r from-gold via-white/80 to-gold animate-gradient">
                 Recruitment
               </span>
-            </h1>
+            </Typewriter>
+          </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-2xl font-light leading-relaxed mb-10 italic">
               "We don’t just fill roles—we build workforce legacies at scale."
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 justify-center animate-fade-in-up animate-delay-300">
               <Link 
                 href="/become-a-client" 
-                className="group relative px-8 py-4 bg-gold hover:bg-gold-hover text-navy-dark font-bold rounded-full transition-all duration-300 overflow-hidden shadow-2xl shadow-gold/20"
+                className="btn-rotating-border group relative px-8 py-4 bg-white/5 hover:bg-white/10 text-white hover:text-gold font-bold rounded-full transition-all duration-300 overflow-hidden shadow-2xl shadow-gold/20 btn-auto-sheen border border-white/5"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Initiate Volume Search <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -137,7 +140,7 @@ export default function VolumeRecruitmentPage() {
               </Link>
               <Link 
                 href="/contact-us" 
-                className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-full border border-white/10 transition-all duration-300 backdrop-blur-xl"
+                className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-full border border-white/10 transition-all duration-300 backdrop-blur-xl btn-sheen"
               >
                 Scale Your Team
               </Link>
@@ -154,16 +157,16 @@ export default function VolumeRecruitmentPage() {
       {/* 2. INTRO NARRATIVE */}
       <section className="py-24 relative overflow-hidden bg-navy-dark">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 xl:gap-16 items-center">
             <div className="space-y-8 animate-fade-up">
-              <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-2 shadow-xl backdrop-blur-md">
+              <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-2 shadow-xl backdrop-blur-md btn-auto-sheen border border-white/5">
                 High-Volume Expertise
               </div>
               <h2 className="text-4xl md:text-6xl font-black text-white leading-[0.9] tracking-tighter">
                 Scale Without <br/>
                 <span className="text-gold">Compromise.</span>
               </h2>
-              <div className="h-1.5 w-24 bg-gold rounded-full shadow-lg shadow-gold/20"></div>
+              <div className="btn-rotating-border h-1.5 w-24 bg-white/5 rounded-full shadow-lg shadow-gold/20 btn-auto-sheen border border-white/5"></div>
               <div className="space-y-6 text-gray-300 leading-relaxed text-lg font-light">
                 <p>
                   Managing high-volume hiring can be overwhelming, but with NAYA, it doesn’t have to be. Our Volume Recruitment service is designed to help businesses efficiently and effectively scale their workforce without compromising on quality.
@@ -187,8 +190,8 @@ export default function VolumeRecruitmentPage() {
             </div>
 
             <div className="relative">
-              <div className="absolute -inset-4 bg-gold/5 rounded-[3rem] blur-2xl opacity-50" />
-              <div className="relative glass-panel rounded-[3rem] border border-white/10 overflow-hidden group">
+              <div className="btn-rotating-border absolute -inset-4 bg-white/5 rounded-[3rem] blur-2xl opacity-50 btn-auto-sheen border border-white/5" />
+              <div className="relative glass-panel rounded-[3rem] border border-white/10 overflow-hidden group btn-sheen">
                    <img 
                     src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" 
                     alt="Team Collaboration" 
@@ -206,13 +209,13 @@ export default function VolumeRecruitmentPage() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-24">
             <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter mb-8 leading-tight">Digital-Led <br /><span className="text-gold text-shimmer">Efficiency.</span></h2>
-            <div className="h-1.5 w-40 bg-gold mx-auto rounded-full shadow-lg shadow-gold/20"></div>
+            <div className="btn-rotating-border h-1.5 w-40 bg-white/5 mx-auto rounded-full shadow-lg shadow-gold/20 btn-auto-sheen border border-white/5"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-8">
             {processes.map((proc, i) => (
               <div key={i} className="group p-10 glass-panel rounded-[48px] border-white/5 hover:border-gold/30 hover:bg-white/4 transition-all duration-700 flex flex-col items-center text-center animate-fade-up">
-                 <div className="w-20 h-20 rounded-[28px] bg-gold/10 flex items-center justify-center border border-gold/20 group-hover:bg-gold group-hover:text-navy-dark transition-all duration-500 shadow-xl mb-8">
+                 <div className="btn-rotating-border w-20 h-20 rounded-[28px] bg-white/10 flex items-center justify-center border border-gold/20 group-hover:bg-white/5 group-hover:text-white hover:text-gold transition-all duration-500 shadow-xl mb-8 btn-auto-sheen border border-white/5">
                     {proc.icon}
                   </div>
                   <div className="text-gold font-black text-xs uppercase tracking-[0.3em] opacity-60 mb-4">{proc.detail}</div>
@@ -233,18 +236,18 @@ export default function VolumeRecruitmentPage() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-start">
             <div className="space-y-8 animate-fade-up lg:sticky lg:top-32">
-              <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-2 shadow-xl backdrop-blur-md">
+              <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-2 shadow-xl backdrop-blur-md btn-auto-sheen border border-white/5">
                 Strategic Choice
               </div>
               <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter leading-[0.9]">
                 Why <br />Choose <span className="text-gold">Us?</span>
               </h2>
-              <div className="h-1.5 w-24 bg-gold rounded-full shadow-lg shadow-gold/20"></div>
+              <div className="btn-rotating-border h-1.5 w-24 bg-white/5 rounded-full shadow-lg shadow-gold/20 btn-auto-sheen border border-white/5"></div>
               <p className="text-lg text-slate-400 font-semibold leading-relaxed border-l-2 border-white/10 pl-8 max-w-lg">
                 We rapidly deploy a dedicated team of experts and advanced technology to ensure all roles are filled at speed, delivering ROI without compromising quality.
               </p>
               <div className="pt-8">
-                 <Link href="/become-a-client" className="group px-10 py-5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full font-bold transition-all flex items-center gap-4 w-fit">
+                 <Link href="/become-a-client" className="group px-10 py-5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full font-bold transition-all flex items-center gap-4 w-fit btn-sheen">
                     Request Proposal <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                  </Link>
               </div>
@@ -281,7 +284,7 @@ export default function VolumeRecruitmentPage() {
         
         <div className="relative flex overflow-hidden">
           <style dangerouslySetInnerHTML={{ __html: `@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } } .animate-marquee { display: flex; width: max-content; animation: marquee 60s linear infinite; }` }} />
-          <div className="animate-marquee whitespace-nowrap gap-12 py-4">
+          <div className="animate-marquee whitespace-nowrap gap-8 xl:gap-12 py-4">
             {[...industries, ...industries].map((ind, i) => (
               <span key={i} className="text-4xl md:text-6xl font-black text-white/5 hover:text-gold/20 transition-colors cursor-default uppercase tracking-tighter">
                 {ind}
@@ -298,7 +301,7 @@ export default function VolumeRecruitmentPage() {
             <h2 className="text-4xl md:text-5xl font-black mb-4">
               Proven <span className="text-gold">Outcomes.</span>
             </h2>
-            <div className="w-24 h-1.5 bg-gold rounded-full" />
+            <div className="btn-rotating-border w-24 h-1.5 bg-white/5 rounded-full btn-auto-sheen border border-white/5" />
           </div>
           <TestimonialSlider />
         </div>
@@ -311,7 +314,7 @@ export default function VolumeRecruitmentPage() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="glass-panel p-12 md:p-24 rounded-[4rem] text-center border border-gold/20 shadow-2xl shadow-gold/10 overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-            <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gold text-navy-dark mb-10 shadow-2xl shadow-gold/30 animate-pulse transition-all">
+            <div className="btn-rotating-border inline-flex items-center justify-center w-24 h-24 rounded-full bg-white/5 text-white hover:text-gold mb-10 shadow-2xl shadow-gold/30 animate-pulse transition-all btn-auto-sheen border border-white/5">
               <TrendingUp className="w-12 h-12" />
             </div>
             <h2 className="text-5xl md:text-8xl font-black mb-10 tracking-tighter leading-[0.85] relative z-10">
@@ -321,10 +324,10 @@ export default function VolumeRecruitmentPage() {
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-16 font-light leading-relaxed relative z-10">
               Build your team with confidence. Let our technology and expertise handle the heavy lifting.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 relative z-10">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 xl:gap-8 relative z-10">
               <Link 
                 href="/become-a-client" 
-                className="group w-full sm:w-auto px-16 py-8 bg-gold hover:bg-gold-hover text-navy-dark font-black rounded-[32px] transition-all flex items-center justify-center gap-4 shadow-2xl hover:scale-105 active:scale-95 uppercase tracking-[0.3em] text-[10px]"
+                className="btn-rotating-border group w-full sm:w-auto px-16 py-8 bg-white/5 hover:bg-white/10 text-white hover:text-gold font-black rounded-[32px] transition-all flex items-center justify-center gap-4 shadow-2xl hover:scale-105 active:scale-95 uppercase tracking-[0.3em] text-[10px] btn-auto-sheen border border-white/5"
               >
                 Get in Touch <ArrowRight className="w-5 h-5 group-hover:translate-x-3 transition-transform duration-500" />
               </Link>

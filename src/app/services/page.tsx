@@ -1,5 +1,6 @@
 "use client";
 
+import { Typewriter } from "@/components/Typewriter";
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Search, Users, Briefcase, FileText, Clock, TrendingUp, Check, Globe, Laptop, GraduationCap, Target, Cpu, Coins, Rocket, Settings, Sparkles } from "lucide-react";
@@ -73,16 +74,18 @@ export default function ServicesPage() {
         />
 
         {/* Ambient Glows */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[120px] rounded-full animate-pulse transition-all duration-5000"></div>
+        <div className="btn-rotating-border absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 blur-[120px] rounded-full animate-pulse transition-all duration-5000 btn-auto-sheen border border-white/5"></div>
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-navy-light/20 blur-[150px] rounded-full animate-float transition-all duration-7000"></div>
         
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto space-y-8 animate-fade-up">
-          <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-2">
+          <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-2 btn-auto-sheen border border-white/5">
             Flexible Recruitment & Workforce Solutions
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[1.05] drop-shadow-2xl uppercase">
-            Recruitment Services <br className="hidden md:inline" />
+            <Typewriter>
+              Recruitment Services <br className="hidden md:inline" />
             <span className="text-shimmer">Built Around Real Hiring Needs</span>
+            </Typewriter>
           </h1>
           <p className="text-base md:text-lg font-semibold text-slate-200 tracking-tight max-w-3xl mx-auto opacity-90 leading-relaxed">
             NAYA Staffing offers a complete range of recruitment and staffing services designed to help employers hire smarter, scale faster, and access talent with greater confidence. Whether you need executive search, permanent recruitment, contract staffing, Recruitment Process Outsourcing, global hiring support, or specialized talent solutions, our services are built to adapt to your goals, hiring volume, and workforce strategy.
@@ -91,13 +94,13 @@ export default function ServicesPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
             <Link 
               href="/contact-us" 
-              className="w-full sm:w-auto px-8 py-4 bg-gold hover:bg-gold-hover text-navy-dark rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_8px_32px_rgba(212,175,55,0.25)] hover:shadow-[0_12px_48px_rgba(212,175,55,0.45)] hover:-translate-y-1 text-center"
+              className="btn-rotating-border w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-white hover:text-gold rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_8px_32px_rgba(212,175,55,0.25)] hover:shadow-[0_12px_48px_rgba(212,175,55,0.45)] hover:-translate-y-1 text-center btn-auto-sheen border border-white/5"
             >
               Schedule Consultation
             </Link>
             <Link 
               href="/become-a-client" 
-              className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 text-center"
+              className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 text-center btn-sheen"
             >
               Become a Client
             </Link>
@@ -108,8 +111,8 @@ export default function ServicesPage() {
           </p>
 
           <div className="pt-8">
-            <Link href="#all-services" className="w-12 h-20 border-2 border-white/20 rounded-full flex items-start justify-center p-2 mx-auto group hover:border-gold transition-colors">
-              <div className="w-1 h-3 bg-gold rounded-full animate-bounce mt-2 group-hover:bg-gold-hover"></div>
+            <Link href="#all-services" className="w-12 h-20 border-2 border-white/20 rounded-full flex items-start justify-center p-2 mx-auto group hover:border-gold transition-colors btn-sheen">
+              <div className="btn-rotating-border w-1 h-3 bg-white/5 rounded-full animate-bounce mt-2 group-hover:bg-white/10 btn-auto-sheen border border-white/5"></div>
             </Link>
           </div>
         </div>
@@ -118,20 +121,20 @@ export default function ServicesPage() {
       {/* Intro / Services Philosophy Section */}
       <section id="philosophy" className="relative bg-[#040814] py-24 border-t border-white/5 overflow-hidden">
         {/* Glow */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-80 h-80 bg-gold/5 blur-[120px] rounded-full"></div>
+        <div className="btn-rotating-border absolute top-1/2 left-0 -translate-y-1/2 w-80 h-80 bg-white/5 blur-[120px] rounded-full btn-auto-sheen border border-white/5"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12 lg:gap-12 xl:gap-20 items-start">
             {/* Heading Column */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold">
+              <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold btn-auto-sheen border border-white/5">
                 Philosophy
               </div>
               <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-[1.1] uppercase">
                 A Broader, Smarter <br className="hidden md:inline" />
                 <span className="text-shimmer">Approach to Recruitment</span>
               </h2>
-              <div className="h-1 w-20 bg-gold rounded-full opacity-60"></div>
+              <div className="btn-rotating-border h-1 w-20 bg-white/5 rounded-full opacity-60 btn-auto-sheen border border-white/5"></div>
             </div>
 
             {/* Paragraphs Column */}
@@ -155,15 +158,15 @@ export default function ServicesPage() {
         <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-navy-light/10 blur-[150px] rounded-full pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-24 flex flex-col items-center">
-            <h6 className="text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 px-4 py-1 bg-gold/5 rounded-full border border-gold/10">Solutions Ecosystem</h6>
+            <h6 className="btn-rotating-border text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 px-4 py-1 bg-white/5 rounded-full border border-gold/10 btn-auto-sheen border border-white/5">Solutions Ecosystem</h6>
             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-8 leading-tight uppercase">Core Recruitment Services</h2>
             <p className="text-base md:text-lg text-slate-405 max-w-2xl font-semibold leading-relaxed mb-10">
               These services form the foundation of our recruitment offering and address some of the most common and most critical hiring needs businesses face today.
             </p>
-            <div className="h-1 w-24 bg-gold rounded-full opacity-50"></div>
+            <div className="btn-rotating-border h-1 w-24 bg-white/5 rounded-full opacity-50 btn-auto-sheen border border-white/5"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-10">
             {[
               {
                 title: "Executive Search",
@@ -246,7 +249,7 @@ export default function ServicesPage() {
             ].map((service, idx) => (
               <div key={idx} className="glass-panel group p-10 md:p-12 rounded-[48px] hover:border-gold/30 transition-all duration-500 transform hover:-translate-y-3 flex flex-col justify-between text-left">
                 <div>
-                  <div className="w-16 h-16 bg-gold/5 border border-gold/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-gold group-hover:text-navy-dark transition-all duration-500 shadow-xl group-hover:shadow-gold/20">
+                  <div className="btn-rotating-border w-16 h-16 bg-white/5 border border-gold/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white/5 group-hover:text-white hover:text-gold transition-all duration-500 shadow-xl group-hover:shadow-gold/20 btn-auto-sheen border border-white/5">
                     <service.icon className="w-8 h-8 text-gold group-hover:text-inherit transition-colors" />
                   </div>
                   <h3 className="text-2xl font-black text-white mb-6 group-hover:text-gold transition-colors tracking-tight leading-tight uppercase">
@@ -271,7 +274,7 @@ export default function ServicesPage() {
 
                 <Link 
                   href={service.href} 
-                  className="w-full text-center py-4 bg-white/5 border border-white/10 rounded-full font-black text-[10px] md:text-xs uppercase tracking-widest text-white group-hover:bg-gold group-hover:text-navy-dark group-hover:border-gold transition-all duration-300 flex items-center justify-center gap-3"
+                  className="btn-rotating-border w-full text-center py-4 bg-white/5 border border-white/10 rounded-full font-black text-[10px] md:text-xs uppercase tracking-widest text-white group-hover:bg-white/5 group-hover:text-white hover:text-gold group-hover:border-gold transition-all duration-300 flex items-center justify-center gap-3 btn-auto-sheen border border-white/5"
                 >
                   {service.cta} <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -288,15 +291,15 @@ export default function ServicesPage() {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-24 flex flex-col items-center">
-            <h6 className="text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 px-4 py-1 bg-gold/5 rounded-full border border-gold/10">Specialized Focus</h6>
+            <h6 className="btn-rotating-border text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 px-4 py-1 bg-white/5 rounded-full border border-gold/10 btn-auto-sheen border border-white/5">Specialized Focus</h6>
             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-8 leading-tight uppercase">Specialized Recruitment Solutions</h2>
             <p className="text-base md:text-lg text-slate-400 max-w-3xl font-semibold leading-relaxed mb-10">
               In addition to our core recruitment services, NAYA Staffing provides specialized support for businesses with niche, evolving, or high-growth hiring needs.
             </p>
-            <div className="h-1 w-24 bg-gold rounded-full opacity-50"></div>
+            <div className="btn-rotating-border h-1 w-24 bg-white/5 rounded-full opacity-50 btn-auto-sheen border border-white/5"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
             {[
               {
                 title: "Talent Mapping",
@@ -371,7 +374,7 @@ export default function ServicesPage() {
             ].map((service, idx) => (
               <div key={idx} className="glass-panel group p-8 md:p-10 rounded-[32px] hover:border-gold/30 transition-all duration-500 transform hover:-translate-y-2 flex flex-col justify-between text-left">
                 <div>
-                  <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gold group-hover:text-navy-dark transition-all duration-500 shadow-md">
+                  <div className="btn-rotating-border w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white/5 group-hover:text-white hover:text-gold transition-all duration-500 shadow-md btn-auto-sheen border border-white/5">
                     <service.icon className="w-6 h-6 text-gold group-hover:text-inherit transition-colors" />
                   </div>
                   <h3 className="text-xl font-black text-white mb-4 group-hover:text-gold transition-colors tracking-tight leading-tight uppercase">
@@ -398,7 +401,7 @@ export default function ServicesPage() {
       <section id="choose-service" className="bg-[#040814] py-32 border-t border-white/5 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center mb-20">
-            <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-6">
+            <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-6 btn-auto-sheen border border-white/5">
               Decision Guide
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-8 uppercase">
@@ -409,7 +412,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
             {[
               {
                 title: "Choose Executive Search",
@@ -451,10 +454,10 @@ export default function ServicesPage() {
 
       {/* Hiring Solutions Finder Section (UX Note recommendation) */}
       <section className="bg-navy py-24 border-t border-white/5 relative overflow-hidden">
-        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-72 h-72 bg-gold/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="btn-rotating-border absolute top-1/2 right-0 -translate-y-1/2 w-72 h-72 bg-white/5 blur-[120px] rounded-full pointer-events-none btn-auto-sheen border border-white/5"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-6">
+            <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-6 btn-auto-sheen border border-white/5">
               Solutions Explorer
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-6 uppercase">
@@ -465,7 +468,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xl:gap-8 items-stretch">
             {/* Category Selector Tabs */}
             <div className="lg:col-span-4 flex flex-col gap-3 justify-center">
               {hiringPaths.map((path) => (
@@ -488,7 +491,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Path Details & Services */}
-            <div className="lg:col-span-8 glass-panel p-8 md:p-12 rounded-[32px] border border-white/10 flex flex-col justify-between">
+            <div className="lg:col-span-8 glass-panel p-8 md:p-12 rounded-[32px] border border-white/10 flex flex-col justify-between btn-sheen">
               <div>
                 <span className="inline-block text-xs font-black uppercase tracking-[0.2em] text-gold mb-4">
                   Hiring Focus
@@ -526,7 +529,7 @@ export default function ServicesPage() {
                 </span>
                 <Link
                   href="/contact-us"
-                  className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full font-black text-[10px] uppercase tracking-widest transition-all"
+                  className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full font-black text-[10px] uppercase tracking-widest transition-all btn-sheen"
                 >
                   Consult an Advisor
                 </Link>
@@ -538,10 +541,10 @@ export default function ServicesPage() {
 
       {/* Why Companies Choose NAYA */}
       <section id="why-choose-naya" className="bg-[#040814] py-32 border-t border-white/5 relative">
-        <div className="absolute top-1/2 left-0 w-80 h-80 bg-gold/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="btn-rotating-border absolute top-1/2 left-0 w-80 h-80 bg-white/5 blur-[120px] rounded-full pointer-events-none btn-auto-sheen border border-white/5"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center mb-24">
-            <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-6">
+            <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-6 btn-auto-sheen border border-white/5">
               Our Value Proposition
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-8 uppercase">
@@ -552,7 +555,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-10">
             {[
               {
                 title: "Flexible Hiring Models",
@@ -599,7 +602,7 @@ export default function ServicesPage() {
       <section id="delivery-approach" className="bg-[#040814] py-32 border-t border-white/5 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center mb-24">
-            <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-6">
+            <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-6 btn-auto-sheen border border-white/5">
               Our Methodology
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-8 uppercase">
@@ -610,7 +613,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-10">
             {[
               {
                 step: "01",
@@ -644,7 +647,7 @@ export default function ServicesPage() {
               }
             ].map((step, idx) => (
               <div key={idx} className="glass-panel p-10 rounded-[48px] hover:border-gold/30 transition-all duration-500 transform hover:-translate-y-2 flex flex-col justify-start text-left relative group">
-                <div className="w-12 h-12 bg-gold/10 border border-gold/20 rounded-full flex items-center justify-center font-black text-gold text-sm mb-6 group-hover:bg-gold group-hover:text-navy-dark transition-colors">
+                <div className="btn-rotating-border w-12 h-12 bg-white/10 border border-gold/20 rounded-full flex items-center justify-center font-black text-gold text-sm mb-6 group-hover:bg-white/5 group-hover:text-white hover:text-gold transition-colors btn-auto-sheen border border-white/5">
                   {step.step}
                 </div>
                 <h3 className="text-lg md:text-xl font-black text-white mb-4 tracking-tight leading-tight uppercase">
@@ -663,7 +666,7 @@ export default function ServicesPage() {
       <section className="bg-navy py-32 overflow-hidden border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
           <div className="max-w-4xl mx-auto text-center space-y-8 flex flex-col items-center">
-            <h6 className="text-gold font-black text-xs tracking-[0.5em] uppercase px-4 py-1 bg-gold/5 inline-block rounded-full border border-gold/10">
+            <h6 className="btn-rotating-border text-gold font-black text-xs tracking-[0.5em] uppercase px-4 py-1 bg-white/5 inline-block rounded-full border border-gold/10 btn-auto-sheen border border-white/5">
               Sector Specialization
             </h6>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter uppercase leading-[1.1]">
@@ -676,7 +679,7 @@ export default function ServicesPage() {
             <div className="pt-6">
               <Link 
                 href="/our-industries"
-                className="px-10 py-5 bg-gold hover:bg-gold-hover text-navy-dark rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_8px_32px_rgba(212,175,55,0.2)] hover:-translate-y-1 block text-center"
+                className="btn-rotating-border px-10 py-5 bg-white/5 hover:bg-white/10 text-white hover:text-gold rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_8px_32px_rgba(212,175,55,0.2)] hover:-translate-y-1 block text-center btn-auto-sheen border border-white/5"
               >
                 Explore Industries We Serve
               </Link>
@@ -687,9 +690,9 @@ export default function ServicesPage() {
 
       {/* Employer CTA Block */}
       <section className="bg-[#040814] py-24 border-t border-white/5 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="btn-rotating-border absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 blur-[120px] rounded-full pointer-events-none btn-auto-sheen border border-white/5"></div>
         <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
-          <div className="glass-panel p-12 md:p-20 rounded-[64px] border border-white/10 space-y-8 animate-fade-up">
+          <div className="glass-panel p-12 md:p-20 rounded-[64px] border border-white/10 space-y-8 animate-fade-up btn-sheen">
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter uppercase leading-tight">
               Need Help Choosing the Right Hiring Solution?
             </h2>
@@ -699,13 +702,13 @@ export default function ServicesPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
               <Link 
                 href="/contact-us" 
-                className="w-full sm:w-auto px-10 py-5 bg-gold hover:bg-gold-hover text-navy-dark rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_8px_32px_rgba(212,175,55,0.25)] hover:shadow-[0_12px_48px_rgba(212,175,55,0.45)] hover:-translate-y-1 text-center"
+                className="btn-rotating-border w-full sm:w-auto px-10 py-5 bg-white/5 hover:bg-white/10 text-white hover:text-gold rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_8px_32px_rgba(212,175,55,0.25)] hover:shadow-[0_12px_48px_rgba(212,175,55,0.45)] hover:-translate-y-1 text-center btn-auto-sheen border border-white/5"
               >
                 Schedule Consultation
               </Link>
               <Link 
                 href="/become-a-client" 
-                className="w-full sm:w-auto px-10 py-5 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 text-center"
+                className="w-full sm:w-auto px-10 py-5 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 text-center btn-sheen"
               >
                 Become a Client
               </Link>
@@ -718,15 +721,15 @@ export default function ServicesPage() {
       <section className="bg-navy py-32 border-t border-white/5 relative">
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <div className="text-center mb-24 flex flex-col items-center">
-            <h6 className="text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 px-4 py-1 bg-gold/5 rounded-full border border-gold/10">Common Inquiries</h6>
+            <h6 className="btn-rotating-border text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 px-4 py-1 bg-white/5 rounded-full border border-gold/10 btn-auto-sheen border border-white/5">Common Inquiries</h6>
             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-8 uppercase leading-tight">Frequently Asked Questions</h2>
             <p className="text-base md:text-lg text-slate-400 font-semibold max-w-2xl leading-relaxed">
               Frequently Asked Questions About Our Services
             </p>
-            <div className="h-1 w-24 bg-gold rounded-full opacity-50 mt-10"></div>
+            <div className="btn-rotating-border h-1 w-24 bg-white/5 rounded-full opacity-50 mt-10 btn-auto-sheen border border-white/5"></div>
           </div>
 
-          <div className="glass-panel rounded-[40px] border border-white/10 p-6 md:p-10 divide-y divide-white/5">
+          <div className="glass-panel rounded-[40px] border border-white/10 p-6 md:p-10 divide-y divide-white/5 btn-sheen">
             {[
               {
                 question: "What recruitment services does NAYA Staffing offer?",
@@ -762,10 +765,10 @@ export default function ServicesPage() {
       {/* Final CTA Section */}
       <section className="relative py-32 bg-[#040814] border-t border-white/5 overflow-hidden">
         {/* Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/5 blur-[180px] rounded-full pointer-events-none"></div>
+        <div className="btn-rotating-border absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 blur-[180px] rounded-full pointer-events-none btn-auto-sheen border border-white/5"></div>
         
         <div className="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-10 animate-fade-up">
-          <div className="inline-block px-4 py-1.5 bg-gold/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold">
+          <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold btn-auto-sheen border border-white/5">
             Get Started
           </div>
           <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase leading-tight">
@@ -779,13 +782,13 @@ export default function ServicesPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-10">
             <Link 
               href="/contact-us" 
-              className="w-full sm:w-auto px-8 py-4 bg-gold hover:bg-gold-hover text-navy-dark rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 shadow-xl hover:-translate-y-1 text-center"
+              className="btn-rotating-border w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-white hover:text-gold rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 shadow-xl hover:-translate-y-1 text-center btn-auto-sheen border border-white/5"
             >
               Schedule Consultation
             </Link>
             <Link 
               href="/contact-us" 
-              className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 text-center"
+              className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full font-black text-xs uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 text-center btn-sheen"
             >
               Contact Our Team
             </Link>

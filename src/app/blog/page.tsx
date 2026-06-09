@@ -1,5 +1,6 @@
 "use client";
 
+import { Typewriter } from "@/components/Typewriter";
 import { useState } from "react";
 import Link from "next/link";
 import { Search, ArrowRight, User, Calendar, Stars, Filter, ChevronRight } from "lucide-react";
@@ -60,38 +61,40 @@ export default function BlogPage() {
       {/* Hero Section - Immersive Intelligence */}
       <section className="relative h-[60vh] flex flex-col items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[120px] rounded-full animate-pulse transition-all duration-[5000ms]"></div>
+          <div className="btn-rotating-border absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 blur-[120px] rounded-full animate-pulse transition-all duration-[5000ms] btn-auto-sheen border border-white/5"></div>
           <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-navy-light/10 blur-[150px] rounded-full animate-float"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-navy-dark via-transparent to-navy-dark"></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10 text-center space-y-10 animate-fade-up">
           <div className="space-y-6">
-            <div className="inline-block px-6 py-2 bg-gold/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-4">
+            <div className="btn-rotating-border inline-block px-6 py-2 bg-white/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold mb-4 btn-auto-sheen border border-white/5">
               Intelligence Feed
             </div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.9] drop-shadow-2xl">
+            <h1 className="text-4xl md:text-5xl xl:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-[0.9] drop-shadow-2xl">
+            <Typewriter>
               The <span className="text-shimmer">Insight Circuit.</span>
-            </h1>
+            </Typewriter>
+          </h1>
           </div>
           <p className="text-base md:text-xl font-semibold text-slate-400 max-w-4xl mx-auto leading-tight tracking-tight opacity-90">
              Strategic analysis, industry updates, and <span className="text-white">Talent Architecture</span> deep-dives from the elite NAYA Staffing team.
           </p>
-          <div className="h-1 w-24 bg-gold mx-auto rounded-full opacity-50 mt-12"></div>
+          <div className="btn-rotating-border h-1 w-24 bg-white/5 mx-auto rounded-full opacity-50 mt-12 btn-auto-sheen border border-white/5"></div>
         </div>
       </section>
 
       {/* Filter & Search Bar - High-End Terminal Style */}
       <section className="py-12 px-4 border-y border-white/5 bg-navy/30 backdrop-blur-3xl sticky top-[80px] z-[40]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex flex-col md:flex-row items-center gap-10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 xl:gap-8">
+          <div className="flex flex-col md:flex-row items-center gap-6 xl:gap-10">
             <div className="flex items-center gap-4 text-white">
                 <Filter className="w-5 h-5 text-gold" />
                 <h2 className="text-xl font-black uppercase tracking-widest leading-none">Filter Logic</h2>
             </div>
             <div className="h-4 w-px bg-white/10 hidden md:block"></div>
             <Link href="/blog" className="text-sm font-black text-gold hover:text-white transition-all uppercase tracking-[0.3em] flex items-center gap-3">
-               Archive Circuit <span className="bg-gold/10 px-3 py-1 rounded-full text-[10px] text-gold border border-gold/20">30</span>
+               Archive Circuit <span className="btn-rotating-border bg-white/10 px-3 py-1 rounded-full text-[10px] text-gold border border-gold/20 btn-auto-sheen border border-white/5">30</span>
             </Link>
           </div>
 
@@ -101,7 +104,7 @@ export default function BlogPage() {
               <input 
                 type="text" 
                 placeholder="Search Intelligence Database" 
-                className="w-full pl-16 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-lg font-bold placeholder:text-slate-600 transition-all font-sans"
+                className="w-full pl-16 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-lg font-bold placeholder:text-slate-600 transition-all font-sans btn-sheen"
               />
             </form>
           </div>
@@ -112,10 +115,10 @@ export default function BlogPage() {
       <main className="max-w-7xl mx-auto py-32 px-4 sm:px-6 lg:px-8">
         <div className="space-y-24">
           {blogs.map((blog) => (
-            <article key={blog.id} className="flex flex-col lg:flex-row gap-12 lg:gap-20 group relative">
+            <article key={blog.id} className="flex flex-col lg:flex-row gap-8 xl:gap-12 lg:gap-12 xl:gap-20 group relative">
               {/* Left Thumbnail - Immersive Glass */}
               <div className="lg:w-[500px] flex-shrink-0">
-                <div className="relative aspect-[16/10] rounded-[52px] overflow-hidden glass-panel border-white/10 shadow-2xl p-4">
+                <div className="relative aspect-[16/10] rounded-[52px] overflow-hidden glass-panel border-white/10 shadow-2xl p-4 btn-sheen">
                   <Link href={blog.href} className="block w-full h-full rounded-[40px] overflow-hidden relative">
                     <img 
                       src={blog.image} 
@@ -135,7 +138,7 @@ export default function BlogPage() {
                     </h3>
                     
                     {/* Meta Data - Technical Feel */}
-                    <div className="flex flex-wrap items-center gap-10 text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">
+                    <div className="flex flex-wrap items-center gap-6 xl:gap-10 text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">
                       <span className="flex items-center gap-4">
                         <User className="w-4 h-4 text-gold/50" />
                           <span className="text-white opacity-80">{blog.author}</span>
@@ -164,7 +167,7 @@ export default function BlogPage() {
 
         {/* Load More - High Stakes Button */}
         <div className="mt-40 text-center">
-            <button className="relative px-20 py-7 bg-gold text-navy-dark rounded-full font-black text-xs uppercase tracking-[0.4em] shadow-[0_4px_50px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-2 flex items-center justify-center gap-6 group mx-auto">
+            <button className="btn-rotating-border relative px-20 py-7 bg-white/5 text-white hover:text-gold rounded-full font-black text-xs uppercase tracking-[0.4em] shadow-[0_4px_50px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-2 flex items-center justify-center gap-6 group mx-auto btn-auto-sheen border border-white/5">
               Decrypt More Posts <Stars className="w-6 h-6 animate-spin-slow" />
             </button>
         </div>
@@ -172,12 +175,12 @@ export default function BlogPage() {
 
       {/* Massive CTA Footer Bridge */}
       <section className="bg-navy border-y border-white/5 py-32">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 px-4">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 xl:gap-10 px-4">
           <Link 
             href="/why-choose-us" 
-            className="flex-1 glass-panel group relative overflow-hidden p-16 transition-all hover:bg-gold/5 rounded-[64px] border-white/5 hover:border-gold/20"
+            className="btn-rotating-border flex-1 glass-panel group relative overflow-hidden p-16 transition-all hover:bg-white/5 rounded-[64px] border-white/5 hover:border-gold/20 btn-auto-sheen"
           >
-            <div className="flex flex-col md:flex-row items-center gap-12 relative z-10 text-center md:text-left">
+            <div className="flex flex-col md:flex-row items-center gap-8 xl:gap-12 relative z-10 text-center md:text-left">
               <div className="w-32 h-32 rounded-[40px] overflow-hidden border-4 border-gold/20 shadow-2xl group-hover:scale-110 transition-transform bg-navy-dark">
                 <img src="https://nayastaffing.com/wp-content/uploads/2024/11/Job-Seekers-150x150.jpg" alt="Job Seekers" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
               </div>
@@ -186,14 +189,14 @@ export default function BlogPage() {
                 <p className="text-lg font-black text-gold uppercase tracking-[0.3em]">Ignite Potential.</p>
               </div>
             </div>
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-gold/5 blur-3xl rounded-full"></div>
+            <div className="btn-rotating-border absolute -bottom-10 -right-10 w-64 h-64 bg-white/5 blur-3xl rounded-full btn-auto-sheen border border-white/5"></div>
           </Link>
 
           <Link 
             href="/employer-solutions" 
-            className="flex-1 glass-panel group relative overflow-hidden p-16 transition-all hover:bg-gold/5 rounded-[64px] border-white/5 hover:border-gold/20"
+            className="btn-rotating-border flex-1 glass-panel group relative overflow-hidden p-16 transition-all hover:bg-white/5 rounded-[64px] border-white/5 hover:border-gold/20 btn-auto-sheen"
           >
-            <div className="flex flex-col md:flex-row items-center gap-12 relative z-10 text-center md:text-left">
+            <div className="flex flex-col md:flex-row items-center gap-8 xl:gap-12 relative z-10 text-center md:text-left">
               <div className="w-32 h-32 rounded-[40px] overflow-hidden border-4 border-gold/20 shadow-2xl group-hover:scale-110 transition-transform bg-navy-dark">
                 <img src="https://nayastaffing.com/wp-content/uploads/2024/11/employee-150x150.jpg" alt="Employers" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
               </div>
@@ -202,7 +205,7 @@ export default function BlogPage() {
                 <p className="text-lg font-black text-gold uppercase tracking-[0.3em]">Secure Excellence.</p>
               </div>
             </div>
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-gold/5 blur-3xl rounded-full"></div>
+            <div className="btn-rotating-border absolute -bottom-10 -right-10 w-64 h-64 bg-white/5 blur-3xl rounded-full btn-auto-sheen border border-white/5"></div>
           </Link>
         </div>
       </section>
