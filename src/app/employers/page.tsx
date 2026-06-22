@@ -640,16 +640,6 @@ export default function EmployersOverviewPage() {
         </div>
       </section>
 
-      {/* Internal Linking Footer Block */}
-      <section className="py-12 bg-[#040814] border-t border-white/5 text-sm font-bold text-slate-500">
-        <div className="container mx-auto px-6 flex flex-wrap gap-x-8 gap-y-4 justify-center">
-          <Link href="/services" className="hover:text-gold transition-colors">Services Overview</Link>
-          <Link href="/our-industries" className="hover:text-gold transition-colors">Industries Overview</Link>
-          <Link href="/employers/employer-solutions" className="hover:text-gold transition-colors">Employer Solutions</Link>
-          <Link href="/employers/become-a-client" className="hover:text-gold transition-colors">Become a Client</Link>
-          <Link href="/employers/our-proven-process" className="hover:text-gold transition-colors">Our Proven Process</Link>
-        </div>
-      </section>
     </main>
   );
 }

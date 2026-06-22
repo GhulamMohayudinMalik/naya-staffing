@@ -15,7 +15,7 @@ export default function BlogPage() {
       author: "NAYA Staffing",
       date: "March 5, 2025",
       excerpt: "Did you know bad hires can cost companies big money? Some studies say it can be as much as 30% of the employee’s first-year salary. Finding the right people is tough, with",
-      image: "https://nayastaffing.com/wp-content/uploads/2025/05/Become-a-client-scaled.webp",
+      image: "https://breezyrecruit.com/wp-content/uploads/2025/05/Become-a-client-scaled.webp",
       href: "/how-ai-and-data-driven-talent-sourcing-can-improve-your-hiring-process"
     },
     {
@@ -24,7 +24,7 @@ export default function BlogPage() {
       author: "NAYA Staffing",
       date: "February 24, 2025",
       excerpt: "Are you ready for a change? The year 2025 will change how companies find lots of new workers. It’s not just about filling jobs. It’s about getting the best people to stay",
-      image: "https://nayastaffing.com/wp-content/uploads/2025/05/1-4.jpg",
+      image: "https://breezyrecruit.com/wp-content/uploads/2025/05/1-4.jpg",
       href: "/how-to-use-automation-and-ai-to-improve-volume-hiring-in-2025"
     },
     {
@@ -33,7 +33,7 @@ export default function BlogPage() {
       author: "NAYA Staffing",
       date: "February 21, 2025",
       excerpt: "Are you tired of long hiring processes? Do budget overruns stress you out? Direct hire recruiting can be a game-changer. It offers speed, cost savings, and high-quality hires. Direct hire recruiting offers",
-      image: "https://nayastaffing.com/wp-content/uploads/2025/05/1-1.jpg",
+      image: "https://breezyrecruit.com/wp-content/uploads/2025/05/1-1.jpg",
       href: "/how-direct-hire-recruiting-saves-your-company-time-and-hiring-costs"
     },
     {
@@ -42,7 +42,7 @@ export default function BlogPage() {
       author: "NAYA Staffing",
       date: "February 20, 2025",
       excerpt: "Are you tired of seeing open IT jobs linger? It costs you money when these spots stay unfilled for too long. Finding folks with the right tech skills is tough right now.",
-      image: "https://nayastaffing.com/wp-content/uploads/2025/05/benefits-of-recruitment-agency.webp",
+      image: "https://breezyrecruit.com/wp-content/uploads/2025/05/benefits-of-recruitment-agency.webp",
       href: "/why-direct-hire-staffing-is-the-best-solution-for-hard-to-fill-it-roles"
     },
     {
@@ -51,7 +51,7 @@ export default function BlogPage() {
       author: "NAYA Staffing",
       date: "February 19, 2025",
       excerpt: "Every business leader understands the stress of project delays. A missed deadline can lead to budget overruns, strained client relationships, and a loss of competitive edge. As projects pile up, it becomes",
-      image: "https://nayastaffing.com/wp-content/uploads/2025/02/IT-Staffing-Services.jpg",
+      image: "https://breezyrecruit.com/wp-content/uploads/2025/02/IT-Staffing-Services.jpg",
       href: "/how-can-it-staffing-services-help-my-business-avoid-project-delays-in-2025"
     }
   ];
@@ -168,7 +168,7 @@ export default function BlogPage() {
         {/* Load More - High Stakes Button */}
         <div className="mt-40 text-center">
             <button className="btn-rotating-border relative px-20 py-7 bg-white/5 text-white hover:text-gold rounded-full font-black text-xs uppercase tracking-[0.4em] shadow-[0_4px_50px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-2 flex items-center justify-center gap-6 group mx-auto btn-auto-sheen border border-white/5">
-              Decrypt More Posts <Stars className="w-6 h-6 animate-spin-slow" />
+              See More Posts <Stars className="w-6 h-6 animate-spin-slow" />
             </button>
         </div>
       </main>
@@ -182,7 +182,7 @@ export default function BlogPage() {
           >
             <div className="flex flex-col md:flex-row items-center gap-8 xl:gap-12 relative z-10 text-center md:text-left">
               <div className="w-32 h-32 rounded-[40px] overflow-hidden border-4 border-gold/20 shadow-2xl group-hover:scale-110 transition-transform bg-navy-dark">
-                <img src="https://nayastaffing.com/wp-content/uploads/2024/11/Job-Seekers-150x150.jpg" alt="Job Seekers" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
+                <img src="https://breezyrecruit.com/wp-content/uploads/2024/11/Job-Seekers-150x150.jpg" alt="Job Seekers" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
               </div>
               <div className="text-white space-y-2">
                 <h3 className="text-3xl font-black tracking-tighter uppercase leading-none">Job Seekers</h3>
@@ -198,7 +198,7 @@ export default function BlogPage() {
           >
             <div className="flex flex-col md:flex-row items-center gap-8 xl:gap-12 relative z-10 text-center md:text-left">
               <div className="w-32 h-32 rounded-[40px] overflow-hidden border-4 border-gold/20 shadow-2xl group-hover:scale-110 transition-transform bg-navy-dark">
-                <img src="https://nayastaffing.com/wp-content/uploads/2024/11/employee-150x150.jpg" alt="Employers" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
+                <img src="https://breezyrecruit.com/wp-content/uploads/2024/11/employee-150x150.jpg" alt="Employers" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
               </div>
               <div className="text-white space-y-2">
                 <h3 className="text-3xl font-black tracking-tighter uppercase leading-none">Employers</h3>

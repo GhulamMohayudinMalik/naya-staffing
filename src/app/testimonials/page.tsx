@@ -176,7 +176,7 @@ export default function Testimonials() {
           >
             <div className="flex flex-col md:flex-row items-center gap-8 xl:gap-12 relative z-10 text-center md:text-left">
               <div className="w-32 h-32 rounded-[40px] overflow-hidden border-4 border-gold/20 shadow-2xl group-hover:scale-110 transition-transform bg-navy-dark">
-                <img src="https://nayastaffing.com/wp-content/uploads/2024/11/Job-Seekers-150x150.jpg" alt="Job Seekers" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
+                <img src="https://breezyrecruit.com/wp-content/uploads/2024/11/Job-Seekers-150x150.jpg" alt="Job Seekers" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
               </div>
               <div className="text-white space-y-2">
                 <h3 className="text-4xl font-black tracking-tighter uppercase leading-none">Job Seekers</h3>
@@ -191,7 +191,7 @@ export default function Testimonials() {
           >
             <div className="flex flex-col md:flex-row items-center gap-8 xl:gap-12 relative z-10 text-center md:text-left">
               <div className="w-32 h-32 rounded-[40px] overflow-hidden border-4 border-gold/20 shadow-2xl group-hover:scale-110 transition-transform bg-navy-dark">
-                <img src="https://nayastaffing.com/wp-content/uploads/2024/11/employee-150x150.jpg" alt="Employers" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
+                <img src="https://breezyrecruit.com/wp-content/uploads/2024/11/employee-150x150.jpg" alt="Employers" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
               </div>
               <div className="text-white space-y-2">
                 <h3 className="text-4xl font-black tracking-tighter uppercase leading-none">Employers</h3>

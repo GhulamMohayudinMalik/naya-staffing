@@ -15,7 +15,7 @@ export default function InsightsPage() {
       author: "NAYA Staffing",
       date: "March 5, 2025",
       excerpt: "Did you know bad hires can cost companies big money? Some studies say it can be as much as 30% of the employee’s first-year salary. Finding the right people is tough, with",
-      image: "https://nayastaffing.com/wp-content/uploads/2025/05/Become-a-client-scaled.webp",
+      image: "https://breezyrecruit.com/wp-content/uploads/2025/05/Become-a-client-scaled.webp",
       href: "/insights/ai-sourcing"
     },
     {
@@ -24,7 +24,7 @@ export default function InsightsPage() {
       author: "NAYA Staffing",
       date: "February 24, 2025",
       excerpt: "Are you ready for a change? The year 2025 will change how companies find lots of new workers. It’s not just about filling jobs. It’s about getting the best people to stay",
-      image: "https://nayastaffing.com/wp-content/uploads/2025/05/1-4.jpg",
+      image: "https://breezyrecruit.com/wp-content/uploads/2025/05/1-4.jpg",
       href: "/insights/volume-hiring"
     },
     {
@@ -33,7 +33,7 @@ export default function InsightsPage() {
       author: "NAYA Staffing",
       date: "February 21, 2025",
       excerpt: "Are you tired of long hiring processes? Do budget overruns stress you out? Direct hire recruiting can be a game-changer. It offers speed, cost savings, and high-quality hires. Direct hire recruiting offers",
-      image: "https://nayastaffing.com/wp-content/uploads/2025/05/1-1.jpg",
+      image: "https://breezyrecruit.com/wp-content/uploads/2025/05/1-1.jpg",
       href: "/insights/direct-hire-roi"
     },
     {
@@ -42,7 +42,7 @@ export default function InsightsPage() {
       author: "NAYA Staffing",
       date: "February 20, 2025",
       excerpt: "Are you tired of seeing open IT jobs linger? It costs you money when these spots stay unfilled for too long. Finding folks with the right tech skills is tough right now.",
-      image: "https://nayastaffing.com/wp-content/uploads/2025/05/benefits-of-recruitment-agency.webp",
+      image: "https://breezyrecruit.com/wp-content/uploads/2025/05/benefits-of-recruitment-agency.webp",
       href: "/insights/tech-staffing"
     },
     {
@@ -51,7 +51,7 @@ export default function InsightsPage() {
       author: "NAYA Staffing",
       date: "February 19, 2025",
       excerpt: "Every business leader understands the stress of project delays. A missed deadline can lead to budget overruns, strained client relationships, and a loss of competitive edge. As projects pile up, it becomes",
-      image: "https://nayastaffing.com/wp-content/uploads/2025/02/IT-Staffing-Services.jpg",
+      image: "https://breezyrecruit.com/wp-content/uploads/2025/02/IT-Staffing-Services.jpg",
       href: "/insights/it-staffing-delays"
     }
   ];
@@ -103,7 +103,7 @@ export default function InsightsPage() {
               <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-gold opacity-50 w-5 h-5 group-focus-within:opacity-100 transition-all" />
               <input 
                 type="text" 
-                placeholder="Search Intelligence Database" 
+                placeholder="Search Insights..." 
                 className="w-full pl-16 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-lg font-bold placeholder:text-slate-600 transition-all font-sans btn-sheen"
               />
             </form>
@@ -164,7 +164,7 @@ export default function InsightsPage() {
 
         <div className="mt-40 text-center">
             <button className="btn-rotating-border relative px-20 py-7 bg-white/5 text-white hover:text-gold rounded-full font-black text-xs uppercase tracking-[0.4em] shadow-[0_4px_50px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-2 flex items-center justify-center gap-6 group mx-auto btn-auto-sheen border border-white/5">
-              Decrypt More Insights <Stars className="w-6 h-6 animate-spin-slow" />
+              See More Insights <Stars className="w-6 h-6 animate-spin-slow" />
             </button>
         </div>
       </main>
@@ -178,7 +178,7 @@ export default function InsightsPage() {
           >
             <div className="flex flex-col md:flex-row items-center gap-8 xl:gap-12 relative z-10 text-center md:text-left">
               <div className="w-32 h-32 rounded-[40px] overflow-hidden border-4 border-gold/20 shadow-2xl group-hover:scale-110 transition-transform bg-navy-dark">
-                <img src="https://nayastaffing.com/wp-content/uploads/2024/11/Job-Seekers-150x150.jpg" alt="Job Seekers" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
+                <img src="https://breezyrecruit.com/wp-content/uploads/2024/11/Job-Seekers-150x150.jpg" alt="Job Seekers" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
               </div>
               <div className="text-white space-y-2">
                 <h3 className="text-3xl font-black tracking-tighter uppercase leading-none">Job Seekers</h3>
@@ -193,7 +193,7 @@ export default function InsightsPage() {
           >
             <div className="flex flex-col md:flex-row items-center gap-8 xl:gap-12 relative z-10 text-center md:text-left">
               <div className="w-32 h-32 rounded-[40px] overflow-hidden border-4 border-gold/20 shadow-2xl group-hover:scale-110 transition-transform bg-navy-dark">
-                <img src="https://nayastaffing.com/wp-content/uploads/2024/11/employee-150x150.jpg" alt="Employers" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
+                <img src="https://breezyrecruit.com/wp-content/uploads/2024/11/employee-150x150.jpg" alt="Employers" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" />
               </div>
               <div className="text-white space-y-2">
                 <h3 className="text-3xl font-black tracking-tighter uppercase leading-none">Employers</h3>

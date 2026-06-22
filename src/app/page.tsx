@@ -637,17 +637,17 @@ export default function Home() {
               {
                 title: "Hiring Trends Across Competitive Industries",
                 desc: "Stay ahead of the curve with our comprehensive analysis of the current talent market.",
-                image: "https://nayastaffing.com/wp-content/uploads/2025/05/Become-a-client-scaled.webp"
+                image: "https://breezyrecruit.com/wp-content/uploads/2025/05/Become-a-client-scaled.webp"
               },
               {
                 title: "How to Build a Stronger Recruitment Strategy",
                 desc: "Practical steps to optimize your hiring process for quality and speed.",
-                image: "https://nayastaffing.com/wp-content/uploads/2025/05/1-4.jpg"
+                image: "https://breezyrecruit.com/wp-content/uploads/2025/05/1-4.jpg"
               },
               {
                 title: "What Candidates Look for in Today’s Job Market",
                 desc: "Understanding the evolving expectations of elite professionals.",
-                image: "https://nayastaffing.com/wp-content/uploads/2025/05/1-1.jpg"
+                image: "https://breezyrecruit.com/wp-content/uploads/2025/05/1-1.jpg"
               }
             ].map((insight, idx) => (
               <Link key={idx} href="/insights" className="group relative bg-[#0a1125] border border-white/5 rounded-[48px] overflow-hidden flex flex-col hover:border-gold/30 transition-all duration-700 hover:shadow-[0_40px_100px_rgba(0,0,0,0.6)]">

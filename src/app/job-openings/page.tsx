@@ -107,7 +107,7 @@ export default function JobOpenings() {
               />
             </div>
             <button className="btn-rotating-border bg-white/5 hover:bg-white/10 text-white hover:text-gold px-12 py-6 rounded-[32px] font-black uppercase tracking-[0.2em] transition-all transform hover:-translate-y-1 shadow-[0_4px_30px_rgba(212,175,55,0.4)] text-sm shrink-0 btn-auto-sheen border border-white/5">
-              Search Ops
+              Search
             </button>
           </div>
         </div>
@@ -169,7 +169,7 @@ export default function JobOpenings() {
 
           <div className="mt-24 text-center">
             <button className="px-16 py-6 border-2 border-white/10 text-white font-black rounded-full hover:border-gold hover:text-gold transition-all text-xs uppercase tracking-[0.4em] backdrop-blur-md btn-sheen">
-              Browse Intelligence Archive
+              Browse All Jobs
             </button>
           </div>
         </div>

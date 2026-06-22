@@ -154,7 +154,7 @@ export default function Footer() {
             </div>
             <div className="space-y-1">
               <p className="text-white font-black text-[10px] uppercase tracking-widest opacity-50">Email Us</p>
-              <p className="text-slate-400 text-sm font-semibold uppercase tracking-widest">info@nayastaffing.com</p>
+              <p className="text-slate-400 text-sm font-semibold uppercase tracking-widest"><a href="mailto:info@nayastaffing.com" className="hover:text-gold transition-colors">info@nayastaffing.com</a></p>
             </div>
           </div>
         </div>

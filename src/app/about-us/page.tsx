@@ -112,7 +112,7 @@ export default function AboutUsPage() {
               
               <div className="relative rounded-[40px] overflow-hidden border border-white/10 shadow-3xl bg-[#0B132B] btn-sheen">
                 <img 
-                  src="https://nayastaffing.com/wp-content/uploads/2025/08/Screenshot-2025-08-01-at-6.05.38-AM.png"
+                  src="https://breezyrecruit.com/wp-content/uploads/2025/08/Screenshot-2025-08-01-at-6.05.38-AM.png"
                   alt="Modern Office Representation"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
