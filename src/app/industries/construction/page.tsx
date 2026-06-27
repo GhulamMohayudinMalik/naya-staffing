@@ -1,4 +1,6 @@
 import { Typewriter } from "@/components/Typewriter";
+import Image from 'next/image';
+import { getIndustryBySlug } from '@/data/industries';
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
@@ -48,6 +50,8 @@ export const metadata: Metadata = {
 };
 
 export default function ConstructionOverviewPage() {
+  const industryData = getIndustryBySlug("construction");
+  const galleryImages = industryData && industryData.subIndustries ? industryData.subIndustries.flatMap((sub: any) => sub.images ? sub.images.slice(1) : []) : [];
   const reasons = [
     {
       title: "Project Delivery Depends on the Right People Being in Place",
@@ -426,10 +430,25 @@ export default function ConstructionOverviewPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-8">
-            {subSectors.map((sub, idx) => (
-              <div key={idx} className="group relative p-10 rounded-[40px] bg-white/[0.01] border border-white/5 hover:border-gold/30 transition-all duration-700 hover:shadow-2xl flex flex-col justify-between h-full">
+            {subSectors.map((sub: any, idx: number) => {
+              const subData = industryData?.subIndustries?.find((s: any) => s.slug === sub.slug);
+              const coverImage = subData?.images && subData.images.length > 0 ? subData.images[0] : null;
+              
+              return (
+              <div key={idx} className="group relative rounded-[40px] overflow-hidden${coverImage ? '' : ' p-10'} bg-white/[0.01] border border-white/5 hover:border-gold/30 transition-all duration-700 hover:shadow-2xl flex flex-col justify-between h-full">
+                {coverImage && (
+                  <div className="relative w-full h-48 overflow-hidden rounded-t-[40px] mb-6">
+                    <Image 
+                      src={coverImage} 
+                      alt={sub.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-transparent to-transparent opacity-80"></div>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-[40px]"></div>
-                <div className="relative z-10 space-y-6 flex-grow flex flex-col justify-between">
+                <div className={"relative z-10" + (coverImage ? " p-10 pt-0" : "") + " space-y-6 flex-grow flex flex-col justify-between"}>
                   <div>
                     <div className="btn-rotating-border w-14 h-14 bg-white/5 border border-gold/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/5 group-hover:text-white hover:text-gold transition-all duration-500 btn-auto-sheen border border-white/5">
                       {sub.icon}
@@ -442,7 +461,7 @@ export default function ConstructionOverviewPage() {
                     </p>
                     
                     <div className="flex flex-wrap gap-2 mb-8">
-                      {sub.roles.map((role, i) => (
+                      {sub.roles.map((role: string, i: number) => (
                         <span key={i} className="px-3 py-1 rounded-full bg-white/5 border border-white/5 text-xs text-slate-400 font-semibold uppercase btn-sheen">
                           {role}
                         </span>
@@ -458,7 +477,7 @@ export default function ConstructionOverviewPage() {
                   </Link>
                 </div>
               </div>
-            ))}
+            ); })}
           </div>
         </div>
       </section>
@@ -536,6 +555,7 @@ export default function ConstructionOverviewPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
             {challenges.map((challenge, idx) => (
               <div key={idx} className="group relative p-10 rounded-[40px] bg-white/[0.01] border border-white/5 hover:border-gold/30 transition-all duration-700 hover:shadow-2xl flex flex-col justify-between h-full">
+                
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-[40px]"></div>
                 <div className="relative z-10 space-y-6">
                   <h3 className="text-white font-black text-xl leading-snug group-hover:text-gold transition-colors tracking-tight uppercase">
@@ -675,7 +695,39 @@ export default function ConstructionOverviewPage() {
         </div>
       </section>
 
-      {/* 12. FINAL CTA SECTION */}
+      
+      {/* MASONRY GALLERY */}
+      {galleryImages.length > 0 && (
+        <section className="py-24 bg-[#0B132B] relative overflow-hidden">
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-16 space-y-6">
+              <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold btn-auto-sheen border border-white/5">
+                Industry In Action
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase">
+                Explore <span className="text-gold">Our Expertise</span>
+              </h2>
+            </div>
+            
+            <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+              {galleryImages.map((src: string, idx: number) => (
+                <div key={idx} className="relative break-inside-avoid rounded-3xl overflow-hidden group border border-white/10 shadow-2xl">
+                  <Image 
+                    src={src}
+                    alt={`${industryData?.name} gallery image ${idx + 1}`}
+                    width={800}
+                    height={600}
+                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+{/* 12. FINAL CTA SECTION */}
       <section className="py-32 relative overflow-hidden bg-navy-dark border-t border-white/5">
         <div className="absolute inset-0 z-0">
           <div className="btn-rotating-border absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/[0.03] blur-[200px] rounded-full btn-auto-sheen border border-white/5"></div>

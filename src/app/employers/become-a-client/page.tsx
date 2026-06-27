@@ -28,18 +28,21 @@ import VideoBackground from '@/components/VideoBackground';
 import FAQItem from '@/components/FAQItem';
 
 export default function BecomeAClientPage() {
+  const usStates = [
+    "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+  ];
+
   const [formData, setFormData] = useState({
-    fullName: '',
-    companyName: '',
-    workEmail: '',
-    phoneNumber: '',
-    industry: '',
-    hiringNeed: '',
-    numRoles: '',
-    description: '',
-    timeline: '',
-    preferredContact: '',
-    notes: ''
+    firstName: '',
+    lastName: '',
+    companyEmail: '',
+    phone: '',
+    hiringCompany: '',
+    state: '',
+    howDidYouHear: '',
+    positionsNeeded: '',
+    service: '',
+    questionOrRequest: ''
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -474,178 +477,140 @@ export default function BecomeAClientPage() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-8 mt-4">
                 <div className="grid md:grid-cols-2 gap-6 xl:gap-8">
-                  {/* Full Name */}
+                  {/* First Name */}
                   <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Full Name</label>
+                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">First Name *</label>
                     <input 
                       type="text" 
-                      placeholder="Your Full Name" 
+                      placeholder="First Name" 
                       required 
                       className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({...formData, fullName: e.target.value})}
+                      value={formData.firstName}
+                      onChange={(e) => setFormData({...formData, firstName: e.target.value})}
                     />
                   </div>
-                  {/* Company Name */}
+                  {/* Last Name */}
                   <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Company Name</label>
+                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Last Name *</label>
                     <input 
                       type="text" 
-                      placeholder="Your Company Name" 
+                      placeholder="Last Name" 
                       required 
                       className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
-                      value={formData.companyName}
-                      onChange={(e) => setFormData({...formData, companyName: e.target.value})}
+                      value={formData.lastName}
+                      onChange={(e) => setFormData({...formData, lastName: e.target.value})}
                     />
                   </div>
-                  {/* Work Email */}
+                  {/* Company Email */}
                   <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Work Email</label>
+                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Company Email *</label>
                     <input 
                       type="email" 
-                      placeholder="email@company.com" 
+                      placeholder="Company Email" 
                       required 
                       className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
-                      value={formData.workEmail}
-                      onChange={(e) => setFormData({...formData, workEmail: e.target.value})}
+                      value={formData.companyEmail}
+                      onChange={(e) => setFormData({...formData, companyEmail: e.target.value})}
                     />
                   </div>
-                  {/* Phone Number */}
+                  {/* Phone */}
                   <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Phone Number</label>
+                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Phone *</label>
                     <input 
                       type="tel" 
-                      placeholder="+1 (555) 000-0000" 
+                      placeholder="012 34 567 89" 
                       required 
                       className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
-                      value={formData.phoneNumber}
-                      onChange={(e) => setFormData({...formData, phoneNumber: e.target.value})}
+                      value={formData.phone}
+                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     />
                   </div>
-                  {/* Industry */}
+                  {/* Hiring Company */}
                   <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Industry</label>
+                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Hiring Company *</label>
+                    <input 
+                      type="text" 
+                      placeholder="Hiring Company" 
+                      required 
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
+                      value={formData.hiringCompany}
+                      onChange={(e) => setFormData({...formData, hiringCompany: e.target.value})}
+                    />
+                  </div>
+                  {/* State */}
+                  <div className="space-y-2">
+                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">State *</label>
                     <select 
                       required 
                       className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-gold/50 focus:bg-white/10 outline-none transition-all appearance-none cursor-pointer btn-sheen"
-                      value={formData.industry}
-                      onChange={(e) => setFormData({...formData, industry: e.target.value})}
+                      value={formData.state}
+                      onChange={(e) => setFormData({...formData, state: e.target.value})}
                     >
-                      <option value="" className="bg-navy text-gray-400">Select Industry</option>
-                      {industries.map((ind, i) => (
-                        <option key={i} value={ind} className="bg-navy text-white">{ind}</option>
+                      <option value="" className="bg-navy text-gray-400">Select A State</option>
+                      {usStates.map((state, i) => (
+                        <option key={i} value={state} className="bg-navy text-white">{state}</option>
                       ))}
                     </select>
                   </div>
-                  {/* Hiring Need Type */}
+                  {/* How Did You Hear About Us? */}
                   <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Hiring Need Type</label>
+                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">How Did You Hear About Us?</label>
+                    <input 
+                      type="text" 
+                      placeholder="Specify Reference" 
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
+                      value={formData.howDidYouHear}
+                      onChange={(e) => setFormData({...formData, howDidYouHear: e.target.value})}
+                    />
+                  </div>
+                  {/* What Positions Do You Need Assistance Hiring? */}
+                  <div className="space-y-2">
+                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">What Positions Do You Need Assistance?</label>
+                    <input 
+                      type="text" 
+                      placeholder="Specify Positions - Please Separate Each Position With A Comma" 
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
+                      value={formData.positionsNeeded}
+                      onChange={(e) => setFormData({...formData, positionsNeeded: e.target.value})}
+                    />
+                  </div>
+                  
+                  {/* Choose Service */}
+                  <div className="space-y-2 md:col-span-1">
+                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Choose Service *</label>
                     <select 
                       required 
                       className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-gold/50 focus:bg-white/10 outline-none transition-all appearance-none cursor-pointer btn-sheen"
-                      value={formData.hiringNeed}
-                      onChange={(e) => setFormData({...formData, hiringNeed: e.target.value})}
+                      value={formData.service}
+                      onChange={(e) => setFormData({...formData, service: e.target.value})}
                     >
-                      <option value="" className="bg-navy text-gray-400">Select Hiring Need</option>
+                      <option value="" className="bg-navy text-gray-400">Select One</option>
                       {hiringNeedOptions.map((opt, i) => (
                         <option key={i} value={opt} className="bg-navy text-white">{opt}</option>
                       ))}
                     </select>
                   </div>
-                  {/* Number of Roles */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Number of Roles</label>
-                    <select 
-                      required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-gold/50 focus:bg-white/10 outline-none transition-all appearance-none cursor-pointer btn-sheen"
-                      value={formData.numRoles}
-                      onChange={(e) => setFormData({...formData, numRoles: e.target.value})}
-                    >
-                      <option value="" className="bg-navy text-gray-400">Select Volume</option>
-                      <option value="1" className="bg-navy text-white">1 Role</option>
-                      <option value="2-5" className="bg-navy text-white">2 - 5 Roles</option>
-                      <option value="6-10" className="bg-navy text-white">6 - 10 Roles</option>
-                      <option value="10+" className="bg-navy text-white">10+ Roles</option>
-                    </select>
-                  </div>
-                  {/* Hiring Timeline */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Hiring Timeline</label>
-                    <select 
-                      required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-gold/50 focus:bg-white/10 outline-none transition-all appearance-none cursor-pointer btn-sheen"
-                      value={formData.timeline}
-                      onChange={(e) => setFormData({...formData, timeline: e.target.value})}
-                    >
-                      <option value="" className="bg-navy text-gray-400">Select Timeline</option>
-                      <option value="Immediate" className="bg-navy text-white">Immediate</option>
-                      <option value="1-3 Months" className="bg-navy text-white">1 - 3 Months</option>
-                      <option value="3+ Months" className="bg-navy text-white">3+ Months</option>
-                      <option value="Exploring" className="bg-navy text-white">Exploring / Not Sure</option>
-                    </select>
-                  </div>
                 </div>
 
-                {/* Role Types / Description */}
-                <div className="space-y-2">
-                  <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Role Types &amp; Brief Description</label>
-                  <input 
-                    type="text" 
-                    placeholder="E.g. Sales Director, Senior DevOps Engineers..." 
-                    required 
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
-                    value={formData.description}
-                    onChange={(e) => setFormData({...formData, description: e.target.value})}
-                  />
-                </div>
-
-                {/* Preferred Contact */}
-                <div className="space-y-2">
-                  <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Preferred Contact Method</label>
-                  <div className="flex gap-6 pl-2">
-                    <label className="flex items-center gap-2 text-sm text-slate-300 cursor-pointer">
-                      <input 
-                        type="radio" 
-                        name="preferredContact" 
-                        value="Email" 
-                        required 
-                        className="accent-gold" 
-                        onChange={(e) => setFormData({...formData, preferredContact: e.target.value})} 
-                      />
-                      Email
-                    </label>
-                    <label className="flex items-center gap-2 text-sm text-slate-300 cursor-pointer">
-                      <input 
-                        type="radio" 
-                        name="preferredContact" 
-                        value="Phone" 
-                        className="accent-gold" 
-                        onChange={(e) => setFormData({...formData, preferredContact: e.target.value})} 
-                      />
-                      Phone Call
-                    </label>
-                  </div>
-                </div>
-
-                {/* Additional Notes */}
-                <div className="space-y-2">
-                  <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Additional Notes / Message</label>
+                {/* Your Question or Request */}
+                <div className="space-y-2 mt-6">
+                  <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Your Question or Request</label>
                   <textarea 
                     rows={4} 
-                    placeholder="Type details about your inquiry, requirements, or anything you'd like to share…" 
+                    placeholder="Type your question, request, or anything you'd like to know..." 
                     className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all resize-none btn-sheen"
-                    value={formData.notes}
-                    onChange={(e) => setFormData({...formData, notes: e.target.value})}
+                    value={formData.questionOrRequest}
+                    onChange={(e) => setFormData({...formData, questionOrRequest: e.target.value})}
                   />
                 </div>
 
                 <div className="pt-4 flex flex-col items-center">
-                  <p className="text-xs text-white/40 mb-8 font-medium">Our team usually responds within 2–4 hours.</p>
+                  <p className="text-xs text-white/40 mb-8 font-medium">Our team usually responds within 1-2 business days.</p>
                   <button 
                     type="submit" 
                     className="btn-rotating-border group w-full md:w-auto px-20 py-8 bg-white/5 hover:bg-white/10 text-white hover:text-gold font-black rounded-[32px] transition-all flex items-center justify-center gap-4 shadow-2xl hover:scale-105 active:scale-95 uppercase tracking-[0.3em] text-[10px] btn-auto-sheen border border-white/5"
                   >
-                    Become a Client <ArrowRight className="w-5 h-5 group-hover:translate-x-3 transition-transform duration-500" />
+                    Submit <ArrowRight className="w-5 h-5 group-hover:translate-x-3 transition-transform duration-500" />
                   </button>
                 </div>
               </form>

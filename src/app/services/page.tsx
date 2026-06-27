@@ -110,11 +110,6 @@ export default function ServicesPage() {
             From urgent hiring needs to long-term workforce planning, we deliver recruitment solutions that are flexible, strategic, and built for modern business.
           </p>
 
-          <div className="pt-8">
-            <Link href="#all-services" className="w-12 h-20 border-2 border-white/20 rounded-full flex items-start justify-center p-2 mx-auto group hover:border-gold transition-colors btn-sheen">
-              <div className="btn-rotating-border w-1 h-3 bg-white/5 rounded-full animate-bounce mt-2 group-hover:bg-white/10 btn-auto-sheen border border-white/5"></div>
-            </Link>
-          </div>
         </div>
       </section>
 

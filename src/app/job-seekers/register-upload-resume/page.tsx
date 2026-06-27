@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Typewriter } from "@/components/Typewriter";
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
+import api from '@/lib/api';
 import { 
   ArrowRight, 
   Send, 
@@ -17,41 +17,41 @@ import {
   Target,
   Sparkles,
   ArrowUpRight,
-  Info
+  Info,
+  ShieldCheck,
+  Lock,
+  Zap,
+  CheckCircle2
 } from 'lucide-react';
+import { Typewriter } from "@/components/Typewriter";
 import VideoBackground from '@/components/VideoBackground';
 import FAQItem from '@/components/FAQItem';
 
 export default function RegisterAndUploadResumePage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState<string>('');
-  const [formData, setFormData] = useState({
-    fullName: '',
-    emailAddress: '',
-    phoneNumber: '',
-    currentLocation: '',
-    preferredRole: '',
-    industry: '',
-    yearsExperience: '',
-    employmentStatus: '',
-    linkedinProfile: '',
-    coverNote: '',
-    workModel: '',
-    salaryExpectations: '',
-    availability: '',
-    consent: false
-  });
-
+  const [dragActive, setDragActive] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!formData.consent) {
-      alert("Please accept the consent checkbox to register.");
-      return;
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    // Attach the role explicitly
+    data.role = 'job_seeker';
+    
+    try {
+      const response = await api.post('/auth/register', data);
+      console.log('Candidate Registration Submitted', response.data);
+      // Auto-login (save token)
+      if (response.data.access_token) {
+        localStorage.setItem('token', response.data.access_token);
+      }
+      setFormSubmitted(true);
+    } catch (error) {
+      console.error("Registration failed", error);
+      alert("Registration failed. Please check console.");
     }
-    console.log('Candidate Registration Submitted:', formData, 'File name:', fileName);
-    setFormSubmitted(true);
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,6 +62,25 @@ export default function RegisterAndUploadResumePage() {
 
   const triggerFileSelect = () => {
     fileInputRef.current?.click();
+  };
+
+  const handleDrag = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.type === "dragenter" || e.type === "dragover") {
+      setDragActive(true);
+    } else if (e.type === "dragleave") {
+      setDragActive(false);
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      setFileName(e.dataTransfer.files[0].name);
+    }
   };
 
   const steps = [
@@ -173,38 +192,8 @@ export default function RegisterAndUploadResumePage() {
     { name: "Career Advice", href: "/career-advice", desc: "Check out resume, interviewing, and job hunt tips." }
   ];
 
-  const industries = [
-    "Information Technology",
-    "Healthcare",
-    "Industrial / Manufacturing",
-    "Hospitality",
-    "Professional Services",
-    "Education",
-    "Insurance",
-    "Retail & E-Commerce",
-    "Construction",
-    "Marketing",
-    "Sales",
-    "Other"
-  ];
-
-  const employmentStatuses = [
-    "Actively Looking",
-    "Open to Offers",
-    "Not Looking But Open",
-    "Employed (Contractor)",
-    "Currently Unemployed"
-  ];
-
-  const workModels = [
-    "On-site",
-    "Hybrid",
-    "Remote",
-    "Open to All"
-  ];
-
   return (
-    <main className="bg-[#040814] text-white min-h-screen selection:bg-gold selection:text-navy-dark font-sans">
+    <main className="bg-[#040814] text-white min-h-screen selection:bg-gold selection:text-navy-dark font-sans overflow-x-hidden">
       {/* 1. HERO SECTION */}
       <section className="relative pt-24 md:pt-32 xl:pt-40 pb-16 md:pb-20 xl:pb-24 overflow-hidden">
         <VideoBackground 
@@ -213,29 +202,29 @@ export default function RegisterAndUploadResumePage() {
         />
         
         {/* Ambient Glows */}
-        <div className="btn-rotating-border absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 blur-[120px] rounded-full animate-pulse btn-auto-sheen border border-white/5"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-navy-light/20 blur-[150px] rounded-full animate-float"></div>
+        <div className="btn-rotating-border absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 blur-[120px] rounded-full animate-pulse transition-all duration-[5000ms]"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-navy-light/10 blur-[150px] rounded-full animate-float"></div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
-            <div className="btn-rotating-border inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-gold/20 mb-6 backdrop-blur-md animate-fade-in-up btn-auto-sheen border border-white/5">
+            <div className="btn-rotating-border inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-gold/20 mb-6 backdrop-blur-md animate-fade-in-up btn-auto-sheen">
               <span className="text-gold text-xs font-bold uppercase tracking-widest">Join the Candidate Network</span>
             </div>
             <h1 className="text-4xl md:text-5xl xl:text-7xl font-black tracking-tighter mb-6 leading-none uppercase">
-            <Typewriter>
-              Register &amp; Upload Your Resume to Get <br/>
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-gold via-white/80 to-gold animate-gradient">
-                Seen for Better Opportunities.
-              </span>
-            </Typewriter>
-          </h1>
+              <Typewriter>
+                Register &amp; Upload Your Resume to Get <br/>
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-gold via-white/80 to-gold animate-gradient">
+                  Seen for Better Opportunities.
+                </span>
+              </Typewriter>
+            </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-10 animate-fade-in-up animate-delay-200">
               NAYA Staffing helps candidates move beyond one-off applications by making it easier to register, upload a resume, and become visible for current and future opportunities. Whether you are actively job searching, exploring better roles, or preparing for a smarter candidate experience through reverse recruitment and premium support, this is your starting point.
             </p>
             <div className="flex flex-wrap gap-4 justify-center animate-fade-in-up animate-delay-300">
               <a 
                 href="#registration-form" 
-                className="btn-rotating-border group relative px-8 py-4 bg-white/5 hover:bg-white/10 text-white hover:text-gold font-bold rounded-full transition-all duration-300 overflow-hidden shadow-2xl shadow-gold/20 btn-auto-sheen border border-white/5"
+                className="btn-rotating-border group relative px-8 py-4 bg-white/5 hover:bg-white/10 text-white hover:text-gold font-bold rounded-full transition-all duration-300 overflow-hidden shadow-2xl shadow-gold/20 btn-auto-sheen"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Register Now <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -267,14 +256,14 @@ export default function RegisterAndUploadResumePage() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-12 gap-8 xl:gap-12 lg:gap-12 xl:gap-20 items-start">
             <div className="lg:col-span-5 space-y-6">
-              <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold btn-auto-sheen border border-white/5">
+              <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold btn-auto-sheen">
                 Ongoing Visibility
               </div>
               <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-[1.1] uppercase">
                 Why Registering <br className="hidden md:inline" />
                 <span className="text-gold">Matters</span>
               </h2>
-              <div className="btn-rotating-border h-1.5 w-20 bg-white/5 rounded-full opacity-60 btn-auto-sheen border border-white/5"></div>
+              <div className="btn-rotating-border h-1.5 w-20 bg-white/5 rounded-full opacity-60 btn-auto-sheen"></div>
             </div>
 
             <div className="lg:col-span-7 space-y-8 text-slate-300 font-medium text-base md:text-lg leading-relaxed">
@@ -299,7 +288,7 @@ export default function RegisterAndUploadResumePage() {
             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-none uppercase">
               What You Gain <span className="text-gold">by Registering</span>
             </h2>
-            <div className="btn-rotating-border h-1.5 w-24 bg-white/5 mx-auto rounded-full btn-auto-sheen border border-white/5"></div>
+            <div className="btn-rotating-border h-1.5 w-24 bg-white/5 mx-auto rounded-full btn-auto-sheen"></div>
             <p className="text-lg md:text-xl text-slate-400 font-semibold leading-relaxed">
               We translate form actions into real, long-term candidate visibility and job matching value.
             </p>
@@ -310,7 +299,7 @@ export default function RegisterAndUploadResumePage() {
               <div key={idx} className="group relative p-10 rounded-[40px] bg-white/[0.01] border border-white/5 hover:border-gold/30 transition-all duration-700 hover:shadow-2xl flex flex-col justify-between h-full">
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-[40px]"></div>
                 <div className="relative z-10 space-y-6">
-                  <div className="btn-rotating-border w-14 h-14 bg-white/5 border border-gold/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/5 group-hover:text-white hover:text-gold transition-all duration-500 btn-auto-sheen border border-white/5">
+                  <div className="btn-rotating-border w-14 h-14 bg-white/5 border border-gold/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/5 group-hover:text-white hover:text-gold transition-all duration-500 btn-auto-sheen">
                     <Check className="w-8 h-8 text-gold" />
                   </div>
                   <h3 className="text-white font-black text-xl leading-snug group-hover:text-gold transition-colors tracking-tight uppercase">
@@ -333,7 +322,7 @@ export default function RegisterAndUploadResumePage() {
             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-none uppercase">
               What Happens <span className="text-gold">After You Register</span>
             </h2>
-            <div className="btn-rotating-border h-1.5 w-24 bg-white/5 mx-auto rounded-full btn-auto-sheen border border-white/5"></div>
+            <div className="btn-rotating-border h-1.5 w-24 bg-white/5 mx-auto rounded-full btn-auto-sheen"></div>
             <p className="text-lg md:text-xl text-slate-400 font-semibold leading-relaxed">
               This is one of our key trust-building features. We make onboarding safe, simple, and purposeful.
             </p>
@@ -357,29 +346,55 @@ export default function RegisterAndUploadResumePage() {
         </div>
       </section>
 
-      {/* 5. REGISTRATION & UPLOAD RESUME FORM */}
-      <section id="registration-form" className="py-32 bg-navy border-t border-white/5 relative overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto glass-panel p-8 md:p-16 rounded-[48px] border-white/5 shadow-2xl relative">
-            <div className="btn-rotating-border absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 bg-white/5 rounded-full flex items-center justify-center text-white hover:text-gold shadow-2xl animate-bounce btn-auto-sheen border border-white/5">
-              <Upload className="w-10 h-10" />
+      {/* 5. REGISTRATION & UPLOAD RESUME FORM (IMPROVED FULL WIDTH LAYOUT) */}
+      <section className="py-24 relative z-20 border-t border-white/5" id="registration-form">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto glass-panel rounded-[48px] shadow-2xl overflow-hidden border-white/5 hover:border-white/10 transition-all duration-700 bg-navy-dark/60 backdrop-blur-3xl p-8 sm:p-12 lg:p-16">
+            
+            {/* Top Heading & Features Section */}
+            <div className="mb-16 text-center">
+              <h6 className="text-gold font-black uppercase tracking-[0.3em] text-[10px] mb-4">The Advantage</h6>
+              <h2 className="text-3xl lg:text-5xl font-black tracking-tighter uppercase leading-tight text-white mb-12">Your Career Growth</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                {/* Feature 1 */}
+                <div className="p-8 bg-navy/50 rounded-3xl border border-white/5 hover:border-gold/20 transition-colors group">
+                  <div className="w-12 h-12 bg-gold/5 border border-gold/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold transition-colors duration-500">
+                    <Target className="w-6 h-6 text-gold group-hover:text-navy-dark transition-colors" />
+                  </div>
+                  <h4 className="font-black text-white text-base uppercase tracking-tight mb-3">Tailored Matches</h4>
+                  <p className="text-slate-400 font-bold leading-relaxed text-sm">We only curate opportunities that align with your unique DNA and ambition.</p>
+                </div>
+                
+                {/* Feature 2 */}
+                <div className="p-8 bg-navy/50 rounded-3xl border border-white/5 hover:border-gold/20 transition-colors group">
+                  <div className="w-12 h-12 bg-gold/5 border border-gold/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold transition-colors duration-500">
+                    <Zap className="w-6 h-6 text-gold group-hover:text-navy-dark transition-colors" />
+                  </div>
+                  <h4 className="font-black text-white text-base uppercase tracking-tight mb-3">Fast Tracking</h4>
+                  <p className="text-slate-400 font-bold leading-relaxed text-sm">Direct, low-latency access to global industry leaders and hiring managers.</p>
+                </div>
+
+                {/* Feature 3 */}
+                <div className="p-8 bg-navy/50 rounded-3xl border border-white/5 hover:border-gold/20 transition-colors group">
+                  <div className="w-12 h-12 bg-gold/5 border border-gold/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold transition-colors duration-500">
+                    <Lock className="w-6 h-6 text-gold group-hover:text-navy-dark transition-colors" />
+                  </div>
+                  <h4 className="font-black text-white text-base uppercase tracking-tight mb-3">Absolute Privacy</h4>
+                  <p className="text-slate-400 font-bold leading-relaxed text-sm">Your professional identity is safe. Data is never shared without explicit consent.</p>
+                </div>
+              </div>
             </div>
 
-            <div className="text-center mt-6 mb-12">
-              <h2 className="text-4xl font-black text-white tracking-tight uppercase">Candidate Onboarding <span className="text-gold">Registration</span></h2>
-              <p className="text-slate-400 font-medium leading-relaxed mt-2">
-                Upload your resume and tell us what kind of opportunity you are looking for so we can position you more effectively in the system.
-              </p>
-            </div>
-
+            {/* Success State vs Form */}
             {formSubmitted ? (
               <div className="text-center py-16 space-y-6">
-                <div className="btn-rotating-border w-20 h-20 bg-white/10 border border-gold/30 rounded-full flex items-center justify-center text-gold mx-auto btn-auto-sheen border border-white/5">
+                <div className="w-20 h-20 bg-gold/10 border border-gold/30 rounded-full flex items-center justify-center text-gold mx-auto animate-bounce">
                   <Check className="w-10 h-10" />
                 </div>
                 <h3 className="text-3xl font-black uppercase text-white">Registration Complete!</h3>
                 <p className="text-slate-400 font-semibold max-w-md mx-auto">
-                  Thank you for registering. Your resume has been uploaded successfully and added to our candidate network. A recruiter will review your profile and match it with active roles.
+                  Thank you for registering. Your professional details have been logged and your career assets uploaded. A NAYA Staffing representative will review your application for matched opportunities.
                 </p>
                 <button 
                   onClick={() => {
@@ -392,234 +407,381 @@ export default function RegisterAndUploadResumePage() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-8 mt-4">
-                <div className="grid md:grid-cols-2 gap-6 xl:gap-8">
-                  {/* Full Name */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Full Name</label>
-                    <input 
-                      type="text" 
-                      placeholder="Your Full Name" 
-                      required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({...formData, fullName: e.target.value})}
-                    />
-                  </div>
-                  {/* Email Address */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Email Address</label>
-                    <input 
-                      type="email" 
-                      placeholder="email@domain.com" 
-                      required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
-                      value={formData.emailAddress}
-                      onChange={(e) => setFormData({...formData, emailAddress: e.target.value})}
-                    />
-                  </div>
-                  {/* Phone Number */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Phone Number</label>
-                    <input 
-                      type="tel" 
-                      placeholder="+1 (555) 000-0000" 
-                      required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
-                      value={formData.phoneNumber}
-                      onChange={(e) => setFormData({...formData, phoneNumber: e.target.value})}
-                    />
-                  </div>
-                  {/* Current Location */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Current Location</label>
-                    <input 
-                      type="text" 
-                      placeholder="City, State / Country" 
-                      required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
-                      value={formData.currentLocation}
-                      onChange={(e) => setFormData({...formData, currentLocation: e.target.value})}
-                    />
-                  </div>
-                  {/* Preferred Role / Job Title */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Preferred Role / Job Title</label>
-                    <input 
-                      type="text" 
-                      placeholder="E.g. Senior Software Engineer" 
-                      required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
-                      value={formData.preferredRole}
-                      onChange={(e) => setFormData({...formData, preferredRole: e.target.value})}
-                    />
-                  </div>
-                  {/* Industry of Interest */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Industry of Interest</label>
-                    <select 
-                      required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-gold/50 focus:bg-white/10 outline-none transition-all appearance-none cursor-pointer btn-sheen"
-                      value={formData.industry}
-                      onChange={(e) => setFormData({...formData, industry: e.target.value})}
-                    >
-                      <option value="" className="bg-navy text-gray-400">Select Industry</option>
-                      {industries.map((ind, i) => (
-                        <option key={i} value={ind} className="bg-navy text-white">{ind}</option>
-                      ))}
-                    </select>
-                  </div>
-                  {/* Years of Experience */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Years of Experience</label>
-                    <select 
-                      required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-gold/50 focus:bg-white/10 outline-none transition-all appearance-none cursor-pointer btn-sheen"
-                      value={formData.yearsExperience}
-                      onChange={(e) => setFormData({...formData, yearsExperience: e.target.value})}
-                    >
-                      <option value="" className="bg-navy text-gray-400">Select Experience</option>
-                      <option value="0-1" className="bg-navy text-white">Entry Level (0-1 yrs)</option>
-                      <option value="2-4" className="bg-navy text-white">Junior / Mid (2-4 yrs)</option>
-                      <option value="5-8" className="bg-navy text-white">Senior (5-8 yrs)</option>
-                      <option value="9+" className="bg-navy text-white">Principal / Executive (9+ yrs)</option>
-                    </select>
-                  </div>
-                  {/* Employment Status */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Employment Status</label>
-                    <select 
-                      required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-gold/50 focus:bg-white/10 outline-none transition-all appearance-none cursor-pointer btn-sheen"
-                      value={formData.employmentStatus}
-                      onChange={(e) => setFormData({...formData, employmentStatus: e.target.value})}
-                    >
-                      <option value="" className="bg-navy text-gray-400">Select Status</option>
-                      {employmentStatuses.map((st, i) => (
-                        <option key={i} value={st} className="bg-navy text-white">{st}</option>
-                      ))}
-                    </select>
-                  </div>
-                  {/* Preferred Work Model */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Preferred Work Model</label>
-                    <select 
-                      required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-gold/50 focus:bg-white/10 outline-none transition-all appearance-none cursor-pointer btn-sheen"
-                      value={formData.workModel}
-                      onChange={(e) => setFormData({...formData, workModel: e.target.value})}
-                    >
-                      <option value="" className="bg-navy text-gray-400">Select Work Model</option>
-                      {workModels.map((wm, i) => (
-                        <option key={i} value={wm} className="bg-navy text-white">{wm}</option>
-                      ))}
-                    </select>
-                  </div>
-                  {/* Availability / Notice Period */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Availability / Notice Period</label>
-                    <input 
-                      type="text" 
-                      placeholder="E.g. Immediate, 2 weeks, 1 month" 
-                      required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
-                      value={formData.availability}
-                      onChange={(e) => setFormData({...formData, availability: e.target.value})}
-                    />
-                  </div>
-                  {/* Salary Expectations (Optional) */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Salary Expectations (Optional)</label>
-                    <input 
-                      type="text" 
-                      placeholder="E.g. $80,000 - $100,000 / year" 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
-                      value={formData.salaryExpectations}
-                      onChange={(e) => setFormData({...formData, salaryExpectations: e.target.value})}
-                    />
-                  </div>
-                  {/* LinkedIn Profile (Optional) */}
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">LinkedIn Profile (Optional)</label>
-                    <input 
-                      type="url" 
-                      placeholder="https://linkedin.com/in/username" 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all btn-sheen"
-                      value={formData.linkedinProfile}
-                      onChange={(e) => setFormData({...formData, linkedinProfile: e.target.value})}
-                    />
-                  </div>
-                </div>
-
-                {/* Resume Upload (file selector) */}
-                <div className="space-y-2">
-                  <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Resume Upload (PDF, Word) *</label>
-                  <div 
-                    onClick={triggerFileSelect}
-                    className="w-full bg-white/5 border-2 border-dashed border-white/10 hover:border-gold/40 hover:bg-white/10 rounded-2xl px-6 py-10 flex flex-col items-center justify-center cursor-pointer transition-all gap-4 btn-sheen"
-                  >
-                    <input 
-                      type="file" 
-                      ref={fileInputRef}
-                      onChange={handleFileChange}
-                      accept=".pdf,.doc,.docx"
-                      className="hidden"
-                      required={!fileName}
-                    />
-                    <div className="btn-rotating-border w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-gold btn-auto-sheen border border-white/5">
-                      <FileText className="w-6 h-6" />
+              <div className="border-t border-white/5 pt-12">
+                <form onSubmit={handleSubmit} className="space-y-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
+                    
+                    {/* 1. Full Name */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Full Name</label>
+                      <div className="relative group">
+                        <input required type="text" placeholder="Enter Full Name" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="full_name" />
+                      </div>
                     </div>
-                    {fileName ? (
-                      <div className="text-center">
-                        <p className="text-sm font-semibold text-white">{fileName}</p>
-                        <p className="text-xs text-gold font-bold mt-1 uppercase">Click to change file</p>
+
+                    {/* 2. Email */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Email</label>
+                      <div className="relative group">
+                        <input required type="email" placeholder="Enter Email" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="email" />
                       </div>
-                    ) : (
-                      <div className="text-center">
-                        <p className="text-sm font-semibold text-white">Drag &amp; drop or click to upload resume file</p>
-                        <p className="text-xs text-white/30 mt-1">Accepts PDF, DOCX, DOC files (max 5MB)</p>
+                    </div>
+
+                    {/* 3. Pasword */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Pasword</label>
+                      <div className="relative group">
+                        <input required type="password" placeholder="Enter Pasword" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="password" />
                       </div>
-                    )}
+                    </div>
+
+                    {/* 4. Phone number */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Phone number</label>
+                      <div className="relative group">
+                        <input required type="tel" placeholder="Enter Phone number" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="phone" />
+                      </div>
+                    </div>
+
+                    {/* 5. Gender */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Gender</label>
+                      <div className="relative group">
+                        <select className="w-full pl-6 pr-10 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold appearance-none cursor-pointer transition-all" name="gender">
+                          <option value="" className="bg-navy text-slate-400">Select...</option>
+                          <option className="bg-navy">Male</option>
+                          <option className="bg-navy">Female</option>
+                          <option className="bg-navy">Other</option>
+                          <option className="bg-navy">Prefer not to say</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* 6. Do you need any visa? */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Do you need any visa?</label>
+                      <div className="relative group">
+                        <select className="w-full pl-6 pr-10 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold appearance-none cursor-pointer transition-all">
+                          <option value="" className="bg-navy text-slate-400">Select...</option>
+                          <option className="bg-navy">Yes</option>
+                          <option className="bg-navy">No</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* 7. Previous Completed project */}
+                    <div className="col-span-1 md:col-span-2 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Previous Completed project</label>
+                      <div className="relative group">
+                        <input type="text" placeholder="Enter Previous Completed project" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="previous_projects" />
+                      </div>
+                    </div>
+
+                    {/* 8. Disability Status */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Disability Status</label>
+                      <div className="relative group">
+                        <select className="w-full pl-6 pr-10 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold appearance-none cursor-pointer transition-all" name="disability_status">
+                          <option value="" className="bg-navy text-slate-400">Select...</option>
+                          <option className="bg-navy">Yes</option>
+                          <option className="bg-navy">No</option>
+                          <option className="bg-navy">Prefer not to say</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* 9. Are you a Hispanic/Latino */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Are you a Hispanic/Latino</label>
+                      <div className="relative group">
+                        <select className="w-full pl-6 pr-10 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold appearance-none cursor-pointer transition-all" name="hispanic_latino">
+                          <option value="" className="bg-navy text-slate-400">Select...</option>
+                          <option className="bg-navy">Yes</option>
+                          <option className="bg-navy">No</option>
+                          <option className="bg-navy">Prefer not to say</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* 10. previous Job title */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">previous Job title</label>
+                      <div className="relative group">
+                        <input type="text" placeholder="Enter previous Job title" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="previous_job_title" />
+                      </div>
+                    </div>
+
+                    {/* 11. Country */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Country</label>
+                      <div className="relative group">
+                        <input type="text" placeholder="Enter Country" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="country" />
+                      </div>
+                    </div>
+
+                    {/* 12. permanant address */}
+                    <div className="col-span-1 md:col-span-2 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">permanant address</label>
+                      <div className="relative group">
+                        <input type="text" placeholder="Enter permanant address" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="permanent_address" />
+                      </div>
+                    </div>
+
+                    {/* 13. Veteran Status */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Veteran Status</label>
+                      <div className="relative group">
+                        <select className="w-full pl-6 pr-10 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold appearance-none cursor-pointer transition-all" name="veteran_status">
+                          <option value="" className="bg-navy text-slate-400">Select...</option>
+                          <option className="bg-navy">Yes</option>
+                          <option className="bg-navy">No</option>
+                          <option className="bg-navy">Prefer not to say</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* 14. Postal Code */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Postal Code</label>
+                      <div className="relative group">
+                        <input type="text" placeholder="Enter Postal Code" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="postal_code" />
+                      </div>
+                    </div>
+
+                    {/* 15. City */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">City</label>
+                      <div className="relative group">
+                        <input type="text" placeholder="Enter City" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="city" />
+                      </div>
+                    </div>
+
+                    {/* 16. Please identify your race */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Please identify your race</label>
+                      <div className="relative group">
+                        <select className="w-full pl-6 pr-10 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold appearance-none cursor-pointer transition-all" name="race">
+                          <option value="" className="bg-navy text-slate-400">Select...</option>
+                          <option className="bg-navy">American Indian or Alaska Native</option>
+                          <option className="bg-navy">Asian</option>
+                          <option className="bg-navy">Black or African American</option>
+                          <option className="bg-navy">Native Hawaiian or Other Pacific Islander</option>
+                          <option className="bg-navy">White</option>
+                          <option className="bg-navy">Two or More Races</option>
+                          <option className="bg-navy">Prefer not to say</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* 17. Salary Range */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Salary Range</label>
+                      <div className="relative group">
+                        <input type="text" placeholder="Enter Salary Range" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="salary_range" />
+                      </div>
+                    </div>
+
+                    {/* 18. Current working ? */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Current working ?</label>
+                      <div className="relative group">
+                        <select className="w-full pl-6 pr-10 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold appearance-none cursor-pointer transition-all">
+                          <option value="" className="bg-navy text-slate-400">Select...</option>
+                          <option className="bg-navy">Yes</option>
+                          <option className="bg-navy">No</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* 19. State/Province */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">State/Province</label>
+                      <div className="relative group">
+                        <input type="text" placeholder="Enter State/Province" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="state_province" />
+                      </div>
+                    </div>
+
+                    {/* 20. Job Type preference (Like as Remote, Hybrid, On-site) */}
+                    <div className="col-span-1 md:col-span-2 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Job Type preference (Like as Remote, Hybrid, On-site)</label>
+                      <div className="relative group">
+                        <select className="w-full pl-6 pr-10 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold appearance-none cursor-pointer transition-all">
+                          <option value="" className="bg-navy text-slate-400">Select...</option>
+                          <option className="bg-navy">Remote</option>
+                          <option className="bg-navy">Hybrid</option>
+                          <option className="bg-navy">On-site</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* 21. Can you please specify the target countries for remote job application */}
+                    <div className="col-span-1 md:col-span-2 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Can you please specify the target countries for remote job application</label>
+                      <div className="relative group">
+                        <input type="text" placeholder="Enter Can you please specify the target countries for remote job application" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="remote_target_countries" />
+                      </div>
+                    </div>
+
+                    {/* 22. Do you currently or in future require work sponsorship? */}
+                    <div className="col-span-1 md:col-span-2 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Do you currently or in future require work sponsorship?</label>
+                      <div className="relative group">
+                        <select className="w-full pl-6 pr-10 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold appearance-none cursor-pointer transition-all">
+                          <option value="" className="bg-navy text-slate-400">Select...</option>
+                          <option className="bg-navy">Yes</option>
+                          <option className="bg-navy">No</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* 23. County */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">County</label>
+                      <div className="relative group">
+                        <input type="text" placeholder="Enter County" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="county" />
+                      </div>
+                    </div>
+
+                    {/* 24. Desire start date */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Desire start date</label>
+                      <div className="relative group">
+                        <input type="date" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="desire_start_date" />
+                      </div>
+                    </div>
+
+                    {/* 25. GIT Hub Link */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">GIT Hub Link</label>
+                      <div className="relative group">
+                        <input type="url" placeholder="Enter GIT Hub Link" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="github_link" />
+                      </div>
+                    </div>
+
+                    {/* 26. LinkedIn URL */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">LinkedIn URL</label>
+                      <div className="relative group">
+                        <input type="url" placeholder="Enter LinkedIn URL" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="linkedin_url" />
+                      </div>
+                    </div>
+
+                    {/* 27. Which position are you looking for */}
+                    <div className="col-span-1 md:col-span-2 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Which position are you looking for</label>
+                      <div className="relative group">
+                        <input type="text" placeholder="Enter Which position are you looking for" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="desired_position" />
+                      </div>
+                    </div>
+
+                    {/* 28. Date of Birth */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Date of Birth</label>
+                      <div className="relative group">
+                        <input type="date" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="date_of_birth" />
+                      </div>
+                    </div>
+
+                    {/* 29. Age */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Age</label>
+                      <div className="relative group">
+                        <input type="number" placeholder="Enter Age" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="age" />
+                      </div>
+                    </div>
+
+                    {/* 30. Working hours */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Working hours</label>
+                      <div className="relative group">
+                        <input type="text" placeholder="Enter Working hours" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="working_hours" />
+                      </div>
+                    </div>
+
+                    {/* 31. Expected Salary Hourly and Yearly */}
+                    <div className="col-span-1 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Expected Salary Hourly and Yearly</label>
+                      <div className="relative group">
+                        <input type="text" placeholder="Enter Expected Salary Hourly and Yearly" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="expected_salary_hourly_yearly" />
+                      </div>
+                    </div>
+
+                    {/* 32. Do you have any employment restrictions such as a non compete */}
+                    <div className="col-span-1 md:col-span-2 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Do you have any employment restrictions such as a non compete</label>
+                      <div className="relative group">
+                        <input type="text" placeholder="Enter Do you have any employment restrictions such as a non compete" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="employment_restrictions" />
+                      </div>
+                    </div>
+
+                    {/* 33. Did you have any security clearance */}
+                    <div className="col-span-1 md:col-span-2 space-y-3">
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Did you have any security clearance</label>
+                      <div className="relative group">
+                        <select className="w-full pl-6 pr-10 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold appearance-none cursor-pointer transition-all" name="security_clearance">
+                          <option value="" className="bg-navy text-slate-400">Select...</option>
+                          <option className="bg-navy">Yes</option>
+                          <option className="bg-navy">No</option>
+                        </select>
+                      </div>
+                    </div>
+
                   </div>
-                </div>
 
-                {/* Cover Note / Career Summary (Optional) */}
-                <div className="space-y-2">
-                  <label className="text-xs font-black uppercase tracking-widest text-gold ml-2">Cover Note / Career Summary (Optional)</label>
-                  <textarea 
-                    rows={4} 
-                    placeholder="Briefly summarize your career goals, key strengths, or message to recruiters…" 
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:border-gold/50 focus:bg-white/10 outline-none transition-all resize-none btn-sheen"
-                    value={formData.coverNote}
-                    onChange={(e) => setFormData({...formData, coverNote: e.target.value})}
-                  />
-                </div>
+                  {/* Drag and drop resume upload zone */}
+                  <div className="space-y-4 pt-12">
+                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Asset Upload (PDF, DOCX) *</label>
+                    <div 
+                      onClick={triggerFileSelect}
+                      onDragOver={handleDrag}
+                      onDragEnter={handleDrag}
+                      onDragLeave={handleDrag}
+                      onDrop={handleDrop}
+                      className={`border-2 border-dashed rounded-[48px] p-12 text-center transition-all cursor-pointer group/upload ${
+                        dragActive ? 'border-gold bg-gold/5' : 'border-white/10 bg-white/5'
+                      }`}
+                    >
+                      <input 
+                        type="file" 
+                        ref={fileInputRef}
+                        onChange={handleFileChange}
+                        accept=".pdf,.doc,.docx"
+                        className="hidden"
+                        required={!fileName}
+                      />
+                      <div className="w-20 h-20 bg-gold/10 rounded-3xl flex items-center justify-center mx-auto mb-6 text-gold group-hover/upload:scale-110 group-hover/upload:bg-gold group-hover/upload:text-navy-dark transition-all duration-500 shadow-xl">
+                        <Upload className="w-10 h-10" />
+                      </div>
+                      {fileName ? (
+                        <div>
+                          <p className="text-white font-black text-xl mb-2 tracking-tight">{fileName}</p>
+                          <p className="text-xs text-gold font-black uppercase tracking-widest">Click to change file</p>
+                        </div>
+                      ) : (
+                        <div>
+                          <p className="text-white font-black text-xl mb-2 tracking-tight group-hover/upload:text-gold transition-colors">Drag and Drop Career Assets</p>
+                          <p className="text-slate-500 font-bold">Accepts PDF, DOC, DOCX files (max 10MB)</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
 
-                {/* Consent Checkbox */}
-                <div className="flex items-start gap-3 pl-2">
-                  <input 
-                    type="checkbox" 
-                    id="consent"
-                    required
-                    className="accent-gold mt-1.5 cursor-pointer"
-                    checked={formData.consent}
-                    onChange={(e) => setFormData({...formData, consent: e.target.checked})}
-                  />
-                  <label htmlFor="consent" className="text-xs text-slate-400 font-semibold leading-relaxed cursor-pointer select-none">
-                    I consent to NAYA Staffing storing my personal information and resume file, and sharing my credentials with prospective matching employers for current and future career matches.
-                  </label>
-                </div>
+                  <div className="pt-8">
+                    <div className="flex items-start gap-4 mb-10 p-6 glass-panel rounded-3xl border-white/5">
+                      <ShieldCheck className="w-6 h-6 text-gold shrink-0 mt-1" />
+                      <p className="text-[10px] text-slate-500 font-black uppercase tracking-widest leading-loose">
+                        By initiating registration, you sanction our <span className="text-white">Terms of Engagement</span> and <span className="text-white">Privacy Protocols</span>. We handle all personal data with absolute encryption and regulatory compliance.
+                      </p>
+                    </div>
+                    <button type="submit" className="w-full bg-gold hover:bg-gold-hover text-navy-dark py-7 rounded-[32px] font-black text-xs uppercase tracking-[0.4em] shadow-[0_4px_50px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-2 flex items-center justify-center gap-6 group">
+                      Submit Registration <ArrowRight className="w-6 h-6 group-hover:translate-x-3 transition-transform" />
+                    </button>
+                  </div>
 
-                <div className="pt-4 flex flex-col items-center">
-                  <button 
-                    type="submit" 
-                    className="btn-rotating-border group w-full md:w-auto px-20 py-8 bg-white/5 hover:bg-white/10 text-white hover:text-gold font-black rounded-[32px] transition-all flex items-center justify-center gap-4 shadow-2xl hover:scale-105 active:scale-95 uppercase tracking-[0.3em] text-[10px] btn-auto-sheen border border-white/5"
-                  >
-                    Register Now <ArrowRight className="w-5 h-5 group-hover:translate-x-3 transition-transform duration-500" />
-                  </button>
-                </div>
-              </form>
+                </form>
+              </div>
             )}
+
           </div>
         </div>
       </section>
@@ -629,14 +791,14 @@ export default function RegisterAndUploadResumePage() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-12 gap-8 xl:gap-12 lg:gap-12 xl:gap-20 items-start">
             <div className="lg:col-span-5 space-y-6">
-              <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold btn-auto-sheen border border-white/5">
+              <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-xs font-black uppercase tracking-[0.4em] text-gold btn-auto-sheen">
                 The Network Advantage
               </div>
               <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter leading-[1.1] uppercase">
                 Not Just for One Job. <br className="hidden md:inline" />
                 <span className="text-gold">For Ongoing Visibility.</span>
               </h2>
-              <div className="btn-rotating-border h-1.5 w-20 bg-white/5 rounded-full opacity-60 btn-auto-sheen border border-white/5"></div>
+              <div className="btn-rotating-border h-1.5 w-20 bg-white/5 rounded-full opacity-60 btn-auto-sheen"></div>
             </div>
 
             <div className="lg:col-span-7 space-y-8 text-slate-300 font-medium text-base md:text-lg leading-relaxed">
@@ -661,7 +823,7 @@ export default function RegisterAndUploadResumePage() {
             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-none uppercase">
               What You Can <span className="text-gold">Do Next</span>
             </h2>
-            <div className="btn-rotating-border h-1.5 w-24 bg-white/5 mx-auto rounded-full btn-auto-sheen border border-white/5"></div>
+            <div className="btn-rotating-border h-1.5 w-24 bg-white/5 mx-auto rounded-full btn-auto-sheen"></div>
             <p className="text-lg md:text-xl text-slate-400 font-semibold leading-relaxed">
               Understand how registration connects with the rest of the NAYA Staffing Job Seekers experience.
             </p>
@@ -705,7 +867,7 @@ export default function RegisterAndUploadResumePage() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-6 shrink-0 w-full lg:w-auto">
-              <a href="#registration-form" className="btn-rotating-border px-12 py-6 bg-white/5 text-white hover:text-gold font-black rounded-full hover:bg-white/10 hover:-translate-y-2 transition-all text-center shadow-xl uppercase tracking-[0.2em] text-xs btn-auto-sheen border border-white/5">
+              <a href="#registration-form" className="btn-rotating-border px-12 py-6 bg-white/5 text-white hover:text-gold font-black rounded-full hover:bg-white/10 hover:-translate-y-2 transition-all text-center shadow-xl uppercase tracking-[0.2em] text-xs btn-auto-sheen">
                 Register Now
               </a>
               <Link href="/job-openings" className="px-12 py-6 bg-white/5 border border-white/10 text-white font-black rounded-full hover:bg-white/10 hover:-translate-y-2 transition-all text-center uppercase tracking-[0.2em] text-xs backdrop-blur-md btn-sheen">
@@ -720,11 +882,11 @@ export default function RegisterAndUploadResumePage() {
       <section className="bg-navy py-32 overflow-hidden border-t border-white/5">
         <div className="container mx-auto px-6 max-w-4xl">
            <div className="text-center mb-20 space-y-6">
-              <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-6 shadow-xl backdrop-blur-md btn-auto-sheen border border-white/5">
+              <div className="btn-rotating-border inline-block px-4 py-1.5 bg-white/10 border border-gold/20 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-gold mb-6 shadow-xl backdrop-blur-md btn-auto-sheen">
                 FAQ
               </div>
               <h2 className="text-5xl font-black mb-6 uppercase">Frequently <span className="text-gold">Asked Questions</span></h2>
-              <div className="btn-rotating-border h-1.5 w-24 bg-white/5 mx-auto rounded-full btn-auto-sheen border border-white/5"></div>
+              <div className="btn-rotating-border h-1.5 w-24 bg-white/5 mx-auto rounded-full btn-auto-sheen"></div>
            </div>
            
            <div className="space-y-6">
@@ -742,12 +904,12 @@ export default function RegisterAndUploadResumePage() {
       {/* 10. FINAL CTA SECTION */}
       <section className="py-32 relative overflow-hidden bg-navy-dark border-t border-white/5">
         <div className="absolute inset-0 z-0">
-          <div className="btn-rotating-border absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/[0.03] blur-[200px] rounded-full btn-auto-sheen border border-white/5"></div>
+          <div className="btn-rotating-border absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/[0.03] blur-[200px] rounded-full btn-auto-sheen"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="glass-panel p-12 md:p-24 rounded-[4rem] text-center border border-gold/20 shadow-2xl shadow-gold/10">
-            <div className="btn-rotating-border inline-flex items-center justify-center w-24 h-24 rounded-full bg-white/5 text-white hover:text-gold mb-10 shadow-2xl shadow-gold/30 btn-auto-sheen border border-white/5">
+            <div className="btn-rotating-border inline-flex items-center justify-center w-24 h-24 rounded-full bg-white/5 text-white hover:text-gold mb-10 shadow-2xl shadow-gold/30 btn-auto-sheen">
               <Briefcase className="w-12 h-12" />
             </div>
             <h2 className="text-5xl md:text-8xl font-black mb-10 tracking-tighter leading-[0.85] uppercase">
@@ -760,7 +922,7 @@ export default function RegisterAndUploadResumePage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 xl:gap-8">
               <a 
                 href="#registration-form" 
-                className="btn-rotating-border group w-full sm:w-auto px-16 py-8 bg-white/5 hover:bg-white/10 text-white hover:text-gold font-black rounded-[32px] transition-all flex items-center justify-center gap-4 shadow-2xl hover:scale-105 active:scale-95 uppercase tracking-[0.3em] text-[10px] btn-auto-sheen border border-white/5"
+                className="btn-rotating-border group w-full sm:w-auto px-16 py-8 bg-white/5 hover:bg-white/10 text-white hover:text-gold font-black rounded-[32px] transition-all flex items-center justify-center gap-4 shadow-2xl hover:scale-105 active:scale-95 uppercase tracking-[0.3em] text-[10px] btn-auto-sheen"
               >
                 Register Now <ArrowRight className="w-5 h-5 group-hover:translate-x-3 transition-transform duration-500" />
               </a>
@@ -790,7 +952,7 @@ export default function RegisterAndUploadResumePage() {
                 Candidate <br/>
                 Hiring <span className="text-gold">Services</span>
               </h2>
-              <div className="btn-rotating-border h-1 w-20 bg-white/5 rounded-full btn-auto-sheen border border-white/5"></div>
+              <div className="btn-rotating-border h-1 w-20 bg-white/5 rounded-full btn-auto-sheen"></div>
               <p className="text-slate-400 text-sm font-semibold leading-relaxed">
                 Learn how we help candidates beyond direct job application postings with reverse recruitment, pricing structures, and career advice.
               </p>
