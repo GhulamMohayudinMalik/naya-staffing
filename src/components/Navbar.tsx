@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronDown, Menu, X, Globe, Briefcase, Users, Info, MessageSquare, Search, FileText } from 'lucide-react';
 
 export default function Navbar() {
@@ -39,9 +40,15 @@ export default function Navbar() {
           
           {/* Section 1: Brand Anchor */}
           <div className="flex items-center shrink-0">
-            <Link href="/" className="text-xl md:text-2xl font-black tracking-tighter transition-all duration-300 text-white hover:text-gold group flex items-center gap-2">
-              <span className="bg-gold w-9 h-9 rounded-xl flex items-center justify-center text-navy-dark text-xl group-hover:rotate-12 transition-transform shadow-lg shadow-gold/20">N</span>
-              <span className="whitespace-nowrap">NAYA Staffing</span>
+            <Link href="/" className="group flex items-center">
+              <Image 
+                src="/images/logo.jpeg" 
+                alt="NAYA Staffing Logo" 
+                width={200} 
+                height={50} 
+                className="h-10 lg:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 rounded-lg"
+                priority
+              />
             </Link>
           </div>
           

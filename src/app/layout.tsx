@@ -17,8 +17,7 @@ export const metadata: Metadata = {
   title: "Global Recruitment Agency & Staffing Solutions | NAYA Staffing",
   description: "NAYA Staffing delivers executive search, permanent recruitment, contract staffing, RPO, and global hiring solutions across multiple industries for employers and job seekers worldwide.",
 };
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import NavigationWrapper from "@/components/NavigationWrapper";
 
 export default function RootLayout({
   children,
@@ -30,13 +29,9 @@ export default function RootLayout({
       <body
         className={`${nunitoSans.variable} ${geistMono.variable} antialiased font-sans`}
       >
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
-        </div>
+        <NavigationWrapper>
+          {children}
+        </NavigationWrapper>
       </body>
     </html>
   );

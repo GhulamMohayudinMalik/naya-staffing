@@ -6,13 +6,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import api from '@/lib/api';
 
-export default function AdminLayout({
+export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const router = useRouter();
   const [isAuthorized, setIsAuthorized] = useState(false);
+  const [role, setRole] = useState('');
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -25,9 +26,12 @@ export default function AdminLayout({
         const { data } = await api.get('/users/me', {
           headers: { Authorization: `Bearer ${token}` }
         });
-        if (data.role !== 'admin') {
-          router.push('/');
+        
+        // Admins shouldn't use this dashboard
+        if (data.role === 'admin') {
+          router.push('/admin');
         } else {
+          setRole(data.role);
           setIsAuthorized(true);
         }
       } catch (err) {
@@ -63,9 +67,9 @@ export default function AdminLayout({
             />
           </Link>
           <nav className="flex items-center space-x-2 md:space-x-6 overflow-x-auto">
-            <Link href="/admin" className="text-slate-400 hover:text-gold font-bold text-xs uppercase tracking-widest transition-colors whitespace-nowrap">Overview</Link>
-            <Link href="/admin/resumes" className="text-slate-400 hover:text-gold font-bold text-xs uppercase tracking-widest transition-colors whitespace-nowrap">Resumes</Link>
-            <Link href="/admin/jobs" className="text-slate-400 hover:text-gold font-bold text-xs uppercase tracking-widest transition-colors whitespace-nowrap">Jobs</Link>
+            <span className="text-white text-sm font-bold opacity-50 hidden sm:inline-block">
+              {role === 'client' ? 'Employer Portal' : 'Candidate Portal'}
+            </span>
             <button 
               onClick={() => {
                 localStorage.removeItem('token');

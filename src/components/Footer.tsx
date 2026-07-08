@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Twitter, Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
@@ -11,9 +12,14 @@ export default function Footer() {
           
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-10">
-            <Link href="/" className="text-3xl font-black tracking-tighter text-white flex items-center gap-4">
-              <span className="bg-gold w-12 h-12 rounded-2xl flex items-center justify-center text-navy-dark text-2xl shadow-[0_10px_30px_rgba(212,175,55,0.3)]">N</span>
-              <span>NAYA Staffing</span>
+            <Link href="/" className="inline-block">
+              <Image 
+                src="/images/logo.jpeg" 
+                alt="NAYA Staffing Logo" 
+                width={220} 
+                height={60} 
+                className="h-12 w-auto object-contain rounded-lg"
+              />
             </Link>
             <p className="text-slate-400 font-medium leading-relaxed text-base max-w-sm">
               NAYA Staffing delivers premium recruitment and workforce solutions for employers and job seekers across diverse industries and evolving markets.
