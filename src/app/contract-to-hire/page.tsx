@@ -83,7 +83,7 @@ export default function ContractToHirePage() {
           </div>
 
           <p className="text-lg md:text-2xl font-semibold text-slate-400 tracking-tight max-w-4xl mx-auto animate-fade-up animate-delay-200 italic leading-relaxed">
-            "We do smart hiring that works for both sides — <span className="text-white">contract today, full-time tomorrow.</span>"
+            "We do smart hiring that works for both sides - <span className="text-white">contract today, full-time tomorrow.</span>"
           </p>
         </div>
 

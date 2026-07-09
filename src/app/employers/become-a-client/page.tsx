@@ -3,6 +3,7 @@
 import { Typewriter } from "@/components/Typewriter";
 import React, { useState } from 'react';
 import Link from 'next/link';
+import api from '@/lib/api';
 import { 
   ArrowRight, 
   Send, 
@@ -47,10 +48,27 @@ export default function BecomeAClientPage() {
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Client Inquiry Form Submitted:', formData);
-    setFormSubmitted(true);
+    try {
+      const payload = {
+        inquiry_type: 'client_inquiry',
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.companyEmail,
+        phone: formData.phone,
+        company: formData.hiringCompany,
+        message: `State: ${formData.state}
+Positions: ${formData.positionsNeeded}
+Service: ${formData.service}
+Source: ${formData.howDidYouHear}
+Request: ${formData.questionOrRequest}`
+      };
+      await api.post('/inquiries/', payload);
+      setFormSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      alert('Failed to submit inquiry. Please try again.');
+    }
   };
 
   const clientTypes = [

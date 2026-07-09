@@ -35,6 +35,28 @@ export default function AdminDashboard() {
         </div>
 
       </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div className="bg-[#0B132B] border border-white/10 rounded-3xl p-8 relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-full blur-3xl -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-700"></div>
+          <h3 className="text-[10px] font-black text-white uppercase tracking-widest opacity-60">Client Inquiries</h3>
+          <p className="text-4xl font-black text-white mt-4 tracking-tighter">New Business</p>
+          <p className="text-slate-400 text-sm mt-2 font-medium">Review consultation requests and employer inquiries.</p>
+          <Link href="/admin/inquiries" className="mt-8 bg-white/5 hover:bg-gold hover:text-navy-dark text-white border border-white/10 hover:border-gold px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest inline-flex items-center gap-2 transition-all duration-300">
+            View Inquiries <span aria-hidden="true">&rarr;</span>
+          </Link>
+        </div>
+
+        <div className="bg-[#0B132B] border border-white/10 rounded-3xl p-8 relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-700"></div>
+          <h3 className="text-[10px] font-black text-white uppercase tracking-widest opacity-60">Support Tickets</h3>
+          <p className="text-4xl font-black text-white mt-4 tracking-tighter">Help Desk</p>
+          <p className="text-slate-400 text-sm mt-2 font-medium">Manage support requests from candidates and clients.</p>
+          <Link href="/admin/support" className="mt-8 bg-white/5 hover:bg-gold hover:text-navy-dark text-white border border-white/10 hover:border-gold px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest inline-flex items-center gap-2 transition-all duration-300">
+            View Tickets <span aria-hidden="true">&rarr;</span>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

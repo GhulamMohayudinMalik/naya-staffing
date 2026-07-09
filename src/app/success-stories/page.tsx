@@ -320,7 +320,7 @@ export default function SuccessStoriesPage() {
                   A partnership that scaled a technical team: Furqan Ali’s executive alignment with a leading software enterprise
                 </h3>
                 <p className="text-slate-300 text-lg leading-relaxed font-medium">
-                  “At NAYA Staffing, our vision has always been clear — to simplify recruitment and empower both employers and candidates through genuine connections. In this engagement, we aligned directly with executive stakeholders to solve structural engineering bottlenecks and build out a dedicated Cloud operations division under a compressed timeline.”
+                  “At NAYA Staffing, our vision has always been clear - to simplify recruitment and empower both employers and candidates through genuine connections. In this engagement, we aligned directly with executive stakeholders to solve structural engineering bottlenecks and build out a dedicated Cloud operations division under a compressed timeline.”
                 </p>
                 <div className="flex items-center gap-3 pt-4 border-t border-white/5">
                   <div className="btn-rotating-border w-10 h-1 bg-white/5 rounded-full btn-auto-sheen border border-white/5"></div>

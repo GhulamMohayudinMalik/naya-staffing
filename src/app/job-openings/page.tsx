@@ -1,67 +1,54 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Typewriter } from "@/components/Typewriter";
 import { Search, MapPin, Briefcase, Clock, ArrowRight, Check, Stars } from 'lucide-react';
 import Link from 'next/link';
-
-const jobs = [
-  {
-    id: 1,
-    title: "Senior Full Stack Developer",
-    category: "Information Technology",
-    location: "Remote / New York",
-    type: "Full-Time",
-    posted: "2 days ago",
-    salary: "$120k - $160k"
-  },
-  {
-    id: 2,
-    title: "Registered Nurse (ICU)",
-    category: "Healthcare",
-    location: "Houston, TX",
-    type: "Contract",
-    posted: "1 day ago",
-    salary: "$85k - $110k"
-  },
-  {
-    id: 3,
-    title: "Marketing Manager",
-    category: "Marketing",
-    location: "Chicago, IL",
-    type: "Full-Time",
-    posted: "3 days ago",
-    salary: "$90k - $120k"
-  },
-  {
-    id: 4,
-    title: "Project Coordinator",
-    category: "Professional Services",
-    location: "Atlanta, GA",
-    type: "Full-Time",
-    posted: "5 days ago",
-    salary: "$70k - $90k"
-  },
-  {
-    id: 5,
-    title: "Warehouse Supervisor",
-    category: "Industrial",
-    location: "Los Angeles, CA",
-    type: "Full-Time",
-    posted: "1 week ago",
-    salary: "$65k - $80k"
-  },
-  {
-    id: 6,
-    title: "Customer Success Lead",
-    category: "Sales",
-    location: "Remote",
-    type: "Full-Time",
-    posted: "4 days ago",
-    salary: "$80k - $105k"
-  }
-];
+import api from '@/lib/api';
 
 export default function JobOpenings() {
+  const [jobs, setJobs] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const res = await api.get('/jobs/');
+        setJobs(res.data);
+      } catch (err) {
+        console.error("Failed to fetch jobs", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchJobs();
+  }, []);
+
+  const handleApply = async (jobId: number) => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert("You must be logged in to apply for a job.");
+      router.push('/login');
+      return;
+    }
+    
+    try {
+      await api.post(`/jobs/${jobId}/apply`, {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      alert("Application submitted successfully! Track it in your Dashboard.");
+    } catch (err: any) {
+      console.error(err);
+      if (err.response?.status === 400 && err.response?.data?.detail) {
+        alert(err.response.data.detail); // e.g. "Already applied to this job"
+      } else {
+        alert("Failed to submit application. Please ensure you are logged in as a candidate.");
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-navy-dark flex flex-col font-sans selection:bg-gold selection:text-navy-dark overflow-x-hidden">
       {/* Hero Section */}
@@ -130,47 +117,54 @@ export default function JobOpenings() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-10">
-            {jobs.map((job) => (
-              <div key={job.id} className="glass-panel group p-10 rounded-[48px] hover:border-gold/30 hover:shadow-gold/5 transition-all duration-500 flex flex-col h-full border-white/5">
-                <div className="mb-8 space-y-3">
-                  <div className="btn-rotating-border inline-block bg-white/10 border border-gold/20 text-gold px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-lg backdrop-blur-md btn-auto-sheen border border-white/5">
-                    {job.category}
-                  </div>
-                  <div className="text-slate-500 text-[10px] font-black uppercase tracking-[0.3em] flex items-center px-1">
-                    <Clock className="w-3 h-3 mr-2 text-gold/40" />
-                    {job.posted}
-                  </div>
-                </div>
-                
-                <h3 className="text-2xl font-black text-white mb-4 group-hover:text-gold transition-colors tracking-tight leading-tight">
-                  {job.title}
-                </h3>
-                
-                <div className="space-y-4 mb-10 grow">
-                  <div className="flex items-center text-slate-400 font-bold text-lg">
-                    <MapPin className="w-5 h-5 mr-3 text-gold/40" />
-                    {job.location}
-                  </div>
-                  <div className="flex items-center text-slate-400 font-bold text-base">
-                    <Briefcase className="w-5 h-5 mr-3 text-gold/40" />
-                    {job.type}
-                  </div>
-                  <div className="text-2xl font-black text-white pt-4">
-                    {job.salary}
-                  </div>
-                </div>
-                
-                <Link href={`/jobs/${job.id}`} className="btn-rotating-border mt-auto w-full flex items-center justify-center bg-white/5 border border-white/10 text-white py-6 rounded-3xl font-black uppercase tracking-[0.2em] group-hover:bg-white/5 group-hover:text-white hover:text-gold group-hover:border-gold transition-all duration-300 text-xs text-center btn-auto-sheen border border-white/5">
-                  Apply Now <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                </Link>
+            {loading ? (
+              <div className="col-span-full text-center text-gold uppercase tracking-widest font-black animate-pulse py-20">
+                Loading live opportunities...
               </div>
-            ))}
-          </div>
-
-          <div className="mt-24 text-center">
-            <button className="px-16 py-6 border-2 border-white/10 text-white font-black rounded-full hover:border-gold hover:text-gold transition-all text-xs uppercase tracking-[0.4em] backdrop-blur-md btn-sheen">
-              Browse All Jobs
-            </button>
+            ) : jobs.length === 0 ? (
+              <div className="col-span-full text-center text-slate-400 font-bold py-20">
+                No active jobs available at the moment. Please check back later.
+              </div>
+            ) : (
+              jobs.map((job) => (
+                <div key={job.id} className="glass-panel group p-10 rounded-[48px] hover:border-gold/30 hover:shadow-gold/5 transition-all duration-500 flex flex-col h-full border-white/5">
+                  <div className="mb-8 space-y-3">
+                    <div className="btn-rotating-border inline-block bg-white/10 border border-gold/20 text-gold px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-lg backdrop-blur-md btn-auto-sheen border border-white/5">
+                      {job.company || 'Private Client'}
+                    </div>
+                    <div className="text-slate-500 text-[10px] font-black uppercase tracking-[0.3em] flex items-center px-1">
+                      <Clock className="w-3 h-3 mr-2 text-gold/40" />
+                      Recently Posted
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-2xl font-black text-white mb-4 group-hover:text-gold transition-colors tracking-tight leading-tight">
+                    {job.title}
+                  </h3>
+                  
+                  <div className="space-y-4 mb-10 grow">
+                    <div className="flex items-center text-slate-400 font-bold text-lg">
+                      <MapPin className="w-5 h-5 mr-3 text-gold/40" />
+                      {job.location}
+                    </div>
+                    <div className="flex items-center text-slate-400 font-bold text-base">
+                      <Briefcase className="w-5 h-5 mr-3 text-gold/40" />
+                      {job.job_type}
+                    </div>
+                    <p className="text-slate-400 text-sm mt-4 line-clamp-3">
+                      {job.description}
+                    </p>
+                  </div>
+                  
+                  <button 
+                    onClick={() => handleApply(job.id)} 
+                    className="btn-rotating-border mt-auto w-full flex items-center justify-center bg-white/5 border border-white/10 text-white py-6 rounded-3xl font-black uppercase tracking-[0.2em] group-hover:bg-white/5 group-hover:text-white hover:text-gold group-hover:border-gold transition-all duration-300 text-xs text-center btn-auto-sheen border border-white/5"
+                  >
+                    Apply Now <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                  </button>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </section>
@@ -189,7 +183,7 @@ export default function JobOpenings() {
                 Join our elite talent circuit and we'll track opportunities that match your specific DNA and ambition.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center pt-6">
-                <Link href="/register-upload-resume" className="btn-rotating-border bg-white/5 hover:bg-white/10 text-white hover:text-gold px-16 py-6 rounded-full font-black text-xs uppercase tracking-[0.4em] transition-all transform hover:-translate-y-2 shadow-[0_4px_40px_rgba(212,175,55,0.4)] flex items-center justify-center gap-4 btn-auto-sheen border border-white/5">
+                <Link href="/job-seekers/register-upload-resume" className="btn-rotating-border bg-white/5 hover:bg-white/10 text-white hover:text-gold px-16 py-6 rounded-full font-black text-xs uppercase tracking-[0.4em] transition-all transform hover:-translate-y-2 shadow-[0_4px_40px_rgba(212,175,55,0.4)] flex items-center justify-center gap-4 btn-auto-sheen border border-white/5">
                   Upload Resume <Check className="w-5 h-5" />
                 </Link>
                 <Link href="/contact-us" className="bg-white/5 hover:bg-white/10 text-white border-2 border-white/10 px-16 py-6 rounded-full font-black text-xs uppercase tracking-[0.4em] transition-all flex items-center justify-center gap-4 backdrop-blur-md btn-sheen">

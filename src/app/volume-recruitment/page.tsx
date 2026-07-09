@@ -127,7 +127,7 @@ export default function VolumeRecruitmentPage() {
             </Typewriter>
           </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-2xl font-light leading-relaxed mb-10 italic">
-              "We don’t just fill roles—we build workforce legacies at scale."
+              "We don’t just fill roles-we build workforce legacies at scale."
             </p>
             <div className="flex flex-wrap gap-4 justify-center animate-fade-in-up animate-delay-300">
               <Link 

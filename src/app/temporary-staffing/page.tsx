@@ -139,7 +139,7 @@ export default function TemporaryStaffingPage() {
             </Typewriter>
           </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-2xl font-light leading-relaxed mb-10">
-              On-demand staffing for short-term needs—fast, flexible, and consistently reliable. We keep your business moving when demand peaks.
+              On-demand staffing for short-term needs-fast, flexible, and consistently reliable. We keep your business moving when demand peaks.
             </p>
             <div className="flex flex-wrap gap-4 justify-center animate-fade-in-up animate-delay-300">
               <Link 

@@ -3,6 +3,7 @@
 import { Typewriter } from "@/components/Typewriter";
 import React, { useState } from 'react';
 import Link from 'next/link';
+import api from '@/lib/api';
 import { 
   LifeBuoy, 
   Send, 
@@ -45,10 +46,22 @@ export default function SupportPage() {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Support Form Submitted:', formData);
-    alert("Support request received! A representative will connect with you shortly.");
+    try {
+      const payload = {
+        inquiry_type: 'support_ticket',
+        name: formData.name,
+        email: formData.email,
+        message: `Topic: ${formData.topic}\n\n${formData.message}`
+      };
+      await api.post('/inquiries/', payload);
+      alert("Support request received! A representative will connect with you shortly.");
+      setFormData({ name: '', email: '', topic: 'general', message: '' });
+    } catch (err) {
+      console.error(err);
+      alert('Failed to submit support request. Please try again.');
+    }
   };
 
   return (

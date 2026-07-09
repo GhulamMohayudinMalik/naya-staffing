@@ -1,60 +1,29 @@
 "use client";
 
 import { Typewriter } from "@/components/Typewriter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Search, ArrowRight, User, Calendar, Stars, Filter, ChevronRight } from "lucide-react";
+import api from '@/lib/api';
 
 export default function InsightsPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [blogs, setBlogs] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const blogs = [
-    {
-      id: 6000,
-      title: "How AI and Data-Driven Talent Sourcing Can Improve Your Hiring Process",
-      author: "NAYA Staffing",
-      date: "March 5, 2025",
-      excerpt: "Did you know bad hires can cost companies big money? Some studies say it can be as much as 30% of the employee’s first-year salary. Finding the right people is tough, with",
-      image: "https://breezyrecruit.com/wp-content/uploads/2025/05/Become-a-client-scaled.webp",
-      href: "/insights/ai-sourcing"
-    },
-    {
-      id: 5209,
-      title: "How to Use Automation and AI to Improve Volume Hiring in 2025",
-      author: "NAYA Staffing",
-      date: "February 24, 2025",
-      excerpt: "Are you ready for a change? The year 2025 will change how companies find lots of new workers. It’s not just about filling jobs. It’s about getting the best people to stay",
-      image: "https://breezyrecruit.com/wp-content/uploads/2025/05/1-4.jpg",
-      href: "/insights/volume-hiring"
-    },
-    {
-      id: 5062,
-      title: "How Direct Hire Recruiting Saves Your Company Time and Hiring Costs",
-      author: "NAYA Staffing",
-      date: "February 21, 2025",
-      excerpt: "Are you tired of long hiring processes? Do budget overruns stress you out? Direct hire recruiting can be a game-changer. It offers speed, cost savings, and high-quality hires. Direct hire recruiting offers",
-      image: "https://breezyrecruit.com/wp-content/uploads/2025/05/1-1.jpg",
-      href: "/insights/direct-hire-roi"
-    },
-    {
-      id: 5015,
-      title: "Why Direct Hire Staffing Is the Best Solution for Hard-to-Fill IT Roles",
-      author: "NAYA Staffing",
-      date: "February 20, 2025",
-      excerpt: "Are you tired of seeing open IT jobs linger? It costs you money when these spots stay unfilled for too long. Finding folks with the right tech skills is tough right now.",
-      image: "https://breezyrecruit.com/wp-content/uploads/2025/05/benefits-of-recruitment-agency.webp",
-      href: "/insights/tech-staffing"
-    },
-    {
-      id: 4766,
-      title: "How Can IT Staffing Services Help My Business Avoid Project Delays in 2025?",
-      author: "NAYA Staffing",
-      date: "February 19, 2025",
-      excerpt: "Every business leader understands the stress of project delays. A missed deadline can lead to budget overruns, strained client relationships, and a loss of competitive edge. As projects pile up, it becomes",
-      image: "https://breezyrecruit.com/wp-content/uploads/2025/02/IT-Staffing-Services.jpg",
-      href: "/insights/it-staffing-delays"
-    }
-  ];
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await api.get('/admin/content?post_type=blog&is_published=true');
+        setBlogs(res.data);
+      } catch (err) {
+        console.error("Failed to fetch blogs:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlogs();
+  }, []);
 
   return (
     <div className="min-h-screen bg-navy-dark flex flex-col font-sans selection:bg-gold selection:text-navy-dark overflow-x-hidden">
@@ -113,54 +82,60 @@ export default function InsightsPage() {
 
       {/* Insights Posts List */}
       <main className="max-w-7xl mx-auto py-32 px-4 sm:px-6 lg:px-8">
-        <div className="space-y-24">
-          {blogs.map((blog) => (
-            <article key={blog.id} className="flex flex-col lg:flex-row gap-8 xl:gap-12 lg:gap-12 xl:gap-20 group relative">
-              <div className="lg:w-[500px] flex-shrink-0">
-                <div className="relative aspect-[16/10] rounded-[52px] overflow-hidden glass-panel border-white/10 shadow-2xl p-4 btn-sheen">
-                  <Link href={blog.href} className="block w-full h-full rounded-[40px] overflow-hidden relative">
-                    <img 
-                      src={blog.image} 
-                      alt={blog.title} 
-                      className="w-full h-full object-cover grayscale transition-all duration-[2s] group-hover:scale-110 group-hover:grayscale-0"
-                    />
-                    <div className="absolute inset-0 bg-navy-dark/40 group-hover:bg-transparent transition-all"></div>
+        {loading ? (
+          <div className="text-center text-white animate-pulse text-xl">Loading Intel...</div>
+        ) : blogs.length === 0 ? (
+          <div className="text-center text-slate-400 text-xl">No insights available at the moment.</div>
+        ) : (
+          <div className="space-y-24">
+            {blogs.map((blog) => (
+              <article key={blog.id} className="flex flex-col lg:flex-row gap-8 xl:gap-12 lg:gap-12 xl:gap-20 group relative">
+                <div className="lg:w-[500px] flex-shrink-0">
+                  <div className="relative aspect-[16/10] rounded-[52px] overflow-hidden glass-panel border-white/10 shadow-2xl p-4 btn-sheen">
+                    <Link href={`/insights/${blog.slug}`} className="block w-full h-full rounded-[40px] overflow-hidden relative">
+                      <img 
+                        src={blog.image_url || "https://breezyrecruit.com/wp-content/uploads/2025/05/Become-a-client-scaled.webp"} 
+                        alt={blog.title} 
+                        className="w-full h-full object-cover grayscale transition-all duration-[2s] group-hover:scale-110 group-hover:grayscale-0"
+                      />
+                      <div className="absolute inset-0 bg-navy-dark/40 group-hover:bg-transparent transition-all"></div>
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="flex flex-col justify-center grow space-y-8">
+                  <div className="space-y-6">
+                      <h3 className="text-3xl lg:text-4xl font-black text-white group-hover:text-gold transition-colors leading-[0.9] tracking-tighter">
+                        <Link href={`/insights/${blog.slug}`}>{blog.title}</Link>
+                      </h3>
+                      
+                      <div className="flex flex-wrap items-center gap-6 xl:gap-10 text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">
+                        <span className="flex items-center gap-4">
+                          <User className="w-4 h-4 text-gold/50" />
+                            <span className="text-white opacity-80">NAYA Staffing</span>
+                        </span>
+                        <span className="flex items-center gap-4">
+                          <Calendar className="w-4 h-4 text-gold/50" />
+                            <span className="text-white opacity-80">{new Date(blog.created_at).toLocaleDateString()}</span>
+                        </span>
+                      </div>
+                  </div>
+
+                  <div className="text-slate-400 max-w-3xl text-base lg:text-lg leading-relaxed font-semibold">
+                    <p>{blog.content.substring(0, 150)}...</p>
+                  </div>
+
+                  <Link 
+                    href={`/insights/${blog.slug}`} 
+                    className="inline-flex items-center gap-4 font-black text-gold hover:text-white transition-all uppercase tracking-[0.4em] text-xs pt-4 group/link"
+                  >
+                    Read More <ChevronRight className="w-5 h-5 group-hover/link:translate-x-3 transition-transform" />
                   </Link>
                 </div>
-              </div>
-
-              <div className="flex flex-col justify-center grow space-y-8">
-                <div className="space-y-6">
-                    <h3 className="text-3xl lg:text-4xl font-black text-white group-hover:text-gold transition-colors leading-[0.9] tracking-tighter">
-                      <Link href={blog.href}>{blog.title}</Link>
-                    </h3>
-                    
-                    <div className="flex flex-wrap items-center gap-6 xl:gap-10 text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">
-                      <span className="flex items-center gap-4">
-                        <User className="w-4 h-4 text-gold/50" />
-                          <span className="text-white opacity-80">{blog.author}</span>
-                      </span>
-                      <span className="flex items-center gap-4">
-                        <Calendar className="w-4 h-4 text-gold/50" />
-                          <span className="text-white opacity-80">{blog.date}</span>
-                      </span>
-                    </div>
-                </div>
-
-                <div className="text-slate-400 max-w-3xl text-base lg:text-lg leading-relaxed font-semibold">
-                  <p>{blog.excerpt}...</p>
-                </div>
-
-                <Link 
-                  href={blog.href} 
-                  className="inline-flex items-center gap-4 font-black text-gold hover:text-white transition-all uppercase tracking-[0.4em] text-xs pt-4 group/link"
-                >
-                  Retrieve Full Intel <ChevronRight className="w-5 h-5 group-hover/link:translate-x-3 transition-transform" />
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
+              </article>
+            ))}
+          </div>
+        )}
 
         <div className="mt-40 text-center">
             <button className="btn-rotating-border relative px-20 py-7 bg-white/5 text-white hover:text-gold rounded-full font-black text-xs uppercase tracking-[0.4em] shadow-[0_4px_50px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-2 flex items-center justify-center gap-6 group mx-auto btn-auto-sheen border border-white/5">

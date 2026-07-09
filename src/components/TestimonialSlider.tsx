@@ -14,7 +14,7 @@ const defaultTestimonials: Testimonial[] = [
   { text: "They quickly filled critical roles without sacrificing quality.", name: "DIRECTOR OF EXECUTIVE SEARCH, VENTURE CAPITAL FIRM" },
   { text: "NAYA Staffing’s RPO solution gave us a scalable way to manage high-volume hiring.", name: "DIRECTOR OF TALENT ACQUISITION, LOGISTICS COMPANY" },
   { text: "Their market insights and screening process saved us weeks.", name: "HR DIRECTOR, RETAIL CHAIN" },
-  { text: "We no longer sift through hundreds of resumes — NAYA Staffing sends a focused shortlist.", name: "CHIEF PEOPLE OFFICER, MANUFACTURING FIRM" },
+  { text: "We no longer sift through hundreds of resumes - NAYA Staffing sends a focused shortlist.", name: "CHIEF PEOPLE OFFICER, MANUFACTURING FIRM" },
   { text: "Their contract-to-hire option helped us test talent before committing.", name: "OPERATIONS MANAGER, FOOD & BEVERAGE BRAND" },
   { text: "NAYA Staffing felt like an extension of our own HR team.", name: "VP OF OPERATIONS, E-COMMERCE STARTUP" },
   { text: "They adapted quickly to our changing hiring needs.", name: "HR BUSINESS PARTNER, CONSTRUCTION COMPANY" },

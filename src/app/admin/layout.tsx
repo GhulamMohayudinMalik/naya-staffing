@@ -49,9 +49,10 @@ export default function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-[#040814] flex flex-col">
-      <header className="bg-[#0B132B]/95 backdrop-blur-2xl border-b border-white/10 sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+    <div className="min-h-screen bg-[#040814] flex">
+      {/* Sidebar Navigation */}
+      <aside className="w-64 bg-[#0B132B]/95 border-r border-white/10 sticky top-0 h-screen flex flex-col z-40 hidden md:flex">
+        <div className="p-6 border-b border-white/10">
           <Link href="/" className="group flex items-center shrink-0">
             <Image 
               src="/images/logo.jpeg" 
@@ -62,23 +63,50 @@ export default function AdminLayout({
               priority
             />
           </Link>
-          <nav className="flex items-center space-x-2 md:space-x-6 overflow-x-auto">
-            <Link href="/admin" className="text-slate-400 hover:text-gold font-bold text-xs uppercase tracking-widest transition-colors whitespace-nowrap">Overview</Link>
-            <Link href="/admin/resumes" className="text-slate-400 hover:text-gold font-bold text-xs uppercase tracking-widest transition-colors whitespace-nowrap">Resumes</Link>
-            <Link href="/admin/jobs" className="text-slate-400 hover:text-gold font-bold text-xs uppercase tracking-widest transition-colors whitespace-nowrap">Jobs</Link>
-            <button 
-              onClick={() => {
-                localStorage.removeItem('token');
-                router.push('/login');
-              }}
-              className="text-red-400 hover:text-red-300 font-bold text-xs uppercase tracking-widest transition-colors ml-4 whitespace-nowrap bg-red-500/10 px-4 py-2 rounded-lg border border-red-500/20"
-            >
-              Logout
-            </button>
-          </nav>
+          <div className="mt-4">
+            <p className="text-[10px] font-black uppercase tracking-widest text-gold">Command Center</p>
+          </div>
         </div>
-      </header>
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        
+        <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
+          <Link href="/admin" className="block px-4 py-3 rounded-xl text-slate-400 hover:text-gold hover:bg-white/5 font-bold text-xs uppercase tracking-widest transition-all">Dashboard</Link>
+          <Link href="/admin/users" className="block px-4 py-3 rounded-xl text-slate-400 hover:text-gold hover:bg-white/5 font-bold text-xs uppercase tracking-widest transition-all">Users</Link>
+          <Link href="/admin/applications" className="block px-4 py-3 rounded-xl text-slate-400 hover:text-gold hover:bg-white/5 font-bold text-xs uppercase tracking-widest transition-all">Applications (ATS)</Link>
+          <Link href="/admin/jobs" className="block px-4 py-3 rounded-xl text-slate-400 hover:text-gold hover:bg-white/5 font-bold text-xs uppercase tracking-widest transition-all">Jobs</Link>
+          <Link href="/admin/content" className="block px-4 py-3 rounded-xl text-slate-400 hover:text-gold hover:bg-white/5 font-bold text-xs uppercase tracking-widest transition-all">Content CMS</Link>
+          <Link href="/admin/inquiries" className="block px-4 py-3 rounded-xl text-slate-400 hover:text-gold hover:bg-white/5 font-bold text-xs uppercase tracking-widest transition-all">Inquiries</Link>
+          <Link href="/admin/support" className="block px-4 py-3 rounded-xl text-slate-400 hover:text-gold hover:bg-white/5 font-bold text-xs uppercase tracking-widest transition-all">Support Tickets</Link>
+        </nav>
+        
+        <div className="p-4 border-t border-white/10">
+          <button 
+            onClick={() => {
+              localStorage.removeItem('token');
+              router.push('/login');
+            }}
+            className="w-full bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 px-4 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all"
+          >
+            Logout
+          </button>
+        </div>
+      </aside>
+
+      {/* Main Content */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 overflow-x-hidden">
+        {/* Mobile Header (visible only on small screens) */}
+        <header className="md:hidden flex justify-between items-center bg-[#0B132B]/95 p-4 rounded-2xl border border-white/10 mb-8 sticky top-4 z-40">
+          <Image src="/images/logo.jpeg" alt="Logo" width={120} height={30} className="rounded" />
+          <button 
+            onClick={() => {
+              localStorage.removeItem('token');
+              router.push('/login');
+            }}
+            className="text-red-400 text-xs font-bold uppercase"
+          >
+            Logout
+          </button>
+        </header>
+        
         {children}
       </main>
     </div>

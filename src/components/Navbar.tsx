@@ -82,7 +82,7 @@ export default function Navbar() {
                     <Link href="/contract-staffing" className="block py-1 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase px-3">Contract Staffing</Link>
                     <Link href="/contract-to-hire" className="block py-1 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase px-3">Contract-to-Hire</Link>
                     <Link href="/temporary-staffing" className="block py-1 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase px-3">Temporary Staffing</Link>
-                    <Link href="/recruitment-process-outsourcing" className="block py-1 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase px-3">RPO Solutions</Link>
+                    <Link href="/services/rpo" className="block py-1 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase px-3">RPO Solutions</Link>
                     <Link href="/volume-recruitment" className="block py-1 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase px-3">Volume Hiring</Link>
                     <Link href="/startup-hiring-solutions" className="block py-1 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase px-3">Startup Scaling</Link>
                   </div>
@@ -242,12 +242,12 @@ export default function Navbar() {
                 <div className="py-4 px-2">
                   <Link href="/about-us" className="block px-6 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase">About Us Overview</Link>
                   <Link href="/about-us/about-company" className="block px-6 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase">About Company</Link>
-                  <Link href="/contact-us" className="block px-6 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase">Contact Us</Link>
+                  <Link href="/about-us/contact-us" className="block px-6 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase">Contact Us</Link>
                   <Link href="/insights" className="block px-6 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase">Insights</Link>
                   <Link href="/success-stories" className="block px-6 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase">Success Stories</Link>
                   <Link href="/case-studies" className="block px-6 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase">Case Studies</Link>
-                  <Link href="/testimonials" className="block px-6 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase">Testimonials</Link>
-                  <Link href="/faqs" className="block px-6 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase">FAQ'S</Link>
+                  <Link href="/about-us/testimonials" className="block px-6 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase">Testimonials</Link>
+                  <Link href="/about-us/faqs" className="block px-6 py-3 text-[10px] font-black tracking-widest text-gray-400 hover:bg-white/5 hover:text-gold rounded-xl transition-all uppercase">FAQ'S</Link>
                 </div>
               </div>
             </div>
@@ -255,7 +255,7 @@ export default function Navbar() {
 
           {/* Section 3: Action Anchor */}
           <div className="hidden xl:flex items-center shrink-0">
-            <Link href="/contact-us" className="bg-gold hover:bg-gold-hover text-navy-dark px-4 xl:px-6 py-2.5 xl:py-3 rounded-full font-bold text-[11px] xl:text-[13px] tracking-tight transition-all duration-500 shadow-[0_8px_32px_rgba(212,175,55,0.2)] hover:shadow-[0_12px_48px_rgba(212,175,55,0.4)] transform hover:-translate-y-1 flex items-center gap-2 whitespace-nowrap btn-sheen">
+            <Link href="/about-us/contact-us" className="bg-gold hover:bg-gold-hover text-navy-dark px-4 xl:px-6 py-2.5 xl:py-3 rounded-full font-bold text-[11px] xl:text-[13px] tracking-tight transition-all duration-500 shadow-[0_8px_32px_rgba(212,175,55,0.2)] hover:shadow-[0_12px_48px_rgba(212,175,55,0.4)] transform hover:-translate-y-1 flex items-center gap-2 whitespace-nowrap btn-sheen">
               <svg aria-hidden="true" className="w-3.5 h-3.5 xl:w-4 xl:h-4 fill-current" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"></path></svg>
               Schedule Consultation
             </Link>
@@ -315,7 +315,7 @@ export default function Navbar() {
                     <Link href="/contract-staffing" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase pl-2">Contract Staffing</Link>
                     <Link href="/contract-to-hire" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase pl-2">Contract-to-Hire</Link>
                     <Link href="/temporary-staffing" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase pl-2">Temporary Staffing</Link>
-                    <Link href="/recruitment-process-outsourcing" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase pl-2">RPO Solutions</Link>
+                    <Link href="/services/rpo" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase pl-2">RPO Solutions</Link>
                     <Link href="/volume-recruitment" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase pl-2">Volume Hiring</Link>
                     <Link href="/startup-hiring-solutions" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase pl-2">Startup Scaling</Link>
                   </div>
@@ -415,12 +415,12 @@ export default function Navbar() {
                 <div className="pl-4 space-y-4 border-l border-gold/20">
                   <Link href="/about-us" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase">About Us Overview</Link>
                   <Link href="/about-us/about-company" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase">About Company</Link>
-                  <Link href="/contact-us" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase">Contact Us</Link>
+                  <Link href="/about-us/contact-us" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase">Contact Us</Link>
                   <Link href="/insights" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase">Insights</Link>
                   <Link href="/success-stories" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase">Success Stories</Link>
                   <Link href="/case-studies" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase">Case Studies</Link>
-                  <Link href="/testimonials" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase">Testimonials</Link>
-                  <Link href="/faqs" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase">FAQs</Link>
+                  <Link href="/about-us/testimonials" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase">Testimonials</Link>
+                  <Link href="/about-us/faqs" onClick={() => setIsMenuOpen(false)} className="block text-xs font-bold text-gray-400 hover:text-white uppercase">FAQs</Link>
                 </div>
               </div>
             </div>
@@ -429,7 +429,7 @@ export default function Navbar() {
 
           <div className="mt-8 pt-8 pb-4">
             <Link 
-              href="/contact-us" 
+              href="/about-us/contact-us" 
               onClick={() => setIsMenuOpen(false)}
               className="block w-full py-5 text-center bg-gold text-navy-dark rounded-2xl text-[11px] font-black uppercase tracking-widest hover:bg-gold-hover shadow-xl transition-all btn-sheen"
             >

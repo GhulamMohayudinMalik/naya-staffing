@@ -88,7 +88,7 @@ export default function DirectHirePage() {
           </div>
 
           <p className="text-lg md:text-2xl font-semibold text-slate-400 tracking-tight max-w-4xl mx-auto animate-fade-up animate-delay-200 italic leading-relaxed">
-            "We take you direct to the right hire — <span className="text-white">with no delays and no detours.</span>"
+            "We take you direct to the right hire - <span className="text-white">with no delays and no detours.</span>"
           </p>
         </div>
 

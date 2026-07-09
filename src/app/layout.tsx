@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   description: "NAYA Staffing delivers executive search, permanent recruitment, contract staffing, RPO, and global hiring solutions across multiple industries for employers and job seekers worldwide.",
 };
 import NavigationWrapper from "@/components/NavigationWrapper";
+import Chatbot from "@/components/Chatbot";
 
 export default function RootLayout({
   children,
@@ -32,6 +33,7 @@ export default function RootLayout({
         <NavigationWrapper>
           {children}
         </NavigationWrapper>
+        <Chatbot />
       </body>
     </html>
   );

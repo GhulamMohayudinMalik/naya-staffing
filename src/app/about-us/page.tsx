@@ -52,7 +52,7 @@ export default function AboutUsPage() {
                 <p>
                   NAYA Staffing is a modern recruitment agency dedicated to connecting top talent with 
                   forward-thinking companies through innovative hiring solutions. We are more than just 
-                  a recruitment firm—we are strategic partners in workforce success.
+                  a recruitment firm-we are strategic partners in workforce success.
                 </p>
                 <p>
                   Our expertise spans a full spectrum of services designed to meet evolving hiring needs. 
@@ -88,7 +88,7 @@ export default function AboutUsPage() {
                   </span>
                 </p>
                 <p className="text-gray-300 font-medium leading-relaxed">
-                  Our approach is rooted in personalization, precision, and results—making the hiring process seamless for both companies and candidates.
+                  Our approach is rooted in personalization, precision, and results-making the hiring process seamless for both companies and candidates.
                 </p>
               </div>
 
@@ -153,7 +153,7 @@ export default function AboutUsPage() {
             <div className="lg:col-span-7 space-y-8 text-gray-400 text-lg font-medium leading-relaxed">
               <p>
                 At <span className="text-white font-bold">NAYA Staffing</span>, we believe hiring should be proactive, not reactive. 
-                That’s why we introduced our <span className="text-gold font-bold">Reverse Recruitment Model</span> — a bold, candidate-first approach.
+                That’s why we introduced our <span className="text-gold font-bold">Reverse Recruitment Model</span> - a bold, candidate-first approach.
               </p>
               <p>
                 Instead of waiting for job postings, we actively market highly skilled professionals to potential employers. 
