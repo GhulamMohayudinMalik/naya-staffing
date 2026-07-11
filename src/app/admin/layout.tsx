@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import api from '@/lib/api';
@@ -12,7 +12,23 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [isAuthorized, setIsAuthorized] = useState(false);
+
+  const isActive = (path: string) => {
+    if (path === '/admin') {
+      return pathname === '/admin';
+    }
+    return pathname?.startsWith(path);
+  };
+
+  const linkClass = (path: string) => {
+    const base = "block px-4 py-3 rounded-xl font-bold text-xs uppercase tracking-widest transition-all ";
+    if (isActive(path)) {
+      return base + "bg-gold/10 text-gold border-2 border-gold";
+    }
+    return base + "text-slate-400 hover:text-gold hover:bg-white/5";
+  };
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -36,7 +52,7 @@ export default function AdminLayout({
       }
     };
     checkAuth();
-  }, [router]);
+  }, []);
 
   if (!isAuthorized) {
     return (
@@ -55,7 +71,7 @@ export default function AdminLayout({
         <div className="p-6 border-b border-white/10">
           <Link href="/" className="group flex items-center shrink-0">
             <Image 
-              src="/images/logo.jpeg" 
+              src="/images/logo.png" 
               alt="NAYA Staffing Logo" 
               width={200} 
               height={50} 
@@ -69,13 +85,14 @@ export default function AdminLayout({
         </div>
         
         <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
-          <Link href="/admin" className="block px-4 py-3 rounded-xl text-slate-400 hover:text-gold hover:bg-white/5 font-bold text-xs uppercase tracking-widest transition-all">Dashboard</Link>
-          <Link href="/admin/users" className="block px-4 py-3 rounded-xl text-slate-400 hover:text-gold hover:bg-white/5 font-bold text-xs uppercase tracking-widest transition-all">Users</Link>
-          <Link href="/admin/applications" className="block px-4 py-3 rounded-xl text-slate-400 hover:text-gold hover:bg-white/5 font-bold text-xs uppercase tracking-widest transition-all">Applications (ATS)</Link>
-          <Link href="/admin/jobs" className="block px-4 py-3 rounded-xl text-slate-400 hover:text-gold hover:bg-white/5 font-bold text-xs uppercase tracking-widest transition-all">Jobs</Link>
-          <Link href="/admin/content" className="block px-4 py-3 rounded-xl text-slate-400 hover:text-gold hover:bg-white/5 font-bold text-xs uppercase tracking-widest transition-all">Content CMS</Link>
-          <Link href="/admin/inquiries" className="block px-4 py-3 rounded-xl text-slate-400 hover:text-gold hover:bg-white/5 font-bold text-xs uppercase tracking-widest transition-all">Inquiries</Link>
-          <Link href="/admin/support" className="block px-4 py-3 rounded-xl text-slate-400 hover:text-gold hover:bg-white/5 font-bold text-xs uppercase tracking-widest transition-all">Support Tickets</Link>
+          <Link href="/admin" className={linkClass('/admin')}>Dashboard</Link>
+          <Link href="/admin/users" className={linkClass('/admin/users')}>Users</Link>
+          <Link href="/admin/applications" className={linkClass('/admin/applications')}>Applications (ATS)</Link>
+          <Link href="/admin/jobs" className={linkClass('/admin/jobs')}>Jobs</Link>
+          <Link href="/admin/content" className={linkClass('/admin/content')}>Content CMS</Link>
+          <Link href="/admin/inquiries" className={linkClass('/admin/inquiries')}>Inquiries</Link>
+          <Link href="/admin/support" className={linkClass('/admin/support')}>Support Tickets</Link>
+          <Link href="/admin/settings" className={linkClass('/admin/settings')}>Settings</Link>
         </nav>
         
         <div className="p-4 border-t border-white/10">
@@ -95,7 +112,7 @@ export default function AdminLayout({
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 overflow-x-hidden">
         {/* Mobile Header (visible only on small screens) */}
         <header className="md:hidden flex justify-between items-center bg-[#0B132B]/95 p-4 rounded-2xl border border-white/10 mb-8 sticky top-4 z-40">
-          <Image src="/images/logo.jpeg" alt="Logo" width={120} height={30} className="rounded" />
+          <Image src="/images/logo.png" alt="Logo" width={120} height={30} className="rounded" />
           <button 
             onClick={() => {
               localStorage.removeItem('token');
@@ -112,3 +129,4 @@ export default function AdminLayout({
     </div>
   );
 }
+

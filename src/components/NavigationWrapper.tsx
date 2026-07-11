@@ -7,8 +7,8 @@ import Footer from './Footer';
 export default function NavigationWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   
-  // Do not show the global Navbar and Footer on the admin dashboard and login pages
-  const isHiddenRoute = pathname?.startsWith('/admin') || pathname?.startsWith('/login');
+  // Do not show the global Navbar and Footer on the admin dashboard, user dashboard, and login pages
+  const isHiddenRoute = pathname?.startsWith('/admin') || pathname?.startsWith('/dashboard') || pathname?.startsWith('/login');
 
   return (
     <div className="flex flex-col min-h-screen">

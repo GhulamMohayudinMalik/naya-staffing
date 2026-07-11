@@ -36,13 +36,13 @@ export default function NotFound() {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-          <Link 
+          <a 
             href="/" 
             className="group px-10 py-5 bg-gold text-navy-dark rounded-full font-bold text-[15px] tracking-tight transition-all duration-500 shadow-[0_8px_32px_rgba(212,175,55,0.2)] hover:shadow-[0_12px_48px_rgba(212,175,55,0.4)] transform hover:-translate-y-1 flex items-center justify-center gap-3"
           >
             <Home className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            Return Mission Control
-          </Link>
+            Return to Home (/)
+          </a>
           <button 
             onClick={() => window.history.back()}
             className="group px-10 py-5 bg-white/5 border border-white/10 text-white rounded-full font-bold text-[15px] tracking-tight transition-all duration-500 hover:bg-white/10 hover:border-white/20 transform hover:-translate-y-1 flex items-center justify-center gap-3 backdrop-blur-md"

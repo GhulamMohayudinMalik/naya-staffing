@@ -5,6 +5,8 @@ import api from '@/lib/api';
 export default function EmployerPortal() {
   const [jobs, setJobs] = useState<any[]>([]);
   const [loadingJobs, setLoadingJobs] = useState(true);
+  const [applications, setApplications] = useState<any[]>([]);
+  const [loadingApps, setLoadingApps] = useState(true);
   
   const [formData, setFormData] = useState({
     title: '',
@@ -19,7 +21,35 @@ export default function EmployerPortal() {
 
   useEffect(() => {
     fetchMyJobs();
+    fetchMyApplications();
   }, []);
+
+  const fetchMyApplications = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const res = await api.get('/jobs/employer-applications', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setApplications(res.data);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoadingApps(false);
+    }
+  };
+
+  const updateAppStatus = async (appId: number, status: string) => {
+    try {
+      const token = localStorage.getItem('token');
+      await api.put(`/jobs/applications/${appId}/status?status=${status}`, {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      fetchMyApplications();
+    } catch (err) {
+      console.error(err);
+      alert('Failed to update status');
+    }
+  };
 
   const fetchMyJobs = async () => {
     try {
@@ -195,6 +225,70 @@ export default function EmployerPortal() {
           </div>
         </div>
 
+      </div>
+
+      {/* Applications ATS Table */}
+      <div className="bg-[#0B132B] border border-white/10 rounded-3xl p-8 shadow-2xl mt-8">
+        <h3 className="text-[10px] font-black text-white uppercase tracking-widest opacity-60 mb-6">Candidate Applications (ATS)</h3>
+
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-white/10">
+            <thead>
+              <tr>
+                <th className="py-3 text-left text-[10px] font-black text-white uppercase tracking-widest">Candidate</th>
+                <th className="py-3 text-left text-[10px] font-black text-white uppercase tracking-widest">Applied Job</th>
+                <th className="py-3 text-center text-[10px] font-black text-white uppercase tracking-widest">Date</th>
+                <th className="py-3 text-right text-[10px] font-black text-white uppercase tracking-widest">Status & Actions</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-white/5">
+              {loadingApps ? (
+                <tr>
+                  <td colSpan={4} className="py-6 text-center text-sm font-bold text-slate-400 animate-pulse">Loading applications...</td>
+                </tr>
+              ) : applications.length === 0 ? (
+                <tr>
+                  <td colSpan={4} className="py-12 text-center text-sm font-bold text-slate-500">No candidates have applied to your jobs yet.</td>
+                </tr>
+              ) : (
+                applications.map((app) => (
+                  <tr key={app.id} className="hover:bg-white/5 transition-colors">
+                    <td className="py-4">
+                      <div className="text-sm font-bold text-white">{app.user?.full_name || 'Unknown Candidate'}</div>
+                      <div className="text-xs text-slate-400">{app.user?.email}</div>
+                    </td>
+                    <td className="py-4">
+                      <div className="text-sm font-bold text-white">{app.job?.title}</div>
+                      <div className="text-xs text-slate-400">{app.job?.location}</div>
+                    </td>
+                    <td className="py-4 text-center">
+                      <div className="text-xs text-slate-400">{new Date(app.created_at).toLocaleDateString()}</div>
+                    </td>
+                    <td className="py-4 text-right">
+                      <div className="flex items-center justify-end gap-3">
+                        <select 
+                          className={`text-[10px] font-black uppercase tracking-widest rounded-full px-3 py-1 outline-none border ${
+                            app.status === 'applied' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' : 
+                            app.status === 'reviewing' ? 'bg-yellow-500/10 text-yellow-500 border-yellow-500/20' :
+                            app.status === 'accepted' ? 'bg-green-500/10 text-green-400 border-green-500/20' :
+                            'bg-red-500/10 text-red-400 border-red-500/20'
+                          }`}
+                          value={app.status}
+                          onChange={(e) => updateAppStatus(app.id, e.target.value)}
+                        >
+                          <option className="bg-[#0B132B] text-white" value="applied">Applied</option>
+                          <option className="bg-[#0B132B] text-white" value="reviewing">Reviewing</option>
+                          <option className="bg-[#0B132B] text-white" value="accepted">Accepted</option>
+                          <option className="bg-[#0B132B] text-white" value="rejected">Rejected</option>
+                        </select>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

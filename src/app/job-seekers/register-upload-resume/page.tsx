@@ -427,11 +427,11 @@ export default function RegisterAndUploadResumePage() {
                       </div>
                     </div>
 
-                    {/* 3. Pasword */}
+                    {/* 3. Password */}
                     <div className="col-span-1 space-y-3">
-                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Pasword</label>
+                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Password</label>
                       <div className="relative group">
-                        <input required type="password" placeholder="Enter Pasword" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="password" />
+                        <input required type="password" placeholder="Enter Password" className="w-full pl-6 pr-6 py-5 bg-white/5 border border-white/5 rounded-2xl focus:outline-none focus:border-gold/40 text-white text-sm font-bold placeholder:text-slate-600 transition-all" name="password" />
                       </div>
                     </div>
 

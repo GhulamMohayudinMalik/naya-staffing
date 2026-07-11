@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import api from '@/lib/api';
 
 export default function LoginPage() {
@@ -54,7 +55,17 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-[#040814] pt-32 pb-16 px-4 flex items-center justify-center">
       <div className="w-full max-w-md bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
-        <div className="text-center mb-8">
+        <div className="text-center mb-8 flex flex-col items-center">
+          <Link href="/" className="mb-6 group">
+            <Image 
+              src="/images/logo.png" 
+              alt="NAYA Staffing Logo" 
+              width={200} 
+              height={50} 
+              className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 rounded-lg"
+              priority
+            />
+          </Link>
           <h1 className="text-3xl font-black text-white tracking-tighter mb-2">Welcome Back</h1>
           <p className="text-slate-400 text-sm font-semibold">Sign in to your NAYA Staffing account</p>
         </div>
@@ -102,7 +113,7 @@ export default function LoginPage() {
         <div className="mt-8 text-center border-t border-white/5 pt-6">
           <p className="text-slate-400 text-sm">
             Don't have an account?{' '}
-            <Link href="/job-seekers/register-upload-resume" className="text-gold font-bold hover:underline">
+            <Link href="/register" className="text-gold font-bold hover:underline">
               Register Here
             </Link>
           </p>
@@ -111,3 +122,4 @@ export default function LoginPage() {
     </div>
   );
 }
+

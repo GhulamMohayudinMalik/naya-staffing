@@ -136,8 +136,8 @@ export default function AdminContentPage() {
             </div>
             <div className="flex gap-4 items-center bg-[#0a1125] border border-white/10 rounded-xl px-4 py-3">
               <select className="bg-transparent text-white outline-none flex-1" value={formData.post_type} onChange={e => setFormData({...formData, post_type: e.target.value})}>
-                <option value="blog">Blog / Insight</option>
-                <option value="case_study">Case Study</option>
+                <option className="bg-[#0B132B] text-white" value="blog">Blog / Insight</option>
+                <option className="bg-[#0B132B] text-white" value="case_study">Case Study</option>
               </select>
               <div className="flex items-center gap-2">
                 <input type="checkbox" id="published" checked={formData.is_published} onChange={e => setFormData({...formData, is_published: e.target.checked})} className="accent-gold w-4 h-4" />

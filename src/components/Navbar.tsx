@@ -42,7 +42,7 @@ export default function Navbar() {
           <div className="flex items-center shrink-0">
             <Link href="/" className="group flex items-center">
               <Image 
-                src="/images/logo.jpeg" 
+                src="/images/logo.png" 
                 alt="NAYA Staffing Logo" 
                 width={200} 
                 height={50} 
@@ -254,7 +254,11 @@ export default function Navbar() {
           </div>
 
           {/* Section 3: Action Anchor */}
-          <div className="hidden xl:flex items-center shrink-0">
+          <div className="hidden xl:flex items-center shrink-0 space-x-4">
+            <Link href="/login" className="bg-transparent border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-4 xl:px-6 py-2 xl:py-2.5 rounded-full font-black text-[11px] xl:text-[13px] uppercase tracking-widest transition-all duration-500 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(212,175,55,0.6)] transform hover:-translate-y-1 flex items-center gap-2 btn-sheen">
+              <svg aria-hidden="true" className="w-3.5 h-3.5 xl:w-4 xl:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
+              Login
+            </Link>
             <Link href="/about-us/contact-us" className="bg-gold hover:bg-gold-hover text-navy-dark px-4 xl:px-6 py-2.5 xl:py-3 rounded-full font-bold text-[11px] xl:text-[13px] tracking-tight transition-all duration-500 shadow-[0_8px_32px_rgba(212,175,55,0.2)] hover:shadow-[0_12px_48px_rgba(212,175,55,0.4)] transform hover:-translate-y-1 flex items-center gap-2 whitespace-nowrap btn-sheen">
               <svg aria-hidden="true" className="w-3.5 h-3.5 xl:w-4 xl:h-4 fill-current" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"></path></svg>
               Schedule Consultation
@@ -427,7 +431,14 @@ export default function Navbar() {
 
           </div>
 
-          <div className="mt-8 pt-8 pb-4">
+          <div className="mt-8 pt-8 pb-4 space-y-4">
+            <Link 
+              href="/login" 
+              onClick={() => setIsMenuOpen(false)}
+              className="block w-full py-5 text-center bg-transparent border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark rounded-2xl text-[11px] font-black uppercase tracking-widest shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(212,175,55,0.6)] transform hover:-translate-y-1 transition-all btn-sheen"
+            >
+              Login / Dashboard
+            </Link>
             <Link 
               href="/about-us/contact-us" 
               onClick={() => setIsMenuOpen(false)}

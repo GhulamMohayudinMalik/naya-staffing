@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import api from '@/lib/api';
@@ -12,8 +12,24 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [role, setRole] = useState('');
+
+  const isActive = (path: string) => {
+    if (path === '/dashboard') {
+      return pathname === '/dashboard';
+    }
+    return pathname?.startsWith(path);
+  };
+
+  const linkClass = (path: string) => {
+    const base = "block px-4 py-3 rounded-xl font-bold text-xs uppercase tracking-widest transition-all ";
+    if (isActive(path)) {
+      return base + "bg-gold/10 text-gold border-2 border-gold";
+    }
+    return base + "text-slate-400 hover:text-gold hover:bg-white/5";
+  };
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -40,7 +56,7 @@ export default function DashboardLayout({
       }
     };
     checkAuth();
-  }, [router]);
+  }, []);
 
   if (!isAuthorized) {
     return (
@@ -53,12 +69,13 @@ export default function DashboardLayout({
   }
 
   return (
-    <div className="min-h-screen bg-[#040814] flex flex-col">
-      <header className="bg-[#0B132B]/95 backdrop-blur-2xl border-b border-white/10 sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+    <div className="min-h-screen bg-[#040814] flex">
+      {/* Sidebar Navigation */}
+      <aside className="w-64 bg-[#0B132B]/95 border-r border-white/10 sticky top-0 h-screen flex flex-col z-40 hidden md:flex">
+        <div className="p-6 border-b border-white/10">
           <Link href="/" className="group flex items-center shrink-0">
             <Image 
-              src="/images/logo.jpeg" 
+              src="/images/logo.png" 
               alt="NAYA Staffing Logo" 
               width={200} 
               height={50} 
@@ -66,25 +83,54 @@ export default function DashboardLayout({
               priority
             />
           </Link>
-          <nav className="flex items-center space-x-2 md:space-x-6 overflow-x-auto">
-            <span className="text-white text-sm font-bold opacity-50 hidden sm:inline-block">
+          <div className="mt-4">
+            <p className="text-[10px] font-black uppercase tracking-widest text-gold">
               {role === 'client' ? 'Employer Portal' : 'Candidate Portal'}
-            </span>
-            <button 
-              onClick={() => {
-                localStorage.removeItem('token');
-                router.push('/login');
-              }}
-              className="text-red-400 hover:text-red-300 font-bold text-xs uppercase tracking-widest transition-colors ml-4 whitespace-nowrap bg-red-500/10 px-4 py-2 rounded-lg border border-red-500/20"
-            >
-              Logout
-            </button>
-          </nav>
+            </p>
+          </div>
         </div>
-      </header>
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        
+        <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
+          <Link href="/dashboard" className={linkClass('/dashboard')}>
+            Dashboard
+          </Link>
+          <Link href="/dashboard/settings" className={linkClass('/dashboard/settings')}>
+            Settings
+          </Link>
+        </nav>
+        
+        <div className="p-4 border-t border-white/10">
+          <button 
+            onClick={() => {
+              localStorage.removeItem('token');
+              router.push('/login');
+            }}
+            className="w-full bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 px-4 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all"
+          >
+            Logout
+          </button>
+        </div>
+      </aside>
+
+      {/* Main Content */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 overflow-x-hidden">
+        {/* Mobile Header (visible only on small screens) */}
+        <header className="md:hidden flex justify-between items-center bg-[#0B132B]/95 p-4 rounded-2xl border border-white/10 mb-8 sticky top-4 z-40">
+          <Image src="/images/logo.png" alt="Logo" width={120} height={30} className="rounded" />
+          <button 
+            onClick={() => {
+              localStorage.removeItem('token');
+              router.push('/login');
+            }}
+            className="text-red-400 text-xs font-bold uppercase"
+          >
+            Logout
+          </button>
+        </header>
+        
         {children}
       </main>
     </div>
   );
 }
+

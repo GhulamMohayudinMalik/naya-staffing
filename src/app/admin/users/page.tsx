@@ -72,16 +72,16 @@ export default function AdminUsersPage() {
                 <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full ${user.role === 'employer' ? 'bg-blue-500/10 text-blue-400' : 'bg-green-500/10 text-green-400'}`}>
                   {user.role}
                 </span>
-                {user.is_verified && <span className="text-[10px] font-black uppercase text-gold bg-gold/10 px-2 py-1 rounded">Verified</span>}
+                {user.is_verified && <span className="text-[10px] font-black uppercase text-green-500 bg-green-500/10 px-2 py-1 rounded">Verified</span>}
               </div>
               <h3 className="text-xl font-bold text-white">{user.full_name || 'No Name'}</h3>
               <p className="text-sm text-slate-400">{user.email}</p>
               
-              <div className="mt-6 flex flex-wrap gap-2">
+              <div className="mt-6 flex flex-col gap-3">
                 {!user.is_verified && (
-                  <button onClick={() => verifyUser(user.id)} className="text-xs bg-white/5 hover:bg-white/10 text-white px-3 py-1.5 rounded transition-colors">Verify</button>
+                  <button onClick={() => verifyUser(user.id)} className="w-full bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold px-4 py-2.5 rounded-xl transition-all shadow-md active:scale-95 text-[11px] uppercase tracking-widest btn-sheen">Verify User</button>
                 )}
-                <button onClick={() => suspendUser(user.id)} className="text-xs bg-red-500/10 hover:bg-red-500/20 text-red-400 px-3 py-1.5 rounded transition-colors">Suspend</button>
+                <button onClick={() => suspendUser(user.id)} className="w-full bg-red-500/10 border border-red-500/20 hover:bg-red-500 hover:text-white text-red-400 font-bold px-4 py-2.5 rounded-xl transition-all shadow-md active:scale-95 text-[11px] uppercase tracking-widest">Suspend Account</button>
               </div>
             </div>
           ))}

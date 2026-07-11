@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-10">
             <Link href="/" className="inline-block">
               <Image 
-                src="/images/logo.jpeg" 
+                src="/images/logo.png" 
                 alt="NAYA Staffing Logo" 
                 width={220} 
                 height={60} 
@@ -196,3 +196,4 @@ export default function Footer() {
     </footer>
   );
 }
+
